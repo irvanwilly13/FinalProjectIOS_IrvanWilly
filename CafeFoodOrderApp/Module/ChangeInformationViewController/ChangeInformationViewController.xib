@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangeInformationViewController" customModule="CafeFoodOrderApp" customModuleProvider="target">
+            <connections>
+                <outlet property="birthdayField" destination="B3O-W7-nnr" id="7Fm-GK-05S"/>
+                <outlet property="emailField" destination="m2u-CX-iff" id="6qc-iO-Zhy"/>
+                <outlet property="genderField" destination="Fhu-qV-KFr" id="l3E-pi-W0e"/>
+                <outlet property="nameField" destination="YBx-LH-TBH" id="Q4i-GE-wYz"/>
+                <outlet property="phoneNumberField" destination="TCz-vj-3JB" id="P3b-zm-9RI"/>
+                <outlet property="saveButton" destination="g8J-Zi-VXv" id="81C-9v-URr"/>
+                <outlet property="toolBarView" destination="G2G-l1-bO0" id="H2e-pK-pDw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H16-qz-SE0">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topProfile" translatesAutoresizingMaskIntoConstraints="NO" id="hbG-3A-VgB">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="170"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2G-l1-bO0" customClass="ToolBarView" customModule="CafeFoodOrderApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="50" width="393" height="80"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="nhU-Q2-xGi"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="G2G-l1-bO0" firstAttribute="top" secondItem="H16-qz-SE0" secondAttribute="top" constant="50" id="4Vh-Rv-Pnk"/>
+                        <constraint firstItem="G2G-l1-bO0" firstAttribute="leading" secondItem="H16-qz-SE0" secondAttribute="leading" id="nYs-RD-KQG"/>
+                        <constraint firstAttribute="bottom" secondItem="G2G-l1-bO0" secondAttribute="bottom" id="oY4-Vc-o4T"/>
+                        <constraint firstAttribute="trailing" secondItem="G2G-l1-bO0" secondAttribute="trailing" id="zR5-Lo-TOi"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aE-Ql-b5t">
+                    <rect key="frame" x="0.0" y="130" width="393" height="722"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="re6-yP-qu5">
+                            <rect key="frame" x="-4" y="0.0" width="401" height="907.66666666666663"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBx-LH-TBH" customClass="CustomInputField" customModule="CafeFoodOrderApp" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="200" width="369" height="80"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="0On-jT-o5b"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2u-CX-iff" customClass="CustomInputField" customModule="CafeFoodOrderApp" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="305" width="369" height="80"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="7Fr-h6-Bjf"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fhu-qV-KFr" customClass="CustomInputField" customModule="CafeFoodOrderApp" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="410" width="369" height="80"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="mEN-5z-ybs"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3O-W7-nnr" customClass="CustomInputField" customModule="CafeFoodOrderApp" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="515" width="369" height="80"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="kQr-Fr-0pc"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCz-vj-3JB" customClass="CustomInputField" customModule="CafeFoodOrderApp" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="620" width="369" height="80"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="s16-tz-UmE"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8J-Zi-VXv">
+                                    <rect key="frame" x="99" y="740" width="203" height="35"/>
+                                    <color key="backgroundColor" name="FBBC05"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="K2c-jU-1qO"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.97254901959999995" green="0.98431372549999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="16"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSw-f8-je2">
+                                    <rect key="frame" x="130.66666666666669" y="35" width="140" height="140"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar1" translatesAutoresizingMaskIntoConstraints="NO" id="Xuh-ZN-rMV">
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="140" id="JuH-cM-RKv"/>
+                                                <constraint firstAttribute="height" constant="140" id="WlN-DM-9ez"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Xuh-ZN-rMV" secondAttribute="bottom" id="2fg-jS-S6j"/>
+                                        <constraint firstItem="Xuh-ZN-rMV" firstAttribute="leading" secondItem="uSw-f8-je2" secondAttribute="leading" id="OZa-bM-Gg4"/>
+                                        <constraint firstAttribute="trailing" secondItem="Xuh-ZN-rMV" secondAttribute="trailing" id="Zh2-1e-8Pa"/>
+                                        <constraint firstAttribute="height" constant="140" id="abC-xT-950"/>
+                                        <constraint firstAttribute="width" constant="140" id="cWG-MW-f8k"/>
+                                        <constraint firstItem="Xuh-ZN-rMV" firstAttribute="top" secondItem="uSw-f8-je2" secondAttribute="top" id="jZs-dK-yJk"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.97254901960784312" green="0.98431372549019602" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="TCz-vj-3JB" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="16" id="3wC-V3-GRg"/>
+                                <constraint firstAttribute="trailing" secondItem="Fhu-qV-KFr" secondAttribute="trailing" constant="16" id="3zG-jF-vmM"/>
+                                <constraint firstItem="TCz-vj-3JB" firstAttribute="top" secondItem="B3O-W7-nnr" secondAttribute="bottom" constant="25" id="4Ax-Cv-MV7"/>
+                                <constraint firstAttribute="trailing" secondItem="YBx-LH-TBH" secondAttribute="trailing" constant="16" id="EMu-Nc-gNm"/>
+                                <constraint firstItem="m2u-CX-iff" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="16" id="Gk7-ll-uiY"/>
+                                <constraint firstAttribute="trailing" secondItem="TCz-vj-3JB" secondAttribute="trailing" constant="16" id="IZ8-ni-Cni"/>
+                                <constraint firstItem="YBx-LH-TBH" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="16" id="M7g-m4-aj6"/>
+                                <constraint firstItem="g8J-Zi-VXv" firstAttribute="top" secondItem="TCz-vj-3JB" secondAttribute="bottom" constant="40" id="Ptq-fk-hTj"/>
+                                <constraint firstItem="Fhu-qV-KFr" firstAttribute="top" secondItem="m2u-CX-iff" secondAttribute="bottom" constant="25" id="QYw-og-ZHP"/>
+                                <constraint firstItem="B3O-W7-nnr" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="16" id="R6Y-zW-y6M"/>
+                                <constraint firstItem="m2u-CX-iff" firstAttribute="top" secondItem="YBx-LH-TBH" secondAttribute="bottom" constant="25" id="Rkn-gH-6Qp"/>
+                                <constraint firstItem="Fhu-qV-KFr" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="16" id="S5B-6L-h6x"/>
+                                <constraint firstAttribute="trailing" secondItem="B3O-W7-nnr" secondAttribute="trailing" constant="16" id="Z8Y-o8-DHI"/>
+                                <constraint firstAttribute="trailing" secondItem="g8J-Zi-VXv" secondAttribute="trailing" constant="99" id="bzL-Cl-w22"/>
+                                <constraint firstItem="B3O-W7-nnr" firstAttribute="top" secondItem="Fhu-qV-KFr" secondAttribute="bottom" constant="25" id="cUp-I0-NcP"/>
+                                <constraint firstAttribute="trailing" secondItem="m2u-CX-iff" secondAttribute="trailing" constant="16" id="ggX-hm-t5m"/>
+                                <constraint firstItem="YBx-LH-TBH" firstAttribute="top" secondItem="uSw-f8-je2" secondAttribute="bottom" constant="25" id="hVd-f4-F3a"/>
+                                <constraint firstItem="uSw-f8-je2" firstAttribute="centerX" secondItem="re6-yP-qu5" secondAttribute="centerX" id="kJM-ow-WcN"/>
+                                <constraint firstItem="g8J-Zi-VXv" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="99" id="mmk-Ub-Fu2"/>
+                                <constraint firstItem="uSw-f8-je2" firstAttribute="top" secondItem="re6-yP-qu5" secondAttribute="top" constant="35" id="nUN-BP-Ms3"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="re6-yP-qu5" secondAttribute="bottom" constant="-24" id="4xP-gX-VSQ"/>
+                        <constraint firstAttribute="trailing" secondItem="re6-yP-qu5" secondAttribute="trailing" constant="-4" id="6gf-wS-VGI"/>
+                        <constraint firstItem="re6-yP-qu5" firstAttribute="centerX" secondItem="9aE-Ql-b5t" secondAttribute="centerX" id="7th-z4-TZi"/>
+                        <constraint firstItem="re6-yP-qu5" firstAttribute="height" secondItem="9aE-Ql-b5t" secondAttribute="height" multiplier="0.633803" constant="449.95756099999994" id="BqF-0z-Sib"/>
+                        <constraint firstItem="re6-yP-qu5" firstAttribute="leading" secondItem="9aE-Ql-b5t" secondAttribute="leading" constant="-4" id="HLb-QJ-kf2"/>
+                        <constraint firstItem="re6-yP-qu5" firstAttribute="top" secondItem="9aE-Ql-b5t" secondAttribute="top" id="VwO-Ez-fgs"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.97254901960784312" green="0.98431372549019602" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="9aE-Ql-b5t" secondAttribute="bottom" id="Gy7-R9-dib"/>
+                <constraint firstItem="9aE-Ql-b5t" firstAttribute="leading" secondItem="H16-qz-SE0" secondAttribute="leading" id="O05-Dz-bXb"/>
+                <constraint firstItem="9aE-Ql-b5t" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Pye-SI-1od"/>
+                <constraint firstItem="9aE-Ql-b5t" firstAttribute="trailing" secondItem="H16-qz-SE0" secondAttribute="trailing" id="Tfe-tA-4Sa"/>
+                <constraint firstItem="H16-qz-SE0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XFi-Wx-qP3"/>
+                <constraint firstItem="9aE-Ql-b5t" firstAttribute="top" secondItem="H16-qz-SE0" secondAttribute="bottom" id="XdK-nh-oaS"/>
+                <constraint firstItem="9aE-Ql-b5t" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tcO-k7-UXa"/>
+            </constraints>
+            <point key="canvasLocation" x="81.679389312977094" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="avatar1" width="1024" height="1024"/>
+        <image name="topProfile" width="375" height="244"/>
+        <namedColor name="FBBC05">
+            <color red="0.98431372549019602" green="0.73725490196078436" blue="0.019607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "GoPay-Logo-removebg-preview.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

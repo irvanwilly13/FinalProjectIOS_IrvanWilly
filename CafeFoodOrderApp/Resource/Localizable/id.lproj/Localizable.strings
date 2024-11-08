@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  CafeFoodOrderApp
+
+  Created by Muhammad Farrel Al Fathir on 05/11/24.
+  
+*/
+"title_food_app" = "Food App";
+"welcome" = "Selamat Datang %@ di aplikasi kami, point kamu %@";
+"Login" = "Masuk";
+"Register" = "Daftar";

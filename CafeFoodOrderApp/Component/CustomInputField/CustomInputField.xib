@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomInputField" customModule="CafeFoodOrderApp" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="i5M-Pr-FkT" id="nE9-qw-bUm"/>
+                <outlet property="errorLabel" destination="O7k-x7-ysP" id="5LD-hw-69P"/>
+                <outlet property="textField" destination="yU1-sz-Off" id="QX3-9B-umB"/>
+                <outlet property="textFieldView" destination="Cs5-pH-vWK" id="RQ2-Hz-lDo"/>
+                <outlet property="titleLabel" destination="fxb-0P-WWv" id="SVl-SZ-Pcn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxb-0P-WWv">
+                    <rect key="frame" x="16" y="5" width="361" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cs5-pH-vWK" customClass="FormView" customModule="CafeFoodOrderApp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="30" width="393" height="60"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yU1-sz-Off">
+                            <rect key="frame" x="5" y="10" width="383" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="aRp-eS-7xd"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="B0B-4g-vMu"/>
+                        <constraint firstAttribute="bottom" secondItem="yU1-sz-Off" secondAttribute="bottom" constant="10" id="Day-lz-cHR"/>
+                        <constraint firstItem="yU1-sz-Off" firstAttribute="leading" secondItem="Cs5-pH-vWK" secondAttribute="leading" constant="5" id="Pe6-BR-laz"/>
+                        <constraint firstItem="yU1-sz-Off" firstAttribute="top" secondItem="Cs5-pH-vWK" secondAttribute="top" constant="10" id="RP4-8T-piS"/>
+                        <constraint firstAttribute="trailing" secondItem="yU1-sz-Off" secondAttribute="trailing" constant="5" id="cf8-5I-kZ6"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7k-x7-ysP">
+                    <rect key="frame" x="16" y="95" width="361" height="18"/>
+                    <color key="tintColor" systemColor="systemRedColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" systemColor="systemRedColor"/>
+                    <color key="highlightedColor" systemColor="systemRedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fxb-0P-WWv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="2bf-uV-a0D"/>
+                <constraint firstAttribute="trailing" secondItem="fxb-0P-WWv" secondAttribute="trailing" constant="16" id="3Yj-FU-uxW"/>
+                <constraint firstItem="fxb-0P-WWv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="L3t-26-iT0"/>
+                <constraint firstItem="Cs5-pH-vWK" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="WFW-Lg-5gv"/>
+                <constraint firstItem="O7k-x7-ysP" firstAttribute="top" secondItem="Cs5-pH-vWK" secondAttribute="bottom" constant="5" id="ceL-P7-mTw"/>
+                <constraint firstItem="Cs5-pH-vWK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="d5j-NX-U9Z"/>
+                <constraint firstAttribute="trailing" secondItem="O7k-x7-ysP" secondAttribute="trailing" constant="16" id="lTg-3h-s26"/>
+                <constraint firstItem="O7k-x7-ysP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="mdI-Fn-Dyr"/>
+                <constraint firstItem="Cs5-pH-vWK" firstAttribute="top" secondItem="fxb-0P-WWv" secondAttribute="bottom" constant="5" id="uo3-N0-xXV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="113.74045801526717" y="277.46478873239437"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
