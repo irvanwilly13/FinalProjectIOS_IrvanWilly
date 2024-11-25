@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,21 +52,22 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="Ycb-NA-9KA">
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ycb-NA-9KA">
                             <rect key="frame" x="8" y="377.66666666666669" width="227" height="40"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Ni-Sl-aha">
-                                    <rect key="frame" x="0.0" y="0.0" width="96.666666666666671" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="177" height="40"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BoK-rQ-6Fc">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BoK-rQ-6Fc">
                                             <rect key="frame" x="0.0" y="1" width="40" height="38.666666666666671"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="9Hs-qZ-0Mu"/>
                                                 <constraint firstAttribute="height" constant="40" id="OIB-yf-A9p"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUA-fW-s8f">
-                                            <rect key="frame" x="48" y="0.0" width="48.666666666666657" height="40"/>
+                                            <rect key="frame" x="48" y="0.0" width="129" height="40"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -73,27 +75,33 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJt-UO-Vou">
-                                    <rect key="frame" x="150.66666666666666" y="0.0" width="76.333333333333343" height="40"/>
+                                    <rect key="frame" x="187" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="2GO-7Q-bfW"/>
+                                        <constraint firstAttribute="height" constant="40" id="2Wc-Rd-DPS"/>
+                                    </constraints>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="greaterthan.square.fill" catalog="system"/>
                                 </button>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="fUa-xJ-erF">
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fUa-xJ-erF">
                             <rect key="frame" x="8" y="425.66666666666669" width="227" height="40"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Iyb-Ra-Le6">
-                                    <rect key="frame" x="0.0" y="0.0" width="90.333333333333329" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="177" height="40"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart.bar.doc.horizontal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Uxu-Ax-z4b">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="chart.bar.doc.horizontal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Uxu-Ax-z4b">
                                             <rect key="frame" x="0.0" y="0.33333333333333215" width="40" height="39.666666666666671"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="gPn-wX-EgE"/>
-                                                <constraint firstAttribute="height" constant="40" id="rMW-pD-r0M"/>
+                                                <constraint firstAttribute="height" constant="40" id="OJ4-KI-u8l"/>
+                                                <constraint firstAttribute="width" constant="40" id="xFG-dW-K2x"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAP-hk-uJb">
-                                            <rect key="frame" x="48" y="0.0" width="42.333333333333343" height="40"/>
+                                            <rect key="frame" x="48" y="0.0" width="129" height="40"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -101,9 +109,14 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIz-bO-V17">
-                                    <rect key="frame" x="143.33333333333334" y="0.0" width="83.666666666666657" height="40"/>
+                                    <rect key="frame" x="187" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="8RQ-jU-nex"/>
+                                        <constraint firstAttribute="width" constant="40" id="9gv-i3-Or6"/>
+                                    </constraints>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="greaterthan.square.fill" catalog="system"/>
                                 </button>
                             </subviews>
                         </stackView>
@@ -220,6 +233,7 @@
     <resources>
         <image name="avatar1" width="1024" height="1024"/>
         <image name="chart.bar.doc.horizontal" catalog="system" width="115" height="128"/>
+        <image name="greaterthan.square.fill" catalog="system" width="128" height="114"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
     </resources>
 </document>

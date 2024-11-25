@@ -18,6 +18,7 @@ class CartService {
     
     func addToCart(food: ProductFood) {
         cartItems[food, default: 0] += 1
+        notifyChartDidUpdate()
     }
     func removeFromCart(food: ProductFood) {
         guard let count = cartItems[food] else { return } // Jika item tidak ada, keluar
@@ -26,22 +27,28 @@ class CartService {
         } else {
             cartItems[food] = count - 1 // Kurangi jumlah item
         }
+        notifyChartDidUpdate()
     }
     
-//    func removeFromCart(food: ProductFood) {
-//        guard let count = cartItems[food], count > 0 else { return }
-//        if count == 1 {
-//            cartItems.removeValue(forKey: food)
-//        } else {
-//            cartItems[food] = count - 1
-//        }
-//    }
+    //    func removeFromCart(food: ProductFood) {
+    //        guard let count = cartItems[food], count > 0 else { return }
+    //        if count == 1 {
+    //            cartItems.removeValue(forKey: food)
+    //        } else {
+    //            cartItems[food] = count - 1
+    //        }
+    //    }
     func clearCart() {
-            cartItems.removeAll()
-        }
-
+        cartItems.removeAll()
+        notifyChartDidUpdate()
+    }
+    
     
     func getCartItem() -> [CartTupleModel] {
         return cartItems.map { ($0.key, $0.value)}
+    }
+    
+    func notifyChartDidUpdate() {
+        NotificationCenter.default.post(name: Notification.Name("ChartUpdate"), object: nil)
     }
 }

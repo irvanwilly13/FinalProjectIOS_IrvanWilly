@@ -108,9 +108,10 @@ class HistoryOrderViewController: BaseViewController {
             guard let self = self else { return }
             guard let data = data else { return }
             self.historyData = data.data
-            self.updateEmptyStateView()
 
             DispatchQueue.main.async {
+                self.updateEmptyStateView()
+
                 self.tableView.reloadData()
             }
         }).disposed(by: bag)

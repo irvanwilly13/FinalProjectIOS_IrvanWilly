@@ -64,6 +64,12 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
     }
     
     func configure() {
+        emailField.setup(title: "Email", placeholder: "")
+        fullnameField.setup(title: "Nama Lengkap", placeholder: "")
+        phoneNumberField.setup(title: "No Handphone", placeholder: "")
+        usernameField.setup(title: "Username", placeholder: "")
+        passwordField.setup(title: "Password", placeholder: "")
+        confirmPasswordField.setup(title: "Confirm Password", placeholder: "")
         emailField.setup(title: .localized("email_placeholder"), placeholder: .localized("email_placeholder"))
         fullnameField.setup(title: .localized("profile_title"), placeholder: .localized("fullname_placeholder"))
         phoneNumberField.setup(title: .localized("phone_number_title"), placeholder: .localized("phone_number_placeholder"))

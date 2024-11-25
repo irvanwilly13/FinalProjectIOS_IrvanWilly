@@ -12,6 +12,7 @@ protocol FilterHistoryDelegate: AnyObject {
 
 class FilterHistoryViewController: UIViewController {
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var cancelledButton: UIButton!
     @IBOutlet weak var coachMarkView: UIView!
     @IBOutlet weak var viewAllButton: UIButton!
@@ -43,6 +44,7 @@ class FilterHistoryViewController: UIViewController {
         pendingButton.addTarget(self, action: #selector(selectPendingFilter), for: .touchUpInside)
         viewAllButton.addTarget(self, action: #selector(resetFilter), for: .touchUpInside)
         applyButton.addTarget(self, action: #selector(applySelectedFilter), for: .touchUpInside)
+        containerView.makeCornerRadius(16, maskedCorner: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
     }
     @objc func selectCancelledFilter() {
         selectedFilter = "cancelled"
@@ -78,10 +80,10 @@ class FilterHistoryViewController: UIViewController {
         viewAllButton.isSelected = selectedFilter == nil
         
         // Ubah warna tombol sesuai dengan status
-        paidButton.backgroundColor = selectedFilter == "paid" ? .systemBlue : .lightGray
-        pendingButton.backgroundColor = selectedFilter == "pending" ? .systemBlue : .lightGray
-        cancelledButton.backgroundColor = selectedFilter == "cancelled" ? .systemBlue : .lightGray
-        viewAllButton.backgroundColor = selectedFilter == nil ? .systemBlue : .lightGray
+        paidButton.backgroundColor = selectedFilter == "paid" ? .lightGray : .clear
+        pendingButton.backgroundColor = selectedFilter == "pending" ? .lightGray : .clear
+        cancelledButton.backgroundColor = selectedFilter == "cancelled" ? .lightGray : .clear
+        viewAllButton.backgroundColor = selectedFilter == nil ? .lightGray : .clear
     }
 }
 

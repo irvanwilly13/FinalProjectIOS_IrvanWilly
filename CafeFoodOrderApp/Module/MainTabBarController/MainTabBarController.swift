@@ -17,18 +17,21 @@ enum MainTabBarType: Int, CaseIterable {
 }
 
 class MainTabBarController: UITabBarController {
+    
+    private var cartObserver: NSObjectProtocol?
+    
     let btnMiddle : UIButton = {
-          let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-          btn.setTitle("", for: .normal)
-          btn.backgroundColor = UIColor.orange
-          btn.layer.cornerRadius = 30
-          btn.layer.shadowColor = UIColor(named: "#F9881F")?.cgColor
-          btn.layer.shadowOpacity = 0.2
-          btn.layer.shadowOffset = CGSize(width: 4, height: 4)
-          btn.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-          btn.tintColor = UIColor.white
-          return btn
-        }()
+        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        btn.setTitle("", for: .normal)
+        btn.backgroundColor = UIColor.orange
+        btn.layer.cornerRadius = 30
+        btn.layer.shadowColor = UIColor(named: "#F9881F")?.cgColor
+        btn.layer.shadowOpacity = 0.2
+        btn.layer.shadowOffset = CGSize(width: 4, height: 4)
+        btn.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        btn.tintColor = UIColor.white
+        return btn
+    }()
     
     let dashboard = UINavigationController(rootViewController: DashboardViewController())
     let chart = UINavigationController(rootViewController: ChartViewController())
@@ -40,7 +43,41 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         configureUITabBarItems()
         configureTabBar()
+        setupCartObserver()
+        updateCartBadge()
     }
+    
+    deinit {
+        if let observer = cartObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
+    }
+    
+    private func setupCartObserver() {
+        // Create a notification name for cart updates
+        let notificationName = Notification.Name("ChartUpdate")
+        
+        cartObserver = NotificationCenter.default.addObserver(
+            forName: notificationName,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            self?.updateCartBadge()
+        }
+    }
+    
+    private func updateCartBadge() {
+        let cartItems = CartService.shared.getCartItem()
+        let totalItems = cartItems.reduce(0) { $0 + $1.quantity }
+        
+        if totalItems > 0 {
+            chart.tabBarItem.badgeValue = "\(totalItems)"
+            chart.tabBarItem.badgeColor = .red
+        } else {
+            chart.tabBarItem.badgeValue = nil
+        }
+    }
+    
     override func loadView() {
         super.loadView()
         self.tabBar.addSubview(btnMiddle)
@@ -50,7 +87,7 @@ class MainTabBarController: UITabBarController {
     func configureTabBar() {
         self.setViewControllers([dashboard,chart,middle,history,profile], animated: true)
         btnMiddle.frame = CGRect(x: Int(self.tabBar.bounds.width)/2 - 30, y: -20, width: 60, height: 60)
-
+        
     }
     
     func configureUITabBarItems() {
@@ -68,6 +105,7 @@ class MainTabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideNavigationBar()
+        updateCartBadge()
     }
     
     func hideNavigationBar() {
@@ -76,7 +114,7 @@ class MainTabBarController: UITabBarController {
         self.navigationController?.navigationBar.isTranslucent = false
         self.hidesBottomBarWhenPushed = false
     }
-
+    
 }
 
 extension MainTabBarController {
@@ -134,4 +172,4 @@ extension MainTabBarController {
         }
     }
 }
-    
+

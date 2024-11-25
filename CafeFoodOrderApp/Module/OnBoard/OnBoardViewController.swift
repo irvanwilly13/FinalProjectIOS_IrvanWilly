@@ -27,7 +27,6 @@ class OnBoardViewController: UIViewController {
        }
 
        func setupBindings() {
-           // Menggunakan Rx untuk bind action dari loginButton
            loginButton.rx.tap
                .subscribe(onNext: { [weak self] in
                    guard let self = self else { return }
@@ -38,7 +37,6 @@ class OnBoardViewController: UIViewController {
                })
                .disposed(by: disposeBag)
            
-           // Menggunakan Rx untuk bind action dari registerButton
            registerButton.rx.tap
                .subscribe(onNext: { [weak self] in
                    guard let self = self else { return }
@@ -49,8 +47,8 @@ class OnBoardViewController: UIViewController {
                .disposed(by: disposeBag)
        }
     func setupLocalization() {
-            loginButton.setTitle(NSLocalizedString("onboard_login_button", comment: "Login button"), for: .normal)
-            registerButton.setTitle(NSLocalizedString("onboard_register_button", comment: "Register button"), for: .normal)
+        registerButton.setTitle(.localized("register_button"), for: .normal)
+        loginButton.setTitle(.localized("login_button"), for: .normal)
         }
 
     
