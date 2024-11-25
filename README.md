@@ -40,28 +40,112 @@ Welcome to the Cafe Order Food App (COFA), a project designed to showcase a food
 
 ## Tech Stack
 
-- *Language*: Swift
-- *IDE*: Xcode
-- *Framework*: Cocoa (for macOS development)
+![Alt text](./imageFinalProj/techStack.jpg)
+
+### **Kingfisher**
+### **RxSwift**
+### **Firebase**
+### **IQKeyboardCore**
+### **Lottie**
+### **Midtrans**
+### **netfox**
+### **SkeletonView**
+### **SnapKit**
+### **Toast**
+
+
+# Design Patterns
+This project adopts the Model-View-ViewModel MVVM separates an app’s user interface (View) from the underlying data (Model) and introduces an intermediary component called ViewModel to manage the presentation logic.
 
 ## ScreenShots
 
-![Alt text](./imageFinalProj/1.png)
-![Alt text](./imageFinalProj/2.png)
-![Alt text](./imageFinalProj/3.png)
-![Alt text](./imageFinalProj/4.png)
-![Alt text](./imageFinalProj/5.png)
-![Alt text](./imageFinalProj/6.png)
-![Alt text](./imageFinalProj/7.png)
-![Alt text](./imageFinalProj/8.png)
-![Alt text](./imageFinalProj/9.png)
-![Alt text](./imageFinalProj/10.png)
-![Alt text](./imageFinalProj/11.png)
-![Alt text](./imageFinalProj/12.png)
-![Alt text](./imageFinalProj/13.png)
-![Alt text](./imageFinalProj/14.png)
-![Alt text](./imageFinalProj/15.png)
-![Alt text](./imageFinalProj/16.png)
+| OnBoard | Login | Register |
+|--------|--------|---------|
+| ![Mobile](./imageFinalProj/1.png) | ![Tablet](./imageFinalProj/2.png) | ![Desktop](./imageFinalProj/3.png) |
+| Dashboard | FoodCategory | DetailFood |
+|--------|--------|---------|
+| ![Mobile](./imageFinalProj/4.png) | ![Tablet](./imageFinalProj/5.png) | ![Desktop](./imageFinalProj/6.png) |
+| Chart | DetailOrder | Address |
+|--------|--------|---------|
+| ![Mobile](./imageFinalProj/7.png) | ![Tablet](./imageFinalProj/8.png) | ![Desktop](./imageFinalProj/9.png) |
+| Promo | Payment | Payment |
+|--------|--------|---------|
+| ![Mobile](./imageFinalProj/10.png) | ![Tablet](./imageFinalProj/11.png) | ![Desktop](./imageFinalProj/12.png) |
+| Payment Success | HistoryOrder | DetailHistory Order |
+|--------|--------|---------|
+| ![Mobile](./imageFinalProj/13.png) | ![Tablet](./imageFinalProj/14.png) | ![Desktop](./imageFinalProj/15.png) |
+
+
+# Cafe Order Food App - Project Structure
+
+```
+CafeFoodOrderApp
+├── CafeFoodOrderApp
+│   ├── Coordinator
+│   ├── Configuration
+│   ├── Resource
+│   ├── Network
+│   ├── Component
+│   │   ├── BottomSheetAddAddress
+│   │   ├── BottomSheetReview
+│   │   ├── ErrorView
+│   │   ├── BottomSheet
+│   │   ├── PopUp
+│   │   ├── EmptyChart
+│   │   ├── ToolBarView
+│   │   ├── LeftMenuBottomSheetViewController
+│   │   └── CustomInputField
+│   ├── Common
+│   ├── Module
+│   │   ├── FoodReviewViewController
+│   │   ├── CancelOrderViewController
+│   │   ├── AdsViewController
+│   │   ├── PickAddressViewController
+│   │   ├── FilterHistoryViewController
+│   │   ├── PromotionViewController
+│   │   ├── OrderPageViewController
+│   │   ├── PaymentMidTransViewController
+│   │   ├── HelpCenterViewController
+│   │   ├── TermOfServicesViewController
+│   │   ├── PrivacyPolicyViewController
+│   │   ├── ProfileUserViewController
+│   │   ├── ChangeInformationViewController
+│   │   ├── MapKitView
+│   │   ├── ForgotPassword
+│   │   ├── FilterBottomSheet
+│   │   ├── ConfirmPaymentViewController
+│   │   ├── PaymentViewController
+│   │   └── DetailFoodViewController
+│   ├── DetailFoodViewController
+│   ├── CategoryViewController
+│   ├── ProfileViewController
+│   ├── HistoryOrderDetailViewController
+│   ├── HistoryOrderViewController
+│   ├── ChartViewController
+│   ├── DashboardViewController
+│   ├── MainTabBarController
+│   ├── RegisterViewController
+│   ├── LoginViewController
+│   ├── OnBoard
+├── App
+│   ├── ViewController
+├── Main
+├── LaunchScreen
+├── Info
+├── GoogleService-Info
+├── CoreData
+├── CafeFoodOrderAppTests
+```
+
+# ToDo App
+
+Keep track of tasks, improvements, and future plans for our project.
+
+- [ ] Implement Tracking Order
+- [ ] Implement Searching Product
+- [ ] Implement Point App
+- [ ] Implement Payment with Qris
+
 
 
 
