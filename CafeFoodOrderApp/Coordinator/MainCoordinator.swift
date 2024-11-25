@@ -24,7 +24,7 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        if let tokenData = KeychainHelper.shared.read(forKey: "firebaseAuthToken"),
+        if let tokenData = KeychainHelper.shared.read(forKey: KeychainHelperKey.userID),
            let token = String(data: tokenData, encoding: .utf8) {
             showMainTabBar()
         } else {

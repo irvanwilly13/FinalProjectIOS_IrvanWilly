@@ -19,15 +19,26 @@ class CartService {
     func addToCart(food: ProductFood) {
         cartItems[food, default: 0] += 1
     }
-    
     func removeFromCart(food: ProductFood) {
-        guard let count = cartItems[food], count > 0 else { return }
-        if count == 1 {
-            cartItems.removeValue(forKey: food)
+        guard let count = cartItems[food] else { return } // Jika item tidak ada, keluar
+        if count <= 1 {
+            cartItems.removeValue(forKey: food) // Hapus item sepenuhnya
         } else {
-            cartItems[food] = count - 1
+            cartItems[food] = count - 1 // Kurangi jumlah item
         }
     }
+    
+//    func removeFromCart(food: ProductFood) {
+//        guard let count = cartItems[food], count > 0 else { return }
+//        if count == 1 {
+//            cartItems.removeValue(forKey: food)
+//        } else {
+//            cartItems[food] = count - 1
+//        }
+//    }
+    func clearCart() {
+            cartItems.removeAll()
+        }
 
     
     func getCartItem() -> [CartTupleModel] {

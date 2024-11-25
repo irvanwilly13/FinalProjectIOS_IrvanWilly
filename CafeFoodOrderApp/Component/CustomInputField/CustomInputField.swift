@@ -21,6 +21,10 @@ class CustomInputField: UIView {
             get { return textField.text }
             set { textField.text = newValue }
         }
+    var textColor: UIColor? {
+            get { textField.textColor }
+            set { textField.textColor = newValue }
+        }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

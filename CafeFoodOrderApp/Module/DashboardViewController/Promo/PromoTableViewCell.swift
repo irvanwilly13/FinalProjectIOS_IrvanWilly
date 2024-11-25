@@ -6,18 +6,72 @@
 //
 
 import UIKit
+import SkeletonView
 
 class PromoTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var containerView: UIView!
+    
+    var promoFoodData: [PromotionFoodData] = [] {
+        didSet {
+            self.collectionView.reloadData()
+        }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setup()
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+    }
+    
+    func setup() {
+        let nib = UINib(nibName: "PromoCollectionViewCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "PromoCollectionViewCell")
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    func configure(with data: [PromotionFoodData]) {
+            self.promoFoodData = data
+        }
+    
+}
+
+extension PromoTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return promoFoodData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromoCollectionViewCell", for: indexPath) as! PromoCollectionViewCell
+        let promo = promoFoodData[indexPath.item]
+        cell.configure(with: promo)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = collectionView.bounds.width
+        return CGSize(width: (screenWidth) - 20, height: 150)
+    }
+}
+
+extension PromoTableViewCell: SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3 // Jumlah placeholder skeleton
+    }
+
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "PromoCollectionViewCell"
+    }
+
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromoCollectionViewCell", for: indexPath) as! PromoCollectionViewCell
+//        cell.showSkeleton() // Tampilkan skeleton
+//        return cell
+//    }
 }

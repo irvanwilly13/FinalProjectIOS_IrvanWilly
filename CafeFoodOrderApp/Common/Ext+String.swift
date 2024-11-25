@@ -44,5 +44,18 @@ extension String {
         
         return attributedString
     }
+    
+    /// Convert nominal string to use currency format with decimal
+        /// - Returns: return a string with currency format with IDR and decimal digits, e.g. IDR 10,000.00
+        func convertToCurrencyWithDecimal() -> String {
+            guard let doubleValue = Double(self) else { return self }
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            formatter.locale = Locale(identifier: "en_EN")
+            formatter.currencyGroupingSeparator = ","
+            formatter.currencyDecimalSeparator = "."
+            formatter.currencySymbol = ""
+            return formatter.string(from: NSNumber(value: doubleValue)) ?? self
+        }
 }
 

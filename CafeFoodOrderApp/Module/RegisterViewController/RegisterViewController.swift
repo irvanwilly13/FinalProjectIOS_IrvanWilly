@@ -13,13 +13,13 @@ import SkeletonView
 
 class RegisterViewController: BaseViewController, UITextFieldDelegate {
     
-    
     @IBOutlet weak var phoneNumberField: CustomInputField!
     @IBOutlet weak var fullnameField: CustomInputField!
     @IBOutlet weak var emailField: CustomInputField!
     @IBOutlet weak var usernameField: CustomInputField!
     @IBOutlet weak var passwordField: CustomInputField!
     @IBOutlet weak var confirmPasswordField: CustomInputField!
+    
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
@@ -27,12 +27,9 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
     var viewModel = RegisterViewModel()
     var disposeBag = DisposeBag()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         phoneNumberField.textField.delegate = self
-
         registerButton.setCornerRadius(16)
         setup()
         configure()
@@ -40,17 +37,19 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            if textField == phoneNumberField.textField {
-                let allowedCharacters = CharacterSet.decimalDigits
-                let characterSet = CharacterSet(charactersIn: string)
-                return allowedCharacters.isSuperset(of: characterSet)
-            }
-            return true
+        if textField == phoneNumberField.textField {
+            let allowedCharacters = CharacterSet.decimalDigits
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
         }
+        return true
+    }
     func setup() {
         registerButton.addTarget(self, action: #selector(actionToCreateButton), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(actionToLogin), for: .touchUpInside)
         
+        registerButton.setTitle(.localized("register_button"), for: .normal)
+        loginButton.setTitle(.localized("login_title"), for: .normal)
     }
     
     @objc func actionToRegister() {
@@ -65,12 +64,13 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
     }
     
     func configure() {
-        emailField.setup(title: "Email", placeholder: "Masukan Email")
-        fullnameField.setup(title: "Full Name", placeholder: "Masukan Full Name")
-        phoneNumberField.setup(title: "Phone Number", placeholder: "Masukan Phone Number")
-        usernameField.setup(title: "Username", placeholder: "Masukan Username")
-        passwordField.setup(title: "Password", placeholder: "Masukan Password")
-        confirmPasswordField.setup(title: "Confirm Password", placeholder: "Masukan Password")
+        emailField.setup(title: .localized("email_placeholder"), placeholder: .localized("email_placeholder"))
+        fullnameField.setup(title: .localized("profile_title"), placeholder: .localized("fullname_placeholder"))
+        phoneNumberField.setup(title: .localized("phone_number_title"), placeholder: .localized("phone_number_placeholder"))
+        usernameField.setup(title: .localized("username_title"), placeholder: .localized("username_placeholder"))
+        passwordField.setup(title: .localized("password_placeholder"), placeholder: .localized("password_placeholder"))
+        confirmPasswordField.setup(title: .localized("confirm_password_title"), placeholder: .localized("confirm_password_placeholder"))
+        
         passwordField.textField.isSecureTextEntry = true
         confirmPasswordField.textField.isSecureTextEntry = true
     }
@@ -86,50 +86,53 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
             showAlert(message: "Tidak boleh kosong")
             return
         }
+        
         if username.isEmpty || password.isEmpty || confirmPassword.isEmpty || email.isEmpty || fullname.isEmpty || phoneNumber.isEmpty {
-                showAlert(message: "Semua field harus diisi.")
-                return
-            }
+            showAlert(message: "Semua field harus diisi.")
+            return
+        }
         
         if password != confirmPassword {
             self.showAlert(message: "Password Doesn't Match")
             return
         }
+        
         if !isValidPhoneNumber(phoneNumber) {
-                showAlert(message: "Nomor telepon tidak valid. Harus berisi hanya angka dan minimal 10 digit.")
-                return
-            }
+            showAlert(message: "Nomor telepon tidak valid. Harus berisi hanya angka dan minimal 10 digit.")
+            return
+        }
+        
         if !isValidPassword(password) {
-                showAlert(message: "Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, dan angka.")
-                return
-            }
+            showAlert(message: "Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, dan angka.")
+            return
+        }
+        
         if !isValidEmail(email) {
-                showAlert(message: "Format email tidak valid.")
-                return
-            }
+            showAlert(message: "Format email tidak valid.")
+            return
+        }
+        
         let param = RegistParam(username: username, password: password, email: email, fullname: fullname, phoneNumber: phoneNumber)
         viewModel.fetchRequestData(param: param)
     }
+    
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }
-
+    
     func isValidPassword(_ password: String) -> Bool {
-        // Minimal 8 karakter, 1 huruf besar, 1 huruf kecil, 1 angka
         let passwordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$"
         let passwordPred = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
         return passwordPred.evaluate(with: password)
     }
-
+    
     func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
-        // Hanya angka, minimal 10 digit
         let phoneNumberRegEx = "^[0-9]{10,}$"
         let phonePred = NSPredicate(format: "SELF MATCHES %@", phoneNumberRegEx)
         return phonePred.evaluate(with: phoneNumber)
     }
-
     
     func bindingData() {
         // Observing Register Data Model
@@ -137,7 +140,6 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
             guard let self = self else { return }
             if let data = data {
                 DispatchQueue.main.async {
-                    // Menampilkan pesan sukses jika data registrasi berhasil
                     self.showAlertSuccess(title: "Registration Success", message: "Account created successfully.") {
                         let loginVC = LoginViewController()
                         self.navigationController?.pushViewController(loginVC, animated: true)
@@ -147,7 +149,6 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
             }
         }).disposed(by: disposeBag)
         
-        // Observing Loading State
         viewModel.loadingState.asObservable().subscribe(onNext: { [weak self] loading in
             DispatchQueue.main.async {
                 guard let self = self else { return }
@@ -164,7 +165,6 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
                 }
             }
         }).disposed(by: disposeBag)
-        
     }
     
     func logicByFirebase(email: String, password: String) {
@@ -180,22 +180,16 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
             }
         }
     }
-
-
+    
     func showAlertSuccess(title: String, message: String, completion: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            // Memanggil closure jika diberikan
             completion?()
         }
-        
         alertController.addAction(okAction)
-        
-        // Menampilkan alert
         self.present(alertController, animated: true, completion: nil)
     }
-
 }
 
 

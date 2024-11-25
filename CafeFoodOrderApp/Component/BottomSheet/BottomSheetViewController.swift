@@ -25,7 +25,6 @@ class BottomSheetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.viewDidLoad()
         
         // Menambahkan target untuk setiap tombol pembayaran
         bcaButton.addTarget(self, action: #selector(selectBCAPayment), for: .touchUpInside)
@@ -61,13 +60,13 @@ class BottomSheetViewController: UIViewController {
     
     // Fungsi untuk memperbarui tampilan tombol yang dipilih
     func updateButtonSelection() {
-        bcaButton.setTitle(selectedPaymentMethod == "BCA" ? "✅ BCA" : "⬜ BCA", for: .normal)
-        mandiriButton.setTitle(selectedPaymentMethod == "Mandiri" ? "✅ Mandiri" : "⬜ Mandiri", for: .normal)
-        gopayButton.setTitle(selectedPaymentMethod == "Gopay" ? "✅ Gopay" : "⬜ Gopay", for: .normal)
+        bcaButton.setTitle(selectedPaymentMethod == "BCA" ? "✅" : "⬜", for: .normal)
+        mandiriButton.setTitle(selectedPaymentMethod == "Mandiri" ? "✅" : "⬜", for: .normal)
+        gopayButton.setTitle(selectedPaymentMethod == "Gopay" ? "✅" : "⬜", for: .normal)
         
-        bcaButton.backgroundColor = selectedPaymentMethod == "BCA" ? .lightGray : .clear
-        mandiriButton.backgroundColor = selectedPaymentMethod == "Mandiri" ? .lightGray : .clear
-        gopayButton.backgroundColor = selectedPaymentMethod == "Gopay" ? .lightGray : .clear
+        bcaButton.backgroundColor = selectedPaymentMethod == "BCA" ? .clear : .clear
+        mandiriButton.backgroundColor = selectedPaymentMethod == "Mandiri" ? .clear : .clear
+        gopayButton.backgroundColor = selectedPaymentMethod == "Gopay" ? .clear : .clear
     }
     
     // Fungsi untuk menampilkan pilihan yang dipilih saat tombol Apply ditekan

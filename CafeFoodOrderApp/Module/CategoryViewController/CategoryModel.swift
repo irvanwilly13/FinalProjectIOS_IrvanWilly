@@ -18,33 +18,49 @@ struct FoodCategoryModel: Codable, Hashable {
 
 // MARK: - DataClass
 struct FoodCategoryData: Codable, Hashable {
-    let ctID: Int
-    let ctName, ctDescription: String
-    let products: [ProductFood]
+
+    let category: ProductCategory
+    let items: [ProductFood]
 
     enum CodingKeys: String, CodingKey {
-        case ctID = "ct_id"
-        case ctName = "ct_name"
-        case ctDescription = "ct_description"
-        case products
+        case items = "items"
+        case category = "category"
+    }
+}
+
+// MARK: - Category
+struct ProductCategory: Codable, Hashable {
+    let name: String
+    let image: String?
+    let description: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case image = "image"
+        case description = "description"
     }
 }
 
 // MARK: - Product
 struct ProductFood: Codable, Hashable {
-    let pdID: Int
-    let pdName: String
-    let pdImageURL: String?
-    
-    let pdPrice: Double?
-    let pdQuantity: Int
+    let id: Int
+    let name: String
+    let image: String?
+    let price: Int?
+    let rating: String?
+    let reviews: Int?
+    let isFavorite: Bool
+    let description: String
 
     enum CodingKeys: String, CodingKey {
-        case pdID = "pd_id"
-        case pdName = "pd_name"
-        case pdImageURL = "pd_image_url"
-        case pdPrice = "pd_price"
-        case pdQuantity = "pd_quantity"
+        case id = "id"
+        case name = "name"
+        case image = "image"
+        case price = "price"
+        case rating = "rating"
+        case reviews = "reviews"
+        case isFavorite = "isFavorite"
+        case description = "description"
     }
 }
 

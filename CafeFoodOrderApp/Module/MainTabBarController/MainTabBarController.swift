@@ -8,6 +8,14 @@
 import Foundation
 import UIKit
 
+enum MainTabBarType: Int, CaseIterable {
+    case dashboard
+    case chart
+    case middle
+    case history
+    case profile
+}
+
 class MainTabBarController: UITabBarController {
     let btnMiddle : UIButton = {
           let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
@@ -44,6 +52,7 @@ class MainTabBarController: UITabBarController {
         btnMiddle.frame = CGRect(x: Int(self.tabBar.bounds.width)/2 - 30, y: -20, width: 60, height: 60)
 
     }
+    
     func configureUITabBarItems() {
         dashboard.tabBarItem = UITabBarItem(title: "Home", image: SFSymbols.dashboardSymbol, tag: 0)
         chart.tabBarItem = UITabBarItem(title: "Chart", image: SFSymbols.chartSymbol, tag: 1)
@@ -55,6 +64,74 @@ class MainTabBarController: UITabBarController {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], for: .selected)
         UITabBar.appearance().tintColor = UIColor.magenta
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavigationBar()
+    }
+    
+    func hideNavigationBar() {
+        self.navigationController?.isToolbarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.hidesBottomBarWhenPushed = false
+    }
 
+}
+
+extension MainTabBarController {
+    func switchToTab(type: MainTabBarType) {
+        self.selectedIndex = type.rawValue
+        
+        switch  type {
+        case .dashboard:
+            if let dashboardVC = self.viewControllers?[0] as? DashboardViewController {
+                self.selectedViewController = dashboardVC
+            }
+        case .chart:
+            if let VC = self.viewControllers?[1] as? ChartViewController {
+                self.selectedViewController = VC
+            }
+        case .middle:
+            if let VC = self.viewControllers?[2] as? MapKitViewController {
+                self.selectedViewController = VC
+            }
+        case .history:
+            if let VC = self.viewControllers?[3] as? HistoryOrderViewController {
+                self.selectedViewController = VC
+            }
+        case .profile:
+            if let VC = self.viewControllers?[4] as? ProfileViewController {
+                self.selectedViewController = VC
+            }
+        }
+    }
+    
+    func switchTo(type: MainTabBarType) {
+        self.selectedIndex = type.rawValue
+        
+        switch  type {
+        case .dashboard:
+            if let navigation = self.viewControllers?[0] as? UINavigationController {
+                navigation.popToRootViewController(animated: false)
+            }
+        case .chart:
+            if let navigation = self.viewControllers?[1] as? UINavigationController {
+                navigation.popToRootViewController(animated: false)
+            }
+        case .middle:
+            if let navigation = self.viewControllers?[2] as? UINavigationController {
+                navigation.popToRootViewController(animated: false)
+            }
+        case .history:
+            if let navigation = self.viewControllers?[3] as? UINavigationController {
+                navigation.popToRootViewController(animated: false)
+            }
+        case .profile:
+            if let navigation = self.viewControllers?[4] as? UINavigationController {
+                navigation.popToRootViewController(animated: false)
+            }
+        }
+    }
 }
     

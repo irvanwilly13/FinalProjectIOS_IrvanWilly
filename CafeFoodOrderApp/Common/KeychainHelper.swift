@@ -73,7 +73,7 @@ class KeychainHelper {
 }
 
 class KeychainHelperKey {
-    static let firebaseAuthToken = "firebaseAuthToken"
+    static let userID = "userID"
 }
 
 

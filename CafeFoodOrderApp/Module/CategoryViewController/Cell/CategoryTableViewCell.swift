@@ -51,21 +51,21 @@ class CategoryTableViewCell: UITableViewCell {
     
     // Fungsi untuk mengonfigurasi cell dengan data dari model
     func configure(with food: ProductFood) {
-        nameLabel.text = food.pdName
-        descLabel.text = ""
-        if let price = food.pdPrice {
+        nameLabel.text = food.name
+        descLabel.text = food.description
+        if let price = food.price {
             priceLabel.text = "Rp. \(price)"
         } else {
             priceLabel.text = "Rp. -"
         }
-        //            ratingLabel.text = "\(food.rating) "
-        //            reviewsLabel.text = "\(food.reviews) reviews"
-        //            imgView.image = UIImage(named: food.pdImageURL) // Pastikan gambar sesuai
         
-        // Set status favorite
-        //            isFavorite = food.isFavorite
+        if let rating = food.rating {
+            ratingLabel.text = "\(rating) "
+        }
+        isFavoriteButton.setImage(UIImage(systemName: food.isFavorite ? "heart.fill" : "heart" ), for: .normal)
         
-        if let urlString = food.pdImageURL, let imageUrl = URL(string: urlString) {
+        
+        if let urlString = food.image, let imageUrl = URL(string: urlString) {
             imgView.kf.setImage(with: imageUrl)
         } else {
             imgView.image = UIImage(named: "errorX") // Gambar default jika urlImage tidak ada
@@ -78,4 +78,5 @@ class CategoryTableViewCell: UITableViewCell {
         updateFavoriteButton() // Memperbarui tampilan
         // Lakukan tindakan tambahan, seperti menyimpan perubahan status favorite
     }
+    
 }

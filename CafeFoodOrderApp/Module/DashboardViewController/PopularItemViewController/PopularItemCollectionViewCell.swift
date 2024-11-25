@@ -25,27 +25,14 @@ class PopularItemCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         containerView.layer.masksToBounds = true
     }
-    func setup(item: FeaturedRestaurant) {
-        imgView.image = UIImage(named: item.image)
-        nameLabel.text = item.name
-        descriptionLabel.text = item.description
-        ratingLabel.text = String(item.rating)
-        reviewsLabel.text = String(item.reviews)
-        
-        if let price = item.price {
-            priceLabel.text = String(format: "%.2f", price)
-        } else {
-            priceLabel.text = "N/A"
+    func setup(item: ProductFood) {
+        if let img = item.image {
+            imgView.image = UIImage(named: img)
+
         }
-        
-        // Set the number of reviews
+        nameLabel.text = item.name
+        ratingLabel.text = item.rating ?? ""
         reviewsLabel.text = "\(item.reviews) reviews"
-        
-        // Set the rating
-        ratingLabel.text = "\(item.rating)"
-        
-        
-        // Set favorite button appearance
         let favoriteImage = item.isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
         isFavoriteButton.setImage(favoriteImage, for: .normal)
     }

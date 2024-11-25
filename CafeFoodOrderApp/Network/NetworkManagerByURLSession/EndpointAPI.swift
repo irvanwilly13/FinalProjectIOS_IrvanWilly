@@ -27,40 +27,57 @@ enum EndpointAPI {
     case getByCategory(item: String)
     case getAllProfile
     case getAllHistory
+    case createOrder(param: CreateOrderParam)
+    case detailFood(id: String)
+    case historyDetail(orderID: String)
+    case promotion
+    case cancelOrder(orderID: String)
+    
     
     func path() -> String {
         switch self {
         case .getAllMenu:
-            return "/cofa/menu/items"
+            return "/phincon/api/cofa/menu/items"
         case .posts:
             return "/posts"
         case .users:
             return "/users"
         case .login:
-            return "/auth/cofa/login"
+            return "/phincon/auth/login"
         case .register:
-            return "/auth/cofa/register"
-        case .getByCategory(let item):
-            return "/api/cofa/menu/items/category/\(item)"
+            return "/phincon/auth/register"
+        case .getByCategory:
+            return "/phincon/api/cofa/menu/items/category"
         case .getAllProfile:
-            return "/api/cofa/profile"
+            return "/phincon/api/cofa/profile"
         case .getAllHistory:
-            return "/getallhistory"
+            return "/phincon/api/cofa/orders"
+        case .createOrder:
+            return "/phincon/api/cofa/order/snap"
+        case .detailFood(let id):
+            return "/phincon/api/cofa/menu/item/\(id)"
+        case .historyDetail(let orderID):
+            return "/phincon/api/cofa/order/\(orderID)"
+        case .promotion:
+            return "/phincon/api/cofa/promos"
+        case .cancelOrder(let orderID):
+            return "/phincon/api/cofa/order/cancel/\(orderID)"
+        
         }
     }
     
     func method() -> HTTPMethods {
         switch self {
-        case .getAllMenu, .posts, .users, .getByCategory, .getAllHistory, .getAllProfile:
+        case .getAllMenu, .posts, .users, .getByCategory, .getAllHistory, .getAllProfile, .detailFood, .historyDetail, .promotion:
             return .get
-        case .login, .register:
+        case .login, .register, .createOrder, .cancelOrder:
             return .post
         }
     }
     
     var parameters: [String: Any]? {
         switch self {
-        case .getAllMenu, .posts, .users, .getAllHistory, .getAllProfile, .getByCategory:
+        case .getAllMenu, .posts, .users, .getAllHistory, .getAllProfile, .detailFood, .historyDetail, .promotion, .cancelOrder:
             return nil
         case .login(let param):
             let params = [
@@ -77,20 +94,51 @@ enum EndpointAPI {
                 "email": registerParam.email
             ]
             return registerParams
+        case .createOrder(let param):
+            let itemDetails: [[String: Any]] = param.items.map { item in
+                return [
+                    "id": item.id,
+                    "name": item.name,
+                    "price": item.price ,
+                    "quantity": item.quantity
+                ]
+            }
+            
+      
+            var params: [String: Any] = [
+                "callbacks": [
+                  "error": "https://youtube.com",
+                  "finish": "https://facebook.com"
+                ],
+                "email": param.email,
+                "items": itemDetails,
+                "amount": param.amount,
+            ]
+            
+            if let promos = param.promoCode {
+                params["promo_codes"] = promos
+            }
+            
+            return params
+        case .getByCategory(let param):
+            let param = [
+                "category": param]
+            return param
         }
     }
     
     var headers: [String:String] {
         switch self {
-        case .posts, .users, .login, .register, .getAllHistory, .getAllProfile:
+        case .posts, .users, .login, .register:
             return [
                 "Content-Type": "application/json",
                 // bisa menambahkan yang lain jika diperlukan
             ]
-        case .getAllMenu, .getByCategory:
+        case .getAllMenu, .getByCategory, .createOrder, .detailFood, .getAllHistory, .historyDetail, .getAllProfile, .promotion, .cancelOrder:
             return [
                 "Content-Type": "application/json",
-                "Authorization": "Bearer \(readToken())"
+                "x-user-id": readToken(),
+                "x-secret-app": "]k!aMHCRG=2]N6WGeYNw@3#$[:V4Wr"
                 // bisa  menambahkan yang lain jika diperlukan
             ]
         }
@@ -99,15 +147,14 @@ enum EndpointAPI {
     }
     // untuk setingan api yang menggunakan query params
     var queryParams: [String: Any]? {
-        return nil
-//        switch self {
-//        case .getByCategory(let param):
-//            let param = [
-//                "category": param.lowercased()]
-//            return param
-//        default:
-//            return nil
-//        }
+        switch self {
+        case .getByCategory(let param):
+            let param = [
+                "category": param]
+            return param
+        default:
+            return nil
+        }
     }
     var encoding: ParameterEncoding {
         // Mengembalikan encoding yang sesuai; misalnya untuk `getByCategory`, gunakan `.url`
@@ -123,18 +170,18 @@ enum EndpointAPI {
     var urlString: String {
         
         switch self {
-        case .login, .register, .getByCategory, .getAllProfile:
+        case .login, .register, .getByCategory, .getAllProfile, .getAllMenu, .createOrder, .detailFood, .getAllHistory, .historyDetail, .promotion, .cancelOrder:
             return Constants.baseURL + self.path()
             
-        case .getAllMenu, .getAllHistory:
-            return BaseConstants.base + self.path()
+//        case .getAllHistory:
+//            return BaseConstants.base + self.path()
         default:
             return BaseConstants.baseURL + self.path()
         }
         
     }
     func readToken() -> String {
-        guard let tokenData = KeychainHelper.shared.read(forKey: KeychainHelperKey.firebaseAuthToken)
+        guard let tokenData = KeychainHelper.shared.read(forKey: KeychainHelperKey.userID)
         else { return "" }
         let token = String(data: tokenData, encoding: .utf8) ?? ""
         return token

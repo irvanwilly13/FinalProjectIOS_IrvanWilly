@@ -27,6 +27,8 @@ class CategoryViewController: UIViewController, FilterDelegate {
     var item: Category?
     var viewModel = CategoryViewModel()
     
+    lazy var emptyStateView = EmptyView(frame: tableView.frame)
+    lazy var errorStateView = ErrorViewController(frame: tableView.frame)
     
     let disposeBag = DisposeBag()
     
@@ -47,20 +49,22 @@ class CategoryViewController: UIViewController, FilterDelegate {
         
     }
     
+    
     @objc func openFilter() {
         let filterVC = filterBottomSheetViewController()
-        //        filterVC.items = categoryFood // Kirim data ke FilterBottomSheetViewController
-        filterVC.delegate = self // Tetapkan delegasi
+        filterVC.items = categoryFood
+        filterVC.delegate = self
         filterVC.modalPresentationStyle = .overFullScreen
         filterVC.modalTransitionStyle = .crossDissolve
         present(filterVC, animated: true, completion: nil)
     }
     
-    // Implementasi FilterDelegate untuk menerima hasil filter
     func applyFilter(sortedItems: [ProductFood]) {
         categoryFood = sortedItems
         tableView.reloadData()
+        updateEmptyStateView()
     }
+    
     
     func showSkeleton(show: Bool) {
         if show {
@@ -74,8 +78,6 @@ class CategoryViewController: UIViewController, FilterDelegate {
             pizzaImgView.hideSkeleton()
             labelImgView.hideSkeleton()
         }
-        
-            
     }
     
     func bindingData() {
@@ -87,13 +89,16 @@ class CategoryViewController: UIViewController, FilterDelegate {
                     print("loading")
                     self.tableView.showAnimatedGradientSkeleton()
                     self.showSkeleton(show: true)
+                    self.shouldShowErrorView(status: false)
                 case .failed:
                     print("failed")
                     self.tableView.hideSkeleton()
                     self.showSkeleton(show: false)
+                    self.shouldShowErrorView(status: true)
                 case .finished:
                     self.tableView.hideSkeleton()
                     self.showSkeleton(show: false)
+                    self.updateEmptyStateView()
                     print("finished")
                 default:
                     break
@@ -101,6 +106,7 @@ class CategoryViewController: UIViewController, FilterDelegate {
             }
             
         }).disposed(by: disposeBag)
+        
         if let item = item {
             viewModel.fetchRequestData(type: item.name)
         }
@@ -110,16 +116,37 @@ class CategoryViewController: UIViewController, FilterDelegate {
             guard let data = data else { return }
             
             DispatchQueue.main.async {
-                self.categoryFood = data.data.products
-                self.nameCategoryLabel.text = data.data.ctName
-                self.descLabel.text = data.data.ctDescription
+                self.categoryFood = data.data.items
+                self.nameCategoryLabel.text = data.data.category.name
+                self.descLabel.text = data.data.category.description ?? "-"
                 self.tableView.reloadData()
+                self.updateEmptyStateView()
             }
         }).disposed(by: disposeBag)
-        
-        
-        
     }
+    
+    
+    func updateEmptyStateView() {
+        emptyStateView.updateMessage("No items available in this category.")
+        emptyStateView.updateImage(UIImage(named: "errorX"))
+        emptyStateView.containerView.backgroundColor = UIColor.lightGreyCofa
+        let isEmpty = categoryFood.isEmpty
+        shouldShowErrorView(status: isEmpty)
+    }
+    
+    func shouldShowErrorView(status: Bool) {
+        if status {
+            if !view.subviews.contains(emptyStateView) {
+                view.addSubview(emptyStateView)
+                emptyStateView.isHidden = false
+            } else {
+                emptyStateView.isHidden = false
+            }
+        } else {
+            emptyStateView.isHidden = true
+        }
+    }
+    
 }
 
 extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {

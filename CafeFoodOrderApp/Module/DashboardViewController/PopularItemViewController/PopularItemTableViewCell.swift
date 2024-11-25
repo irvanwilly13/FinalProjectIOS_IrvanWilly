@@ -12,7 +12,7 @@ class PopularItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var popularData: [FeaturedRestaurant] = [] {
+    var popularData: [ProductFood] = [] {
         didSet {
             self.collectionView.reloadData()
         }
@@ -42,7 +42,7 @@ class PopularItemTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configure(with popularItems: [FeaturedRestaurant]) {
+    func configure(with popularItems: [ProductFood]) {
             // Atur tampilan item populer di sini
         self.popularData = popularItems
         }

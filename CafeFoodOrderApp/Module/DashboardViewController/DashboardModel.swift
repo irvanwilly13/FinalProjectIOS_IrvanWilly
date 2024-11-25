@@ -34,6 +34,7 @@ enum FoodCategory: String, CaseIterable, Codable {
 
 // MARK: - Welcome
 struct AllMenuModel: Codable {
+    let status: String
     let message: String
     let data: FoodModel
     let code: Int
@@ -43,14 +44,15 @@ struct AllMenuModel: Codable {
 // MARK: - Welcome
 struct FoodModel: Codable {
     let categories: [Category]
-    let featuredRestaurants, popularItems: [FeaturedRestaurant]
+    let featuredRestaurants: [FeaturedRestaurant]
+    let popularItems: [ProductFood]
     let promoData: [PromotionFoodData]
     let adsData: [AdsFoodData]
 }
 
 struct PromotionFoodData: Codable {
     let name: String
-    let image: String
+    let image: String?
 }
 
 struct AdsFoodData: Codable {
@@ -62,26 +64,26 @@ struct AdsFoodData: Codable {
 // MARK: - Category
 struct Category: Codable {
     let id: Int
-    let name, icon: String
+    let name: String
+    let icon: String?
 }
 
 // MARK: - FeaturedRestaurant
 struct FeaturedRestaurant: Hashable, Codable {
     let id: Int
     let name: String
+    let image: String?
     let rating: Double
     let reviews: Int
-    let image: String
     let isFavorite: Bool
-    let deliveryInfo: DeliveryInfo?
-    let price: Double?
-    let description: String?
+    let deliveryInfo: DeliveryInfo
+    let tags: [String]
 }
+
 
 // MARK: - DeliveryInfo
 struct DeliveryInfo: Codable, Equatable, Hashable {
     let type, time: String
-    let info: String?
 }
 
 

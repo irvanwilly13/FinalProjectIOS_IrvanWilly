@@ -5,7 +5,80 @@
   Created by Muhammad Farrel Al Fathir on 05/11/24.
   
 */
-"title_food_app" = "Food App";
-"welcome" = "Welcome %@ in our app, your point %@";
-"Login" = "Login";
-"Register" = "Register";
+//MARK: General Text
+"app_title" = "Food App";
+"welcome_message" = "Welcome %@ in our app, your point %@";
+"loading" = "Loading...";
+"retry" = "Retry";
+
+//MARK: Authentication */
+"login_title" = "Login";
+"register_title" = "Register";
+"forgot_password" = "Forgot Password?";
+"email_placeholder" = "Enter your email";
+"password_placeholder" = "Enter your password";
+"login_button" = "Login";
+"register_button" = "Register";
+
+//MARK: Profile */
+"profile_title" = "Profile";
+"change_avatar" = "Change Avatar";
+"edit_profile" = "Edit Profile";
+"logout" = "Logout";
+"save_changes" = "Save Changes";
+"update_success" = "Profile updated successfully!";
+"update_failed" = "Failed to update profile, please try again.";
+
+//MARK: Address */
+"address_title" = "Select Address";
+"add_new_address" = "Add New Address";
+"address_placeholder" = "Enter your address";
+"city_placeholder" = "Enter your city";
+"state_placeholder" = "Enter your state";
+"postal_code_placeholder" = "Enter postal code";
+"save_address_button" = "Save Address";
+"address_saved_success" = "Address saved successfully!";
+"address_saved_failed" = "Failed to save address, please try again.";
+
+//MARK: Order */
+"order_history_title" = "Order History";
+"order_details_title" = "Order Details";
+"order_again" = "Order Again";
+"payment_button" = "Make Payment";
+"order_cancelled" = "Your order has been cancelled.";
+"order_cancel_failed" = "Failed to cancel the order, please try again.";
+"empty_order_message" = "You have no orders yet.";
+
+//MARK: Notifications */
+"notification_title" = "Notifications";
+"no_notifications" = "You don't have any notifications.";
+
+//MARK: Errors */
+"error_network" = "Network error, please check your connection.";
+"error_server" = "Server error, please try again later.";
+"error_required_fields" = "Please fill in all required fields.";
+"error_invalid_email" = "Please enter a valid email address.";
+"error_invalid_password" = "Password must be at least 6 characters.";
+
+//MARK: Payment */
+"payment_title" = "Payment";
+"total_payment" = "Total: %@";
+"payment_successful" = "Payment successful!";
+"payment_failed" = "Payment failed, please try again.";
+"voucher_applied" = "Voucher applied successfully!";
+"voucher_invalid" = "Invalid voucher code.";
+
+//MARK: Buttons */
+"button_ok" = "OK";
+"button_cancel" = "Cancel";
+"button_save" = "Save";
+"button_yes" = "Yes";
+"button_no" = "No";
+
+//MARK: Miscellaneous */
+"search_placeholder" = "Search...";
+"settings_title" = "Settings";
+"help_center_title" = "Help Center";
+"privacy_policy_title" = "Privacy Policy";
+"terms_of_service_title" = "Terms of Service";
+"language_select_title" = "Select Language";

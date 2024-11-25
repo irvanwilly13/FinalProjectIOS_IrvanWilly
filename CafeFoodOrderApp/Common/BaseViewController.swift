@@ -8,9 +8,12 @@
 import UIKit
 import FirebaseAuth
 import IQKeyboardManagerSwift
+import RxSwift
 
 
 class BaseViewController: UIViewController {
+    
+    let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +64,7 @@ class BaseViewController: UIViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
     open func showCustomPopup(_ data: PopUpModel ) {
         let vc = CustomPopUpViewController()
         vc.popUpData = data
@@ -68,6 +72,7 @@ class BaseViewController: UIViewController {
         vc.modalTransitionStyle = .crossDissolve
         self.navigationController?.present(vc, animated: true, completion: nil)
     }
+    
     func configureKeyboard() {
             IQKeyboardManager.shared.enable = true
             IQKeyboardManager.shared.resignOnTouchOutside = true

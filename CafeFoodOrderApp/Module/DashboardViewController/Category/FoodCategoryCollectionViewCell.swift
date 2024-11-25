@@ -15,17 +15,20 @@ class FoodCategoryCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupContainerViewAppearance()
         
-        
-        
+        containerView.layer.masksToBounds =  true
     }
+    
+    
     func setup(item: Category) {
         nameLabel.text = item.name
-        imgView.image = UIImage(named: item.icon)
+        if let icon = item.icon {
+            imgView.image = UIImage(named: icon)
+
+        }
         
         // Download the image from the URL (if it exists) and set it to imgView
-        if let url = URL(string: item.icon) {
+        if let url = URL(string: item.icon ?? "") {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else {
                     print("Error downloading image: \(String(describing: error))")
@@ -38,19 +41,5 @@ class FoodCategoryCollectionViewCell: UICollectionViewCell {
             }.resume() // Start the download task
         }
     }
-    private func setupContainerViewAppearance() {
-            // Border
-            containerView.layer.borderColor = UIColor.black.cgColor
-            containerView.layer.borderWidth = 0.5
-            
-            // Shadow
-            containerView.layer.shadowColor = UIColor.black.cgColor
-            containerView.layer.shadowOpacity = 0.4 // Lebih tebal, lebih terlihat
-            containerView.layer.shadowOffset = CGSize(width: 0, height: 4) // Bayangan lebih dalam
-            containerView.layer.shadowRadius = 8 // Lebih besar untuk kesan tebal
-            
-            // Rounded corners
-            containerView.layer.cornerRadius = 8
-            containerView.layer.masksToBounds = false
-        }
-    }
+        
+}

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MidtransKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -17,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
+        setupMidtransConfig()
         
         let navController = UINavigationController()
         coordinator = MainCoordinator(navigationController: navController, window: window)
@@ -43,6 +45,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window.makeKeyAndVisible()
 //        self.window = window
     }
+    private func setupMidtransConfig() {
+          MidtransConfig.shared().setClientKey("SB-Mid-client-DMzFzhAUqMIxUcTC", environment: .sandbox, merchantServerURL:"https://merchant-url-sandbox.com"
+          )
+          //enable logger for debugging purpose
+          MidtransNetworkLogger.shared()?.startLogging()
+        }
   
     
     func createOnboardingVC(window: UIWindow) {
@@ -56,7 +64,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func handleLogout() {
-        KeychainHelper.shared.delete(forKey: "firebaseAuthToken")
+        KeychainHelper.shared.delete(forKey: KeychainHelperKey.userID)
         
 //        let vc = OnBoardViewController()
 //        let navigation = UINavigationController(rootViewController: vc)

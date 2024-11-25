@@ -10,20 +10,22 @@ import UIKit
 
 protocol ToolBarViewDelegate {
     func addTapButton()
+    func rightButton()
 }
 
 class ToolBarView: UIView {
 
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
     
     var delegate: ToolBarViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
+    
     //MARK: DI TEMPATKAN DI CODER KARNA MENGGUNAKAN XIB
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -37,13 +39,16 @@ class ToolBarView: UIView {
         view.backgroundColor = .clear
         self.addSubview(view)
         setupButton()
+        rightButton.isHidden = true
     }
+    
     func setup(title: String) {
         titleLabel.text = title
     }
     
     func setupButton() {
         backButton.addTarget(self, action: #selector(actionToBackButton), for: .touchUpInside)
+        rightButton.addTarget(self, action: #selector(actionToRightButton), for: .touchUpInside)
     }
     
     @objc func actionToBackButton() {
@@ -51,6 +56,10 @@ class ToolBarView: UIView {
             viewController.navigationController?.popViewController(animated: true)
         }
         
+    }
+    
+    @objc func actionToRightButton() {
+        delegate?.rightButton()
     }
     
     

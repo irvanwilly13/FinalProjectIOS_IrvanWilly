@@ -11,19 +11,18 @@ import FirebaseAnalytics
 import FirebaseCore
 import FirebaseAuth
 import IQKeyboardManagerSwift
+import FirebaseCrashlytics
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         FirebaseApp.configure()
         FirebaseConfiguration.shared.setLoggerLevel(.debug)
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -1000.0, vertical: 0.0), for: .default)
         NFX.sharedInstance().start()
         IQKeyboardManager.shared.enable = true
+        Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
         
 
         return true

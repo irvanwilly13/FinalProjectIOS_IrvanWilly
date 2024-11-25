@@ -46,9 +46,9 @@
                     <rect key="frame" x="0.0" y="130" width="393" height="722"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1oX-0a-tPA">
-                            <rect key="frame" x="25" y="20" width="343" height="180"/>
+                            <rect key="frame" x="25" y="20" width="343" height="250"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="180" id="zvv-dR-0uX"/>
+                                <constraint firstAttribute="height" constant="250" id="zvv-dR-0uX"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -58,7 +58,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdF-Fp-VA3">
-                            <rect key="frame" x="16" y="220" width="361" height="29.333333333333343"/>
+                            <rect key="frame" x="16" y="290" width="361" height="29.333333333333314"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zfR-f8-oaH">
-                            <rect key="frame" x="16" y="259.33333333333331" width="208.66666666666666" height="25"/>
+                            <rect key="frame" x="16" y="329.33333333333331" width="208.66666666666666" height="25"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Wuc-82-iJf">
                                     <rect key="frame" x="0.0" y="0.0" width="84.666666666666671" height="25"/>
@@ -108,6 +108,7 @@
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpi-Yq-NQU">
                                     <rect key="frame" x="94.666666666666686" y="0.0" width="114" height="25"/>
+                                    <color key="tintColor" name="171717"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="See Review"/>
                                     <userDefinedRuntimeAttributes>
@@ -120,47 +121,8 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UnG-Tj-egJ">
-                            <rect key="frame" x="247.33333333333337" y="314.33333333333331" width="129.66666666666663" height="34.333333333333314"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFR-bP-Ce1">
-                                    <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="34.333333333333336"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="tintColor" name="F58220"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="minus.circle.fill" catalog="system"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb1-Zt-zcN">
-                                    <rect key="frame" x="59.666666666666664" y="0.0" width="10.333333333333336" height="34.333333333333336"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9E-BZ-gBI">
-                                    <rect key="frame" x="79.999999999999972" y="0.0" width="49.666666666666657" height="34.333333333333336"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="tintColor" name="F58220"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                            </userDefinedRuntimeAttributes>
-                        </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpz-u7-wnE">
-                            <rect key="frame" x="16" y="388.33333333333337" width="361" height="20.333333333333314"/>
+                            <rect key="frame" x="16" y="458.33333333333337" width="361" height="20.333333333333314"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -169,10 +131,10 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9P-hh-gvg">
-                            <rect key="frame" x="16" y="628.66666666666663" width="361" height="34.333333333333371"/>
-                            <color key="backgroundColor" red="0.93725490570000003" green="0.65835461559999997" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <rect key="frame" x="16" y="654" width="361" height="48"/>
+                            <color key="backgroundColor" red="0.99607843137254903" green="0.44705882352941173" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="34.329999999999998" id="CPk-3A-rwQ"/>
+                                <constraint firstAttribute="height" constant="48" id="CPk-3A-rwQ"/>
                             </constraints>
                             <color key="tintColor" red="0.97254901959999995" green="0.98431372549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Button"/>
@@ -185,7 +147,7 @@
                             </userDefinedRuntimeAttributes>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Priceperitem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQb-3A-sml">
-                            <rect key="frame" x="15.999999999999993" y="319" width="111.33333333333331" height="24"/>
+                            <rect key="frame" x="16" y="389" width="220.33333333333334" height="24"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <nil key="textColor"/>
@@ -194,17 +156,68 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5LQ-2x-7sy" customClass="FormView" customModule="CafeFoodOrderApp" customModuleProvider="target">
+                            <rect key="frame" x="241.33333333333337" y="364.33333333333331" width="135.66666666666663" height="40.333333333333314"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UnG-Tj-egJ">
+                                    <rect key="frame" x="3" y="3" width="129.66666666666666" height="34.333333333333336"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFR-bP-Ce1">
+                                            <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="34.333333333333336"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" red="0.96078431372549022" green="0.50980392156862742" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="minus.circle.fill" catalog="system"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb1-Zt-zcN">
+                                            <rect key="frame" x="59.666666666666664" y="0.0" width="10.333333333333336" height="34.333333333333336"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9E-BZ-gBI">
+                                            <rect key="frame" x="79.999999999999972" y="0.0" width="49.666666666666657" height="34.333333333333336"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" name="F58220"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="UnG-Tj-egJ" secondAttribute="bottom" constant="3" id="6Z6-XL-cVV"/>
+                                <constraint firstItem="UnG-Tj-egJ" firstAttribute="top" secondItem="5LQ-2x-7sy" secondAttribute="top" constant="3" id="Cpe-Vj-6RI"/>
+                                <constraint firstAttribute="trailing" secondItem="UnG-Tj-egJ" secondAttribute="trailing" constant="3" id="FzG-Oo-i8Z"/>
+                                <constraint firstItem="UnG-Tj-egJ" firstAttribute="leading" secondItem="5LQ-2x-7sy" secondAttribute="leading" constant="3" id="Zfr-q2-yg6"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="WQb-3A-sml" firstAttribute="leading" secondItem="9qb-h1-v0a" secondAttribute="leading" constant="16" id="01l-Vh-Rgg"/>
                         <constraint firstItem="1oX-0a-tPA" firstAttribute="leading" secondItem="9qb-h1-v0a" secondAttribute="leading" constant="25" id="5xQ-Im-jbE"/>
-                        <constraint firstAttribute="trailing" secondItem="UnG-Tj-egJ" secondAttribute="trailing" constant="16" id="AKy-ZO-75O"/>
-                        <constraint firstItem="UnG-Tj-egJ" firstAttribute="leading" secondItem="WQb-3A-sml" secondAttribute="trailing" constant="120" id="HoB-DF-t4Z"/>
+                        <constraint firstItem="5LQ-2x-7sy" firstAttribute="top" secondItem="zfR-f8-oaH" secondAttribute="bottom" constant="10" id="Aek-gF-6es"/>
+                        <constraint firstAttribute="trailing" secondItem="5LQ-2x-7sy" secondAttribute="trailing" constant="16" id="FfB-2c-GO0"/>
                         <constraint firstAttribute="trailing" secondItem="1oX-0a-tPA" secondAttribute="trailing" constant="25" id="I9P-CD-NA0"/>
+                        <constraint firstItem="5LQ-2x-7sy" firstAttribute="leading" secondItem="WQb-3A-sml" secondAttribute="trailing" constant="5" id="KRi-2V-UM0"/>
                         <constraint firstAttribute="trailing" secondItem="B9P-hh-gvg" secondAttribute="trailing" constant="16" id="M82-Cx-Wic"/>
                         <constraint firstItem="Cpz-u7-wnE" firstAttribute="top" secondItem="WQb-3A-sml" secondAttribute="bottom" constant="45.329999999999998" id="O1h-ul-sH2"/>
-                        <constraint firstItem="UnG-Tj-egJ" firstAttribute="top" secondItem="zfR-f8-oaH" secondAttribute="bottom" constant="30" id="QL0-Wi-nRC"/>
                         <constraint firstAttribute="trailing" secondItem="Cpz-u7-wnE" secondAttribute="trailing" constant="16" id="XeG-Hh-XRH"/>
                         <constraint firstItem="TdF-Fp-VA3" firstAttribute="leading" secondItem="9qb-h1-v0a" secondAttribute="leading" constant="16" id="aQV-CG-fFA"/>
                         <constraint firstItem="WQb-3A-sml" firstAttribute="top" secondItem="zfR-f8-oaH" secondAttribute="bottom" constant="34.670000000000002" id="bH0-Jp-PDR"/>
@@ -212,7 +225,7 @@
                         <constraint firstAttribute="trailing" secondItem="zfR-f8-oaH" secondAttribute="trailing" constant="168.33000000000001" id="fCO-ub-Lc1"/>
                         <constraint firstItem="B9P-hh-gvg" firstAttribute="leading" secondItem="9qb-h1-v0a" secondAttribute="leading" constant="16" id="fxl-Ip-T9k"/>
                         <constraint firstAttribute="trailing" secondItem="TdF-Fp-VA3" secondAttribute="trailing" constant="16" id="k4b-RS-wIA"/>
-                        <constraint firstItem="B9P-hh-gvg" firstAttribute="top" secondItem="Cpz-u7-wnE" secondAttribute="bottom" constant="220" id="oPP-ls-4Ar"/>
+                        <constraint firstAttribute="bottom" secondItem="B9P-hh-gvg" secondAttribute="bottom" constant="20" id="rFX-AH-bY3"/>
                         <constraint firstItem="zfR-f8-oaH" firstAttribute="leading" secondItem="9qb-h1-v0a" secondAttribute="leading" constant="16" id="t0o-mK-l2I"/>
                         <constraint firstItem="TdF-Fp-VA3" firstAttribute="top" secondItem="1oX-0a-tPA" secondAttribute="bottom" constant="20" id="vMO-jX-sB7"/>
                         <constraint firstItem="Cpz-u7-wnE" firstAttribute="leading" secondItem="9qb-h1-v0a" secondAttribute="leading" constant="16" id="vWn-JE-qgI"/>
@@ -224,7 +237,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="0.97254901960784312" green="0.98431372549019602" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" name="lightGreyCofa"/>
             <constraints>
                 <constraint firstItem="9qb-h1-v0a" firstAttribute="top" secondItem="WAl-YN-BVz" secondAttribute="bottom" id="K1w-3m-loh"/>
                 <constraint firstItem="9qb-h1-v0a" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NlJ-2C-l4s"/>
@@ -244,9 +257,18 @@
         <image name="minus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <namedColor name="171717">
+            <color red="0.090196078431372548" green="0.090196078431372548" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="F58220">
             <color red="0.96078431372549022" green="0.50980392156862742" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="lightGreyCofa">
+            <color red="0.9137254901960784" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

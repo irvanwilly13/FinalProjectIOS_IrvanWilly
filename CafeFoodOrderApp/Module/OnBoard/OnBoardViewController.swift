@@ -21,6 +21,7 @@ class OnBoardViewController: UIViewController {
        override func viewDidLoad() {
            super.viewDidLoad()
            setupBindings()
+           setupLocalization()
            loginButton.setCornerRadius(16)
            registerButton.setCornerRadius(16)
        }
@@ -47,6 +48,11 @@ class OnBoardViewController: UIViewController {
                })
                .disposed(by: disposeBag)
        }
+    func setupLocalization() {
+            loginButton.setTitle(NSLocalizedString("onboard_login_button", comment: "Login button"), for: .normal)
+            registerButton.setTitle(NSLocalizedString("onboard_register_button", comment: "Register button"), for: .normal)
+        }
+
     
     func moveToLogin() {
         coordinator?.showLogin()

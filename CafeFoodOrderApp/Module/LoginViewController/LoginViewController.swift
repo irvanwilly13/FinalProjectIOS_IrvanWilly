@@ -24,7 +24,6 @@ class LoginViewController: BaseViewController {
     var viewModel = LoginViewModel()
     var disposeBag = DisposeBag()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.setCornerRadius(16)
@@ -32,69 +31,72 @@ class LoginViewController: BaseViewController {
         setup()
         bindingData()
     }
+    
     func setup() {
         loginButton.addTarget(self, action: #selector(actionToLoginButton), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(actionToRegister), for: .touchUpInside)
         forgotPasswordButton.addTarget(self, action: #selector(actionToForgotPassword), for: .touchUpInside)
-//        registerButton.setTitle(.localized(""), for: .normal)
-//        loginButton.setTitle(.localized(""), for: .normal)
+        
+        registerButton.setTitle(.localized("register_button"), for: .normal)
+        loginButton.setTitle(.localized("login_button"), for: .normal)
+        forgotPasswordButton.setTitle(.localized("forgot_password"), for: .normal)
     }
+    
     @objc func actionToForgotPassword() {
         let vc = ForgotPasswordViewController()
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
+    
     @objc func actionToLogin() {
         let vc = MainTabBarController()
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
+    
     @objc func actionToRegister() {
         let vc = RegisterViewController()
         self.navigationController?.pushViewController(vc, animated: true)
-        
-        
     }
+    
     func configure() {
-        usernameField.setup(title: "Username", placeholder: "Masukan Username")
-        passwordField.setup(title: "Password", placeholder: "Masukan Password")
+        usernameField.setup(title: .localized("email_placeholder"), placeholder: .localized("email_placeholder"))
+        passwordField.setup(title: .localized("password_placeholder"), placeholder: .localized("password_placeholder"))
         passwordField.textField.isSecureTextEntry = true
-        
     }
+    
     @objc func actionToLoginButton() {
         guard let username = usernameField.textField.text,
               let password = passwordField.textField.text else {
             showAlert(message: "Tidak boleh gada isinya")
             return
         }
-//        if !isValidPassword(password) {
-//                showAlert(message: "Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, dan angka.")
-//                return
-//            }
-
+        //        if !isValidPassword(password) {
+        //                showAlert(message: "Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, dan angka.")
+        //                return
+        //            }
+        
         let param = LoginParam(username: username, password: password)
         viewModel.fetchRequestData(param: param)
         
     }
+    
     func isValidPassword(_ password: String) -> Bool {
         // Minimal 8 karakter, 1 huruf besar, 1 huruf kecil, 1 angka
         let passwordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$"
         let passwordPred = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
         return passwordPred.evaluate(with: password)
     }
-
+    
     func bindingData() {
         viewModel.loginDataModel.asObservable().subscribe(onNext: { [weak self] data in
             guard let self = self else { return }
             guard let data = data else { return }
             
             DispatchQueue.main.async {
-                if let token = data.data.token {
-                    self.storeTokenInKeychain(token)
-                    self.showAlert(message: "Berhasil login!") {
-                        let vc = MainTabBarController()
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }
+                let usID = data.data.usID
+                self.storeTokenInKeychain(String(usID))
+                self.showAlert(message: "Berhasil login!") {
+                    let vc = MainTabBarController()
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
             
@@ -117,10 +119,8 @@ class LoginViewController: BaseViewController {
             }
         }).disposed(by: disposeBag)
     }
-
     
     @objc func actionTologinButtonByFirebase() {
-        
         guard let username = usernameField.textField.text, let password = passwordField.textField.text else {
             showAlert(message: "Tidak boleh gada isinya")
             return
@@ -132,6 +132,7 @@ class LoginViewController: BaseViewController {
                 self.showCustomPopup(PopUpModel(tittle: "Error", description: errorMsg, imgView: "errorX", twoButton: true))
                 return
             }
+            
             guard let user = authResult?.user else { return }
             user.getIDToken { token, error in
                 if let error = error {
@@ -147,6 +148,7 @@ class LoginViewController: BaseViewController {
             }
         }
     }
+    
     func showAlert(message: String, completion: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
@@ -155,6 +157,7 @@ class LoginViewController: BaseViewController {
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
     @objc func actionToRegisterButton() {
         let vc = RegisterViewController()
         self.navigationController?.pushViewController(vc, animated: true)
@@ -162,6 +165,6 @@ class LoginViewController: BaseViewController {
     
     func storeTokenInKeychain(_ token: String) {
         let tokenData = Data(token.utf8)
-        KeychainHelper.shared.save(tokenData, forKey: "firebaseAuthToken")
+        KeychainHelper.shared.save(tokenData, forKey: "userID")
     }
 }

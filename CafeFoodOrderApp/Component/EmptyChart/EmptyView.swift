@@ -29,5 +29,11 @@ class EmptyView: UIView {
         super.init(coder: coder)
         
     }
+    func updateMessage(_ message: String) {
+            nameLabel.text = message
+        }
+    func updateImage(_ image: UIImage?) {
+            imgView.image = image
+        }
     
 }

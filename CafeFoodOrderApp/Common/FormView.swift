@@ -20,8 +20,8 @@ class FormView: UIView {
     func applyShadow(on rect: CGRect) {
         self.addShadow(color: .black,
                        offset: CGSize(width: 0, height: 3),
-                       opacity: 0.5,
-                       radius: 5)
+                       opacity: 0.4,
+                       radius: 4)
 
         self.layer.masksToBounds = false
     }

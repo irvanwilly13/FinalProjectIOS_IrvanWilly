@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,18 +23,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="80" height="115"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar1" translatesAutoresizingMaskIntoConstraints="NO" id="xf8-Cu-Lru">
-                                <rect key="frame" x="3" y="3" width="74" height="70"/>
+                                <rect key="frame" x="6" y="6" width="68" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="IQY-TT-ScB"/>
+                                    <constraint firstAttribute="height" constant="75" id="IQY-TT-ScB"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBv-vf-exd">
-                                <rect key="frame" x="3" y="87" width="74" height="19.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBv-vf-exd">
+                                <rect key="frame" x="3" y="89" width="74" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" name="404040"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -42,11 +46,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="xf8-Cu-Lru" secondAttribute="trailing" constant="3" id="6hB-B3-tAF"/>
-                            <constraint firstItem="EBv-vf-exd" firstAttribute="top" secondItem="xf8-Cu-Lru" secondAttribute="bottom" constant="14" id="Scw-d0-j2g"/>
-                            <constraint firstItem="xf8-Cu-Lru" firstAttribute="leading" secondItem="SLZ-Qe-52z" secondAttribute="leading" constant="3" id="aK4-zC-qOJ"/>
+                            <constraint firstAttribute="trailing" secondItem="xf8-Cu-Lru" secondAttribute="trailing" constant="6" id="6hB-B3-tAF"/>
+                            <constraint firstItem="EBv-vf-exd" firstAttribute="top" secondItem="xf8-Cu-Lru" secondAttribute="bottom" constant="8" id="Scw-d0-j2g"/>
+                            <constraint firstItem="xf8-Cu-Lru" firstAttribute="leading" secondItem="SLZ-Qe-52z" secondAttribute="leading" constant="6" id="aK4-zC-qOJ"/>
                             <constraint firstAttribute="trailing" secondItem="EBv-vf-exd" secondAttribute="trailing" constant="3" id="aLX-9V-nGa"/>
-                            <constraint firstItem="xf8-Cu-Lru" firstAttribute="top" secondItem="SLZ-Qe-52z" secondAttribute="top" constant="3" id="fkt-dl-ZOF"/>
+                            <constraint firstItem="xf8-Cu-Lru" firstAttribute="top" secondItem="SLZ-Qe-52z" secondAttribute="top" constant="6" id="fkt-dl-ZOF"/>
                             <constraint firstItem="EBv-vf-exd" firstAttribute="leading" secondItem="SLZ-Qe-52z" secondAttribute="leading" constant="3" id="ppK-mh-8CF"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -56,6 +60,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="SLZ-Qe-52z" secondAttribute="bottom" id="61K-EG-vUT"/>
                 <constraint firstItem="SLZ-Qe-52z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Die-p1-9kY"/>
@@ -76,6 +81,9 @@
     </objects>
     <resources>
         <image name="avatar1" width="1024" height="1024"/>
+        <namedColor name="404040">
+            <color red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

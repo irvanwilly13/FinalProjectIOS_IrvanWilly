@@ -27,7 +27,6 @@ class FoodCategoryTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
     }
     func setup() {
         let nib = UINib(nibName: "FoodCategoryCollectionViewCell", bundle: nil)
@@ -79,7 +78,7 @@ extension FoodCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewD
 extension FoodCategoryTableViewCell: SkeletonCollectionViewDataSource {
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
         return "FoodCategoryCollectionViewCell"

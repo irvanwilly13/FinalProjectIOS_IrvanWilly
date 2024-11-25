@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,10 +26,16 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="JZ4-ib-C2v"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aZg-L5-8sp">
-                    <rect key="frame" x="0.0" y="130" width="393" height="688"/>
+                    <rect key="frame" x="0.0" y="140" width="393" height="712"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3W-cM-ktU" customClass="ToolBarView" customModule="CafeFoodOrderApp" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="50" width="393" height="80"/>
@@ -40,26 +46,29 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="lightGreyCofa"/>
             <constraints>
                 <constraint firstItem="3iV-N7-4hf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8dj-WM-myv"/>
+                <constraint firstItem="aZg-L5-8sp" firstAttribute="top" secondItem="E3W-cM-ktU" secondAttribute="bottom" constant="10" id="EqN-hF-ez2"/>
                 <constraint firstItem="3iV-N7-4hf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GLk-OI-tj1"/>
                 <constraint firstItem="aZg-L5-8sp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LsZ-68-uZP"/>
                 <constraint firstItem="E3W-cM-ktU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OnB-zR-O5d"/>
-                <constraint firstItem="aZg-L5-8sp" firstAttribute="top" secondItem="E3W-cM-ktU" secondAttribute="bottom" id="S0p-rN-ygZ"/>
+                <constraint firstAttribute="bottom" secondItem="aZg-L5-8sp" secondAttribute="bottom" id="ScX-u5-U7F"/>
                 <constraint firstItem="3iV-N7-4hf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Wcp-iz-CFp"/>
                 <constraint firstItem="E3W-cM-ktU" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Z8z-as-m9e"/>
-                <constraint firstItem="aZg-L5-8sp" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="f37-4b-FCk"/>
                 <constraint firstItem="E3W-cM-ktU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="jwH-J6-gsV"/>
                 <constraint firstItem="aZg-L5-8sp" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kmz-Mi-Kef"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="5.343511450381679" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
         <image name="topBar1" width="375" height="75"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="lightGreyCofa">
+            <color red="0.91399997472763062" green="0.93699997663497925" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomSheetAddAddressViewController" customModule="CafeFoodOrderApp" customModuleProvider="target">
+            <connections>
+                <outlet property="alamatField" destination="vWs-Tq-21F" id="ciZ-4p-dYo"/>
+                <outlet property="coachMarkView" destination="yqS-5m-Pj1" id="xOO-bH-YTc"/>
+                <outlet property="containerView" destination="dYv-UU-kIc" id="AUj-hN-SIh"/>
+                <outlet property="kabupatenField" destination="F1G-NO-cv8" id="ac1-d5-O5I"/>
+                <outlet property="kodePosField" destination="Ehe-Bi-xuH" id="DRZ-6o-wr8"/>
+                <outlet property="profinsiField" destination="Mq5-Np-tOL" id="1cm-YO-kfV"/>
+                <outlet property="saveButton" destination="eGI-qI-Os8" id="umv-aJ-AUR"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bg-1A-YRi">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yqS-5m-Pj1">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYv-UU-kIc">
+                            <rect key="frame" x="0.0" y="320" width="393" height="532"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Addresses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfh-gQ-Fck">
+                                    <rect key="frame" x="16" y="14.999999999999998" width="361" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jcj-UP-Vun">
+                                    <rect key="frame" x="16" y="45.333333333333314" width="361" height="365"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWs-Tq-21F" customClass="CustomInputField" customModule="CafeFoodOrderApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="80"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="TBo-WR-xlC"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1G-NO-cv8" customClass="CustomInputField" customModule="CafeFoodOrderApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="95" width="361" height="80"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="P4T-lf-cWT"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mq5-Np-tOL" customClass="CustomInputField" customModule="CafeFoodOrderApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="190.00000000000006" width="361" height="80"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="XUh-Qe-NEJ"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ehe-Bi-xuH" customClass="CustomInputField" customModule="CafeFoodOrderApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="285.00000000000006" width="361" height="80"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="2az-l8-6ZN"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGI-qI-Os8">
+                                    <rect key="frame" x="16" y="438.33333333333337" width="361" height="42"/>
+                                    <color key="backgroundColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="42" id="Ygd-FE-UMb"/>
+                                    </constraints>
+                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="16"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="xfh-gQ-Fck" firstAttribute="leading" secondItem="dYv-UU-kIc" secondAttribute="leading" constant="16" id="4bb-Cz-Sha"/>
+                                <constraint firstAttribute="trailing" secondItem="xfh-gQ-Fck" secondAttribute="trailing" constant="16" id="Axb-7t-Eze"/>
+                                <constraint firstItem="eGI-qI-Os8" firstAttribute="leading" secondItem="dYv-UU-kIc" secondAttribute="leading" constant="16" id="CGc-YO-moo"/>
+                                <constraint firstAttribute="trailing" secondItem="jcj-UP-Vun" secondAttribute="trailing" constant="16" id="FWL-6Z-waG"/>
+                                <constraint firstItem="jcj-UP-Vun" firstAttribute="leading" secondItem="dYv-UU-kIc" secondAttribute="leading" constant="16" id="Oxf-jv-OmI"/>
+                                <constraint firstItem="xfh-gQ-Fck" firstAttribute="top" secondItem="dYv-UU-kIc" secondAttribute="top" constant="15" id="Qew-iu-M7V"/>
+                                <constraint firstItem="eGI-qI-Os8" firstAttribute="top" secondItem="jcj-UP-Vun" secondAttribute="bottom" constant="28" id="cGB-pe-ef3"/>
+                                <constraint firstItem="jcj-UP-Vun" firstAttribute="top" secondItem="xfh-gQ-Fck" secondAttribute="bottom" constant="10" id="kGQ-Qh-gqb"/>
+                                <constraint firstAttribute="trailing" secondItem="eGI-qI-Os8" secondAttribute="trailing" constant="16" id="n3F-Yf-XBc"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <integer key="value" value="16"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" systemColor="tintColor"/>
+                    <constraints>
+                        <constraint firstItem="yqS-5m-Pj1" firstAttribute="top" secondItem="1Bg-1A-YRi" secondAttribute="top" id="4cz-dc-QcB"/>
+                        <constraint firstAttribute="bottom" secondItem="dYv-UU-kIc" secondAttribute="bottom" id="BX7-AS-s9b"/>
+                        <constraint firstItem="dYv-UU-kIc" firstAttribute="leading" secondItem="1Bg-1A-YRi" secondAttribute="leading" id="Syo-7Y-xHN"/>
+                        <constraint firstAttribute="trailing" secondItem="yqS-5m-Pj1" secondAttribute="trailing" id="XNH-WO-Nni"/>
+                        <constraint firstItem="dYv-UU-kIc" firstAttribute="top" secondItem="1Bg-1A-YRi" secondAttribute="top" constant="320" id="kGy-EB-kGT"/>
+                        <constraint firstAttribute="bottom" secondItem="yqS-5m-Pj1" secondAttribute="bottom" id="l1x-up-DdA"/>
+                        <constraint firstItem="yqS-5m-Pj1" firstAttribute="leading" secondItem="1Bg-1A-YRi" secondAttribute="leading" id="lHg-tt-vKL"/>
+                        <constraint firstAttribute="trailing" secondItem="dYv-UU-kIc" secondAttribute="trailing" id="xFI-N9-oKE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="1Bg-1A-YRi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AQG-sJ-M52"/>
+                <constraint firstItem="1Bg-1A-YRi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ISD-xi-qKR"/>
+                <constraint firstAttribute="bottom" secondItem="1Bg-1A-YRi" secondAttribute="bottom" id="Uft-Ko-jOB"/>
+                <constraint firstItem="1Bg-1A-YRi" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="beX-ER-c8n"/>
+            </constraints>
+            <point key="canvasLocation" x="110.68702290076335" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -13,8 +13,10 @@ class NetworkManager {
     public static let shared = NetworkManager()
     private init() {}
   
-    
-    func requestData(url: URL, method: String = "GET", headers: [String: String] = [:], parameters: [String: Any]? = nil, encoding : ParameterEncoding = .json) async throws -> Data {
+    func requestData(url: URL, method: String = "GET",
+                     headers: [String: String] = [:],
+                     parameters: [String: Any]? = nil,
+                     encoding : ParameterEncoding = .json) async throws -> Data {
         var request = URLRequest(url: url)
         var requestURL = url
         request.httpMethod = method

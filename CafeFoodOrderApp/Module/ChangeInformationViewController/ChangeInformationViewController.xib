@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,8 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangeInformationViewController" customModule="CafeFoodOrderApp" customModuleProvider="target">
             <connections>
                 <outlet property="birthdayField" destination="B3O-W7-nnr" id="7Fm-GK-05S"/>
+                <outlet property="changeAvatarButton" destination="LN8-Ll-6wK" id="V2S-SF-IE7"/>
                 <outlet property="emailField" destination="m2u-CX-iff" id="6qc-iO-Zhy"/>
                 <outlet property="genderField" destination="Fhu-qV-KFr" id="l3E-pi-W0e"/>
+                <outlet property="imgView" destination="Xuh-ZN-rMV" id="Rmt-sE-2n6"/>
                 <outlet property="nameField" destination="YBx-LH-TBH" id="Q4i-GE-wYz"/>
                 <outlet property="phoneNumberField" destination="TCz-vj-3JB" id="P3b-zm-9RI"/>
                 <outlet property="saveButton" destination="g8J-Zi-VXv" id="81C-9v-URr"/>
@@ -92,10 +93,10 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8J-Zi-VXv">
-                                    <rect key="frame" x="99" y="740" width="203" height="35"/>
-                                    <color key="backgroundColor" name="FBBC05"/>
+                                    <rect key="frame" x="16" y="740" width="369" height="42"/>
+                                    <color key="backgroundColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="35" id="K2c-jU-1qO"/>
+                                        <constraint firstAttribute="height" constant="42" id="K2c-jU-1qO"/>
                                     </constraints>
                                     <color key="tintColor" red="0.97254901959999995" green="0.98431372549999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <state key="normal" title="Button"/>
@@ -115,6 +116,11 @@
                                                 <constraint firstAttribute="width" constant="140" id="JuH-cM-RKv"/>
                                                 <constraint firstAttribute="height" constant="140" id="WlN-DM-9ez"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -127,6 +133,14 @@
                                         <constraint firstItem="Xuh-ZN-rMV" firstAttribute="top" secondItem="uSw-f8-je2" secondAttribute="top" id="jZs-dK-yJk"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LN8-Ll-6wK">
+                                    <rect key="frame" x="244" y="145" width="56" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="Ygg-dT-y6b"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="camera.fill" catalog="system"/>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.97254901960784312" green="0.98431372549019602" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -135,21 +149,24 @@
                                 <constraint firstItem="TCz-vj-3JB" firstAttribute="top" secondItem="B3O-W7-nnr" secondAttribute="bottom" constant="25" id="4Ax-Cv-MV7"/>
                                 <constraint firstAttribute="trailing" secondItem="YBx-LH-TBH" secondAttribute="trailing" constant="16" id="EMu-Nc-gNm"/>
                                 <constraint firstItem="m2u-CX-iff" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="16" id="Gk7-ll-uiY"/>
+                                <constraint firstItem="LN8-Ll-6wK" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="244" id="Hu9-D9-JVd"/>
                                 <constraint firstAttribute="trailing" secondItem="TCz-vj-3JB" secondAttribute="trailing" constant="16" id="IZ8-ni-Cni"/>
                                 <constraint firstItem="YBx-LH-TBH" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="16" id="M7g-m4-aj6"/>
+                                <constraint firstItem="LN8-Ll-6wK" firstAttribute="top" secondItem="re6-yP-qu5" secondAttribute="top" constant="145" id="Mau-LE-yxe"/>
                                 <constraint firstItem="g8J-Zi-VXv" firstAttribute="top" secondItem="TCz-vj-3JB" secondAttribute="bottom" constant="40" id="Ptq-fk-hTj"/>
                                 <constraint firstItem="Fhu-qV-KFr" firstAttribute="top" secondItem="m2u-CX-iff" secondAttribute="bottom" constant="25" id="QYw-og-ZHP"/>
                                 <constraint firstItem="B3O-W7-nnr" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="16" id="R6Y-zW-y6M"/>
                                 <constraint firstItem="m2u-CX-iff" firstAttribute="top" secondItem="YBx-LH-TBH" secondAttribute="bottom" constant="25" id="Rkn-gH-6Qp"/>
                                 <constraint firstItem="Fhu-qV-KFr" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="16" id="S5B-6L-h6x"/>
                                 <constraint firstAttribute="trailing" secondItem="B3O-W7-nnr" secondAttribute="trailing" constant="16" id="Z8Y-o8-DHI"/>
-                                <constraint firstAttribute="trailing" secondItem="g8J-Zi-VXv" secondAttribute="trailing" constant="99" id="bzL-Cl-w22"/>
+                                <constraint firstAttribute="trailing" secondItem="g8J-Zi-VXv" secondAttribute="trailing" constant="16" id="bzL-Cl-w22"/>
                                 <constraint firstItem="B3O-W7-nnr" firstAttribute="top" secondItem="Fhu-qV-KFr" secondAttribute="bottom" constant="25" id="cUp-I0-NcP"/>
                                 <constraint firstAttribute="trailing" secondItem="m2u-CX-iff" secondAttribute="trailing" constant="16" id="ggX-hm-t5m"/>
                                 <constraint firstItem="YBx-LH-TBH" firstAttribute="top" secondItem="uSw-f8-je2" secondAttribute="bottom" constant="25" id="hVd-f4-F3a"/>
                                 <constraint firstItem="uSw-f8-je2" firstAttribute="centerX" secondItem="re6-yP-qu5" secondAttribute="centerX" id="kJM-ow-WcN"/>
-                                <constraint firstItem="g8J-Zi-VXv" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="99" id="mmk-Ub-Fu2"/>
+                                <constraint firstItem="g8J-Zi-VXv" firstAttribute="leading" secondItem="re6-yP-qu5" secondAttribute="leading" constant="16" id="mmk-Ub-Fu2"/>
                                 <constraint firstItem="uSw-f8-je2" firstAttribute="top" secondItem="re6-yP-qu5" secondAttribute="top" constant="35" id="nUN-BP-Ms3"/>
+                                <constraint firstAttribute="trailing" secondItem="LN8-Ll-6wK" secondAttribute="trailing" constant="101" id="yFp-J4-dwq"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -180,10 +197,8 @@
     </objects>
     <resources>
         <image name="avatar1" width="1024" height="1024"/>
+        <image name="camera.fill" catalog="system" width="128" height="93"/>
         <image name="topProfile" width="375" height="244"/>
-        <namedColor name="FBBC05">
-            <color red="0.98431372549019602" green="0.73725490196078436" blue="0.019607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

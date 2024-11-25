@@ -4,13 +4,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyView" customModule="CafeFoodOrderApp" customModuleProvider="target">
             <connections>
+                <outlet property="containerView" destination="7xs-Wx-ubt" id="Wxy-dc-RCE"/>
                 <outlet property="imgView" destination="dqL-NJ-LDr" id="AEF-Mu-uFc"/>
                 <outlet property="nameLabel" destination="qyd-fm-ynN" id="zgF-3J-ScH"/>
             </connections>
@@ -38,7 +39,7 @@
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="lightGreyCofa"/>
                     <constraints>
                         <constraint firstItem="qyd-fm-ynN" firstAttribute="top" secondItem="dqL-NJ-LDr" secondAttribute="bottom" constant="8" symbolic="YES" id="Gy4-ag-T61"/>
                         <constraint firstItem="qyd-fm-ynN" firstAttribute="leading" secondItem="7xs-Wx-ubt" secondAttribute="leading" constant="16" id="NAD-g2-gBD"/>
@@ -49,7 +50,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="7xs-Wx-ubt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0Nm-BL-5os"/>
                 <constraint firstItem="7xs-Wx-ubt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Pka-lO-CXN"/>
@@ -62,8 +63,8 @@
     </objects>
     <resources>
         <image name="emptyCart1" width="500" height="500"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="lightGreyCofa">
+            <color red="0.91399997472763062" green="0.93699997663497925" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

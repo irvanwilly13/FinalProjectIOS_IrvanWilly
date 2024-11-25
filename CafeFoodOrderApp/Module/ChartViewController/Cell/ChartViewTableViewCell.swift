@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol FoodChartItemTableViewCellDelegate: AnyObject {
     func cartItemCell(didTapAddFor food: ProductFood)
@@ -36,20 +37,25 @@ class ChartViewTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
     }
     func configure(with food: ProductFood, quantity: Int) {
+       
         self.food = food
-        nameLabel.text = food.pdName
+       
+        nameLabel.text = food.name
         
-        if let price = food.pdPrice {
-            priceLabel.text = String(format: "Rp %.2f", price)
+        if let price = food.price {
+            priceLabel.text = "Rp. \(price)"
         } else {
-            priceLabel.text = "Price not available"
+            priceLabel.text = "Rp. -"
         }
         countLabel.text = "\(quantity)"
-//        imgView.image = UIImage(named: food.pdImageURL)
-//        descriptionLabel.text = food.description
+        if let urlString = food.image, let imageUrl = URL(string: urlString) {
+            imgView.kf.setImage(with: imageUrl)
+        } else {
+            imgView.image = UIImage(named: "errorX") // Gambar default jika urlImage tidak ada
+        }
+        descriptionLabel.text = food.description
         
     }
     @objc private func addButtonTap() {

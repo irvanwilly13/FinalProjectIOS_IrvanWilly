@@ -151,6 +151,8 @@ class ProfileUserViewController: UIViewController {
     }
     @objc func actionToSettings() {
         let vc = ChangeInformationViewController()
+        vc.profileData = self.viewModel.profileDataModel.value?.data
+
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
