@@ -55,7 +55,7 @@ Welcome to the Cafe Order Food App (COFA), a project designed to showcase a food
 
 
 # Design Patterns
-![Alt text](./imageFinalProj/20.png)
+![Alt text](./imageFinalProj/20.jpg)
 
 This project adopts the Model-View-ViewModel MVVM separates an app’s user interface (View) from the underlying data (Model) and introduces an intermediary component called ViewModel to manage the presentation logic.
 
