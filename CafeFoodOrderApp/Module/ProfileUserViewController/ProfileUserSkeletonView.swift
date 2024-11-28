@@ -32,7 +32,6 @@ class ProfileUserSkeletonView: UIView {
         view.backgroundColor = .clear
         self.addSubview(view)
         
-        // Set isSkeletonable untuk view utama dan panggil setup
         self.isSkeletonable = true
         setup()
     }
@@ -44,7 +43,6 @@ class ProfileUserSkeletonView: UIView {
             item.showAnimatedGradientSkeleton()
         }
     }
-    
 }
 
 

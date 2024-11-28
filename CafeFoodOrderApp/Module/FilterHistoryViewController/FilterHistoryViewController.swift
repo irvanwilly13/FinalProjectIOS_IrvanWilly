@@ -52,22 +52,22 @@ class FilterHistoryViewController: UIViewController {
     }
     
     @objc func selectPendingFilter() {
-        selectedFilter = "pending" // Set filter ke pending
+        selectedFilter = "pending"
         updateButtonStates()
     }
     
     @objc func selectPaidFilter() {
-        selectedFilter = "paid" // Set filter ke paid
+        selectedFilter = "paid"
         updateButtonStates()
     }
     
     @objc func resetFilter() {
-        selectedFilter = nil // Tampilkan semua data
+        selectedFilter = nil
         updateButtonStates()
     }
     
     @objc func applySelectedFilter() {
-        delegate?.applyFilter(status: selectedFilter) // Kirim status filter ke delegate
+        delegate?.applyFilter(status: selectedFilter)
         UIView.animate(withDuration: 0.3) {
             self.dismiss(animated: true, completion: nil)
         }

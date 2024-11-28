@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileUserViewController" customModule="CafeFoodOrderApp" customModuleProvider="target">
             <connections>
+                <outlet property="addressButton" destination="jRH-3f-9GU" id="rOs-R9-l2I"/>
                 <outlet property="containerCardView" destination="OqH-z6-X9S" id="hrb-bK-qjw"/>
                 <outlet property="containerImgView" destination="weD-Wl-BW0" id="3zS-G3-Xkj"/>
                 <outlet property="helpCenterButton" destination="r8f-z4-Bfd" id="0bn-O8-KIF"/>
@@ -521,7 +522,7 @@
         <image name="ticket.fill" catalog="system" width="128" height="86"/>
         <image name="topBar1" width="375" height="75"/>
         <namedColor name="lightGreyCofa">
-            <color red="0.9137254901960784" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.91399997472763062" green="0.93699997663497925" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -17,17 +17,17 @@ class FoodCategoryTableViewCell: UITableViewCell {
         }
     }
     var onSelectCategory: ((_ category: Category) -> Void)?
+    // closure ini dipergunakan untuk mengirim dara category/ jika memiliki parameter
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
     }
     
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
     }
+    
     func setup() {
         let nib = UINib(nibName: "FoodCategoryCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "FoodCategoryCollectionViewCell")
@@ -43,12 +43,9 @@ class FoodCategoryTableViewCell: UITableViewCell {
         collectionView.collectionViewLayout = layout
     }
     func configure(with categories: [Category]) {
-        // Atur tampilan kategori makanan di sini
         self.categoryItems = categories
         collectionView.reloadData()
-        
     }
-    
 }
 extension FoodCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -68,11 +65,9 @@ extension FoodCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let selectedCategory = categoryItems[indexPath.row]
-            onSelectCategory?(selectedCategory)
-        }
-    
-    
+        let selectedCategory = categoryItems[indexPath.row]
+        onSelectCategory?(selectedCategory)
+    }
 }
 
 extension FoodCategoryTableViewCell: SkeletonCollectionViewDataSource {
@@ -83,6 +78,4 @@ extension FoodCategoryTableViewCell: SkeletonCollectionViewDataSource {
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
         return "FoodCategoryCollectionViewCell"
     }
-    
-    
 }

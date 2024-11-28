@@ -32,7 +32,7 @@ class CancelOrderViewController: BaseViewController {
         "Cafe meminta pembatalan pesanan"
     ]
     
-    var selectedReasonIndex: Int? // Menyimpan alasan yang dipilih
+    var selectedReasonIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +50,9 @@ class CancelOrderViewController: BaseViewController {
     
     private func setupSubmitButton() {
         submitButton.isEnabled = false
-        submitButton.backgroundColor = UIColor.lightGray // Disabled state
+        submitButton.backgroundColor = UIColor.lightGray
         submitButton.layer.cornerRadius = 8
         submitButton.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
-        
-        
     }
     func bindingData() {
         viewModel.loadingState.asObservable().subscribe(onNext: { [ weak self ] loading in
@@ -84,10 +82,7 @@ class CancelOrderViewController: BaseViewController {
                 self.onClickCancel?()
                 self.dismiss(animated: true, completion: nil)
             }
-            
-        
         }).disposed(by: bag)
-        
     }
     @objc func tapCoachMark() {
         UIView.animate(withDuration: 0.3) {
@@ -95,16 +90,13 @@ class CancelOrderViewController: BaseViewController {
         }
     }
     
-    
     @objc func submitButtonTapped() {
         if let selectedIndex = selectedReasonIndex {
             print("Selected reason: \(reasons[selectedIndex])")
-            // Lakukan sesuatu, seperti mengirim alasan ke server
             if let orderID = orderID {
                 viewModel.fetchRequestCancelData(orderID: orderID)
             }
             dismiss(animated: true, completion: nil)
-            
         }
     }
 }
@@ -121,6 +113,11 @@ extension CancelOrderViewController: UITableViewDelegate, UITableViewDataSource 
         cell.nameLabel.text = reasons[indexPath.row]
         cell.selectButton.isSelected = (selectedReasonIndex == indexPath.row)
         cell.selectButton.setImage(UIImage(systemName: cell.selectButton.isSelected ? "largecircle.fill.circle" : "circle"), for: .normal)
+        if cell.selectButton.isSelected {
+            cell.selectButton.tintColor = UIColor.orange
+        } else {
+            cell.selectButton.tintColor = UIColor.lightGray
+        }
         
         cell.selectButton.tag = indexPath.row
         cell.selectButton.addTarget(self, action: #selector(selectReason(_:)), for: .touchUpInside)
@@ -132,8 +129,6 @@ extension CancelOrderViewController: UITableViewDelegate, UITableViewDataSource 
         selectedReasonIndex = sender.tag
         tableView.reloadData()
         
-        // Aktifkan tombol submit
         submitButton.isEnabled = true
-        submitButton.backgroundColor = UIColor.systemBlue
     }
 }

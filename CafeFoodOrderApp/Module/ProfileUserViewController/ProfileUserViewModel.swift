@@ -29,7 +29,6 @@ class ProfileUserViewModel: BaseViewModel {
                 print("Terjadi error: \(error)")
                 self .loadingState.accept(.failed)
             }
-            
         }
     }
 }

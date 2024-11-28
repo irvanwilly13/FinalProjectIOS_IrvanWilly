@@ -13,40 +13,40 @@ class HelpCenterViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var faqs: [(question: String, answer: String, isExpanded: Bool)] = [
-        ("How can I get New User Rewards?", "New user rewards are available for the first time...", false),
-        ("Why don't I get the New User Rewards?", "The same phone number, the same mobile device...", false),
-        ("How do I use my vouchers?", "Make sure your cart items meet all terms and...", false),
-        ("Why did my voucher disappear?", "The mobile app will only show vouchers that...", false),
-        ("What is TOMORO Points?", "TOMORO points are accumulated and calculated...", false),
-        ("How to get TOMORO Points?", "Every time you present your membership code...", false)
+        (NSLocalizedString("faq_order", comment: ""), NSLocalizedString("faq_order_answer", comment: ""), false),
+        (NSLocalizedString("faq_change_order", comment: ""), NSLocalizedString("faq_change_order_answer", comment: ""), false),
+        (NSLocalizedString("faq_payment_methods", comment: ""), NSLocalizedString("faq_payment_methods_answer", comment: ""), false),
+        (NSLocalizedString("faq_track_order", comment: ""), NSLocalizedString("faq_track_order_answer", comment: ""), false),
+        (NSLocalizedString("faq_delivery_or_pickup", comment: ""), NSLocalizedString("faq_delivery_or_pickup_answer", comment: ""), false),
+        (NSLocalizedString("faq_cancel_order", comment: ""), NSLocalizedString("faq_cancel_order_answer", comment: ""), false),
+        (NSLocalizedString("faq_discount_voucher", comment: ""), NSLocalizedString("faq_discount_voucher_answer", comment: ""), false),
+        (NSLocalizedString("faq_missing_order", comment: ""), NSLocalizedString("faq_missing_order_answer", comment: ""), false),
+        (NSLocalizedString("faq_loyalty_rewards", comment: ""), NSLocalizedString("faq_loyalty_rewards_answer", comment: ""), false),
+        (NSLocalizedString("faq_modify_address", comment: ""), NSLocalizedString("faq_modify_address_answer", comment: ""), false)
     ]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Mendaftarkan sel kustom
         tableView.register(UINib(nibName: "HelpCenterTableViewCell", bundle: nil), forCellReuseIdentifier: "HelpCenterTableViewCell")
         
-        // Mengatur delegate dan data source
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
+        toolBarView.setup(title: "Help Center")
     }
     
-    // Fungsi untuk mengubah visibilitas jawaban
     @objc func toggleAnswerVisibility(sender: UIButton) {
         let index = sender.tag
         faqs[index].isExpanded.toggle()
         
-        // Reload row with animation
         tableView.beginUpdates()
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
         tableView.endUpdates()
     }
 }
 
-// MARK: - UITableViewDataSource
 extension HelpCenterViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,15 +61,15 @@ extension HelpCenterViewController: UITableViewDataSource, UITableViewDelegate{
         let faq = faqs[indexPath.row]
         cell.questionLabel.text = faq.question
         cell.answerLabel.text = faq.answer
-        cell.configureCell(isExpanded: faq.isExpanded) // Konfigurasi animasi show/hide
+        cell.configureCell(isExpanded: faq.isExpanded)
         
-        cell.showHideButton.tag = indexPath.row // Set tag untuk identifikasi
+        cell.showHideButton.tag = indexPath.row
         cell.showHideButton.addTarget(self, action: #selector(toggleAnswerVisibility), for: .touchUpInside)
         
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        faqs[indexPath.row].isExpanded.toggle() // Toggle expanded state
+        faqs[indexPath.row].isExpanded.toggle()
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="CafeFoodOrderApp" customModuleProvider="target">
             <connections>
                 <outlet property="forgotPasswordButton" destination="NTE-Po-jZL" id="2UX-zV-RWN"/>
+                <outlet property="infoLabel" destination="rPM-3O-7Si" id="8WD-ZK-EH4"/>
                 <outlet property="loginButton" destination="YPh-tQ-ypv" id="cbu-mP-QCv"/>
                 <outlet property="passwordField" destination="VHR-Ru-86G" id="Sb9-Ks-R1F"/>
                 <outlet property="registerButton" destination="kiX-5f-vsE" id="zaB-nf-hUj"/>

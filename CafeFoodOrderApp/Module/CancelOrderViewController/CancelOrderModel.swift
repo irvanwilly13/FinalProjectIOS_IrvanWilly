@@ -13,7 +13,6 @@ struct CancelModel: Codable {
     let data: CancelData
 }
 
-// MARK: - DataClass
 struct CancelData: Codable {
     let orID, orTotalPrice: Int
     let orStatus, orPaymentStatus, orPlatformID: String

@@ -9,22 +9,21 @@ import UIKit
 import SkeletonView
 
 class HelpTableViewCell: UITableViewCell {
-
+    
     
     @IBOutlet weak var containerView: FormView!
     override func awakeFromNib() {
-            super.awakeFromNib()
-            setupGestureRecognizer()
-        }
-
-        private func setupGestureRecognizer() {
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(containerViewTapped))
-            containerView.addGestureRecognizer(tapGesture)
-            containerView.isUserInteractionEnabled = true
-        }
-
-        @objc private func containerViewTapped() {
-            // Kirim notifikasi ke view controller atau lakukan navigasi di sini
-            print("Container View Tapped!")
-        }
+        super.awakeFromNib()
+        setupGestureRecognizer()
     }
+    
+    private func setupGestureRecognizer() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(containerViewTapped))
+        containerView.addGestureRecognizer(tapGesture)
+        containerView.isUserInteractionEnabled = true
+    }
+    
+    @objc private func containerViewTapped() {
+        print("Container View Tapped!")
+    }
+}

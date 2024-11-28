@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 
 class OnBoardingCoordinator: Coordinator {
+    
     var navigationController: UINavigationController?
     init(navigationController: UINavigationController? = nil) {
         self.navigationController = navigationController
     }
+    
     func start() {
         guard let navigationController = navigationController else {
             return
@@ -30,6 +32,7 @@ class OnBoardingCoordinator: Coordinator {
         let loginCoordinator = LoginCoordinator(navigationController: navigationController)
         loginCoordinator.start()
     }
+    
     func showRegister() {
         guard let navigationController = navigationController else {
             return

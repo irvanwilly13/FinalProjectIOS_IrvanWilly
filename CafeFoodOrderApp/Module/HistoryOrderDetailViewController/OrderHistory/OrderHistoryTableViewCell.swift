@@ -12,6 +12,7 @@ import SkeletonView
 
 class OrderHistoryTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var orderLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -25,15 +26,12 @@ class OrderHistoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(data: OdProduct?) {
-        
-        
+    func configure(data: OdProduct?, isFirstCell: Bool) {
         if let data = data {
             nameLabel.text = data.name
             priceLabel.text = "Rp. \(data.price)"
             descLabel.text = "\(data.quantity) item(s)"
         }
-        
-        
+        orderLabel.isHidden = !isFirstCell
     }
 }

@@ -27,18 +27,16 @@ class FoodCategoryCollectionViewCell: UICollectionViewCell {
 
         }
         
-        // Download the image from the URL (if it exists) and set it to imgView
         if let url = URL(string: item.icon ?? "") {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else {
                     print("Error downloading image: \(String(describing: error))")
                     return
                 }
-                // Set the downloaded image to imgView on the main thread
                 DispatchQueue.main.async {
                     self.imgView.image = UIImage(data: data)
                 }
-            }.resume() // Start the download task
+            }.resume()
         }
     }
         

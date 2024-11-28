@@ -17,7 +17,6 @@ class PickAddressTableViewCell: UITableViewCell {
     //MARK: CLOSURE, DIGUNAKAN UNTUK MEMBERIKAN NAVIGASI ATAU SELECT YANG BERADA DI DALAM TABLEVIEW
     var onDeleteTapped: (() -> Void)?
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         deleteButton.addTarget(self, action: #selector(didTapDeleteButton), for: .touchUpInside)
@@ -37,7 +36,6 @@ class PickAddressTableViewCell: UITableViewCell {
         addressLabel.text = formattedAddress
     }
     @objc private func didTapDeleteButton() {
-            // Panggil closure saat tombol delete ditekan
             onDeleteTapped?()
         }
 }

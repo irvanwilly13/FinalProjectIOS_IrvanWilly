@@ -14,7 +14,6 @@ struct PromotionModel: Codable {
     let data: [PromotionData]
 }
 
-// MARK: - Datum
 struct PromotionData: Codable {
     
     let prmID: Int

@@ -100,6 +100,7 @@
                 <outlet property="containerView" destination="H2p-sc-9uM" id="af3-ck-6hC"/>
                 <outlet property="descLabel" destination="ojD-CP-eDa" id="Oxw-bY-3yr"/>
                 <outlet property="nameLabel" destination="82Z-VJ-xGR" id="gh7-5c-BFt"/>
+                <outlet property="orderLabel" destination="er9-B5-KQO" id="ms2-7k-hfq"/>
                 <outlet property="priceLabel" destination="Svd-b2-wOn" id="jqe-Wu-zTq"/>
             </connections>
             <point key="canvasLocation" x="132.82442748091603" y="60.563380281690144"/>

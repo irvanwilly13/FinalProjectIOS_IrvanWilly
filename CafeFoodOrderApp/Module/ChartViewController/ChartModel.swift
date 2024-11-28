@@ -14,7 +14,6 @@ struct OrderModel: Codable, Hashable {
     let data: OrderDataModel
 }
 
-// MARK: - DataClass
 struct OrderDataModel: Codable, Hashable {
     let orUpdatedOn: String
     let orID, orUsID, orTotalPrice: Int
@@ -44,7 +43,6 @@ struct OrderDataModel: Codable, Hashable {
     }
 }
 
-// MARK: - Transaction
 struct Transaction: Codable, Hashable {
     let token: String
     let redirectURL: String

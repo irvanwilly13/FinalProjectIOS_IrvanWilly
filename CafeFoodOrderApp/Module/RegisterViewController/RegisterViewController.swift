@@ -13,6 +13,7 @@ import SkeletonView
 
 class RegisterViewController: BaseViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var phoneNumberField: CustomInputField!
     @IBOutlet weak var fullnameField: CustomInputField!
     @IBOutlet weak var emailField: CustomInputField!
@@ -64,19 +65,14 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
     }
     
     func configure() {
-        emailField.setup(title: "Email", placeholder: "")
-        fullnameField.setup(title: "Nama Lengkap", placeholder: "")
-        phoneNumberField.setup(title: "No Handphone", placeholder: "")
-        usernameField.setup(title: "Username", placeholder: "")
-        passwordField.setup(title: "Password", placeholder: "")
-        confirmPasswordField.setup(title: "Confirm Password", placeholder: "")
-        emailField.setup(title: .localized("email_placeholder"), placeholder: .localized("email_placeholder"))
-        fullnameField.setup(title: .localized("profile_title"), placeholder: .localized("fullname_placeholder"))
-        phoneNumberField.setup(title: .localized("phone_number_title"), placeholder: .localized("phone_number_placeholder"))
-        usernameField.setup(title: .localized("username_title"), placeholder: .localized("username_placeholder"))
-        passwordField.setup(title: .localized("password_placeholder"), placeholder: .localized("password_placeholder"))
-        confirmPasswordField.setup(title: .localized("confirm_password_title"), placeholder: .localized("confirm_password_placeholder"))
-        
+        emailField.setup(title: .localized("email"), placeholder: .localized("email_placeholder"))
+        fullnameField.setup(title: .localized("fullname"), placeholder: .localized("fullname_placeholder"))
+        phoneNumberField.setup(title: .localized("phone_number"), placeholder: .localized("phone_number_placeholder"))
+        usernameField.setup(title: .localized("username"), placeholder: .localized("username_placeholder"))
+        passwordField.setup(title: .localized("password"), placeholder: .localized("password_placeholder"))
+        confirmPasswordField.setup(title: .localized("confirm_password"), placeholder: .localized("confirm_password_placeholder"))
+        infoLabel.text = .localized("already_have_account")
+
         passwordField.textField.isSecureTextEntry = true
         confirmPasswordField.textField.isSecureTextEntry = true
     }

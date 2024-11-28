@@ -21,14 +21,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9e-Y6-b3k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Im5-0D-aGm">
-                                <rect key="frame" x="8" y="5" width="266" height="18.666666666666668"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Im5-0D-aGm">
+                                <rect key="frame" x="8" y="5" width="266" height="19.333333333333332"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQJ-Ea-2eT">
-                                <rect key="frame" x="16" y="82" width="296" height="18"/>
+                                <rect key="frame" x="16" y="45" width="296" height="55"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,7 +42,9 @@
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="ic_chevron_down.png" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="ic_chevron_down.png" title="">
+                                    <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -56,6 +58,7 @@
                             <constraint firstAttribute="height" constant="110" id="fTn-bi-2ck"/>
                             <constraint firstItem="9Rl-Gx-DCN" firstAttribute="leading" secondItem="Im5-0D-aGm" secondAttribute="trailing" constant="8" id="jVQ-Rd-bHA"/>
                             <constraint firstItem="Im5-0D-aGm" firstAttribute="top" secondItem="E9e-Y6-b3k" secondAttribute="top" constant="5" id="nVW-6X-uqJ"/>
+                            <constraint firstItem="fQJ-Ea-2eT" firstAttribute="top" secondItem="9Rl-Gx-DCN" secondAttribute="bottom" constant="10" id="pgu-ox-97A"/>
                         </constraints>
                     </view>
                 </subviews>

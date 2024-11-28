@@ -18,6 +18,7 @@ class PromotionCodeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         
     }
     

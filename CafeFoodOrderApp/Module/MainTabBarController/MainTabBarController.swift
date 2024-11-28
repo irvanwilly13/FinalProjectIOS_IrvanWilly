@@ -99,7 +99,7 @@ class MainTabBarController: UITabBarController {
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], for: .selected)
-        UITabBar.appearance().tintColor = UIColor.magenta
+        UITabBar.appearance().tintColor = UIColor.orange
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,7 +139,7 @@ extension MainTabBarController {
                 self.selectedViewController = VC
             }
         case .profile:
-            if let VC = self.viewControllers?[4] as? ProfileViewController {
+            if let VC = self.viewControllers?[4] as? ProfileUserViewController {
                 self.selectedViewController = VC
             }
         }

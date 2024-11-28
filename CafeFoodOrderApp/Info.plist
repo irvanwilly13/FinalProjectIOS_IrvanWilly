@@ -2,6 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>MIDTRANS_KEY</key>
+	<string>SB-Mid-client-DMzFzhAUqMIxUcTC</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OpenSans-LightItalic.ttf</string>
+		<string>OpenSans-Italic.ttf</string>
+		<string>OpenSans-Light.ttf</string>
+		<string>OpenSans-ExtraBold.ttf</string>
+		<string>OpenSans-CondLightItalic.ttf</string>
+		<string>OpenSans-CondLight.ttf</string>
+		<string>OpenSans-CondBold.ttf</string>
+		<string>OpenSans-BoldItalic.ttf</string>
+		<string>OpenSans-Bold.ttf</string>
+		<string>DripOctober.ttf</string>
+		<string>BrownieStencil.ttf</string>
+		<string>CrotahFreeVersionItalic.ttf</string>
+		<string>BlackNorth.ttf</string>
+	</array>
 	<key>BASE_URL</key>
 	<string>${BASE_URL}</string>
 	<key>GoogleUtilitiesAppDelegateProxyEnabled</key>

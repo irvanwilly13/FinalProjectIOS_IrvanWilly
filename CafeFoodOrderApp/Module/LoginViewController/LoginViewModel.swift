@@ -11,6 +11,7 @@ import RxRelay
 import RxCocoa
 
 class LoginViewModel: BaseViewModel {
+    
     var networkManager = NetworkManager.shared
 
     var loginDataModel = BehaviorRelay<LoginResponse?>(value: nil)
@@ -28,7 +29,6 @@ class LoginViewModel: BaseViewModel {
                 print("Terjadi error: \(error)")
                 self .loadingState.accept(.failed)
             }
-            
         }
     }
 }

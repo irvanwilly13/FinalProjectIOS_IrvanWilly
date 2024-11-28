@@ -27,9 +27,8 @@ class HistoryOrderTableViewCell: UITableViewCell {
     var onSelectedCategory: ((_ category: HistoryData) -> Void)?
     var onSelectedOrder: (() -> Void)?
     var cancelButtonTapped: (() -> Void)?
-    private var currentData: HistoryData?
-
     
+    private var currentData: HistoryData?
     
     let bag = DisposeBag()
     
@@ -38,16 +37,14 @@ class HistoryOrderTableViewCell: UITableViewCell {
         containerView.setCornerRadius(16)
         
         detailButton.rx.tap.subscribe { [weak self] _ in
-             guard let self = self, let data = self.currentData else { return }
-             self.onSelectedCategory?(data)
-         }.disposed(by: bag)
+            guard let self = self, let data = self.currentData else { return }
+            self.onSelectedCategory?(data)
+        }.disposed(by: bag)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-    
     
     func configure(data: HistoryData?) {
         guard let data = data else { return }
@@ -75,7 +72,7 @@ class HistoryOrderTableViewCell: UITableViewCell {
         default:
             statusLabel.textColor = UIColor.gray
             orderAgainButton.isHidden = false
-
+            
         }
         
         let totalItems = data.details.flatMap { $0.odProducts }.reduce(0) { $0 + $1.quantity }

@@ -39,8 +39,6 @@ class AdsViewController: BaseViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         self.hidesBottomBarWhenPushed = false
     }
-
-    
 }
 
 extension AdsViewController: WKNavigationDelegate {

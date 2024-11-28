@@ -27,29 +27,14 @@ class RestaurantCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(item: FeaturedRestaurant) {
-            // Set the restaurant image
         if let img = item.image {
             imgView.image = UIImage(named: img)
         }
-            
-            
-            // Set the restaurant name
-            nameLabel.text = item.name
-            
-       
-            
-            // Set the number of reviews
-            reviewsLabel.text = "(\(item.reviews)+) "
-            
-            // Set the rating
-            ratingLabel.text = "\(item.rating)"
-            
-         
-            
-            // Set favorite button appearance
-            let favoriteImage = item.isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
-            isFavoriteButton.setImage(favoriteImage, for: .normal)
-            
-   
-        }
+        nameLabel.text = item.name
+        reviewsLabel.text = "(\(item.reviews)+) "
+        ratingLabel.text = "\(item.rating)"
+        
+        let favoriteImage = item.isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+        isFavoriteButton.setImage(favoriteImage, for: .normal)
     }
+}

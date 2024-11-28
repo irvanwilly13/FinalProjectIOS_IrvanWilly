@@ -23,6 +23,7 @@
                 <outlet property="ratingLabel" destination="DDj-7k-Sn6" id="ulF-rR-6tP"/>
                 <outlet property="reviewLabel" destination="AQy-MI-fso" id="eXk-ei-U5P"/>
                 <outlet property="seeReviewButton" destination="hpi-Yq-NQU" id="NiG-Jq-MUn"/>
+                <outlet property="starImage" destination="nmp-Rm-q5P" id="q9M-qQ-uTg"/>
                 <outlet property="toolBarView" destination="WAl-YN-BVz" id="zsb-de-uVi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -196,6 +197,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="NO"/>
                                     </userDefinedRuntimeAttributes>
                                 </stackView>
                             </subviews>
@@ -206,6 +208,9 @@
                                 <constraint firstAttribute="trailing" secondItem="UnG-Tj-egJ" secondAttribute="trailing" constant="3" id="FzG-Oo-i8Z"/>
                                 <constraint firstItem="UnG-Tj-egJ" firstAttribute="leading" secondItem="5LQ-2x-7sy" secondAttribute="leading" constant="3" id="Zfr-q2-yg6"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -264,7 +269,7 @@
             <color red="0.96078431372549022" green="0.50980392156862742" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="lightGreyCofa">
-            <color red="0.9137254901960784" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.91399997472763062" green="0.93699997663497925" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

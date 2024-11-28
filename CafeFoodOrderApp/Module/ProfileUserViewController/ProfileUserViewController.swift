@@ -28,13 +28,13 @@ class ProfileUserViewController: UIViewController {
     @IBOutlet weak var termsServicesButton: UIButton!
     @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var helpCenterButton: UIButton!
+    @IBOutlet weak var addressButton: UIButton!
     
     var viewModel = ProfileUserViewModel()
     let disposeBag = DisposeBag()
     var profileData: [DataProfileUser] = []
     
     lazy var profileSkeletonView = ProfileUserSkeletonView(frame: scrollView.frame)
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,7 @@ class ProfileUserViewController: UIViewController {
     
     func configure(data: DataProfileUser) {
         DispatchQueue.main.async {
-           // self.imgView.image = UIImage(named: data.prImageURL)
+            // self.imgView.image = UIImage(named: data.prImageURL)
             self.nameLabel.text = data.user.usFullname
             self.nameCardLabel.text = data.user.usFullname
         }
@@ -102,20 +102,20 @@ class ProfileUserViewController: UIViewController {
         }).disposed(by: disposeBag)
         viewModel.fetchRequestData()
     }
-//    func showSkeleton(show: Bool) {
-//        if show {
-//            containerCardView.showAnimatedGradientSkeleton()
-//            nameLabel.showAnimatedGradientSkeleton()
-//            imgView.showAnimatedGradientSkeleton()
-//            nameCardLabel.showAnimatedGradientSkeleton()
-//            containerImgView.showAnimatedGradientSkeleton()
-//            qrCodeButton.showAnimatedGradientSkeleton()
-//            voucherButton.showAnimatedGradientSkeleton()
-//            settingsButton.showAnimatedGradientSkeleton()
-//            privacyPolicyButton.showAnimatedGradientSkeleton()
-//            
-//        }
-//    }
+    //    func showSkeleton(show: Bool) {
+    //        if show {
+    //            containerCardView.showAnimatedGradientSkeleton()
+    //            nameLabel.showAnimatedGradientSkeleton()
+    //            imgView.showAnimatedGradientSkeleton()
+    //            nameCardLabel.showAnimatedGradientSkeleton()
+    //            containerImgView.showAnimatedGradientSkeleton()
+    //            qrCodeButton.showAnimatedGradientSkeleton()
+    //            voucherButton.showAnimatedGradientSkeleton()
+    //            settingsButton.showAnimatedGradientSkeleton()
+    //            privacyPolicyButton.showAnimatedGradientSkeleton()
+    //            
+    //        }
+    //    }
     
     func hideNavigationBar() {
         self.navigationController?.isToolbarHidden = true
@@ -131,8 +131,8 @@ class ProfileUserViewController: UIViewController {
         helpCenterButton.addTarget(self, action: #selector(actionToHelpCenter), for: .touchUpInside)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(actionToSettings))
-                imgView.isUserInteractionEnabled = true
-                imgView.addGestureRecognizer(tapGesture)
+        imgView.isUserInteractionEnabled = true
+        imgView.addGestureRecognizer(tapGesture)
     }
     @objc func actionToPolicy() {
         let vc = PrivacyPolicyViewController()
@@ -149,10 +149,15 @@ class ProfileUserViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
+    @objc func actionToAddress() {
+        let vc = PickAddressViewController()
+        vc.isFromProfile = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     @objc func actionToSettings() {
         let vc = ChangeInformationViewController()
         vc.profileData = self.viewModel.profileDataModel.value?.data
-
+        
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -165,20 +170,15 @@ class ProfileUserViewController: UIViewController {
         ]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        gradientLayer.cornerRadius = 12 // Atur radius sudut sesuai keinginan
+        gradientLayer.cornerRadius = 12
         
         containerCardView.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // Pastikan gradientLayer menyesuaikan ukuran containerCardView saat layout berubah
         containerCardView.layer.sublayers?.first?.frame = containerCardView.bounds
-        
         containerImgView.layer.cornerRadius = containerImgView.frame.width / 2
         containerImgView.layer.masksToBounds = true
     }
-    
-    
-    
 }

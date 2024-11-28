@@ -54,8 +54,7 @@ class LeftMenuBottomSheetViewController: UIViewController {
     }
     
     @objc func actionToProfile() {
-        let vc = ProfileViewController()
-        
+        let vc = ProfileUserViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

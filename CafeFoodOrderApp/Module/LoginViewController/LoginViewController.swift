@@ -14,8 +14,10 @@ import SkeletonView
 
 class LoginViewController: BaseViewController {
     
+    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var usernameField: CustomInputField!
     @IBOutlet weak var passwordField: CustomInputField!
+    
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
@@ -58,8 +60,9 @@ class LoginViewController: BaseViewController {
     }
     
     func configure() {
-        usernameField.setup(title: .localized("email_placeholder"), placeholder: .localized("email_placeholder"))
-        passwordField.setup(title: .localized("password_placeholder"), placeholder: .localized("password_placeholder"))
+        usernameField.setup(title: .localized("username"), placeholder: .localized("username_placeholder"))
+        passwordField.setup(title: .localized("password"), placeholder: .localized("password_placeholder"))
+        infoLabel.text = .localized("dont_have_account")
         passwordField.textField.isSecureTextEntry = true
     }
     
@@ -69,18 +72,12 @@ class LoginViewController: BaseViewController {
             showAlert(message: "Tidak boleh gada isinya")
             return
         }
-        //        if !isValidPassword(password) {
-        //                showAlert(message: "Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, dan angka.")
-        //                return
-        //            }
         
         let param = LoginParam(username: username, password: password)
         viewModel.fetchRequestData(param: param)
-        
     }
     
     func isValidPassword(_ password: String) -> Bool {
-        // Minimal 8 karakter, 1 huruf besar, 1 huruf kecil, 1 angka
         let passwordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$"
         let passwordPred = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
         return passwordPred.evaluate(with: password)
@@ -99,7 +96,6 @@ class LoginViewController: BaseViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
-            
         }).disposed(by: disposeBag)
         
         viewModel.loadingState.asObservable().subscribe(onNext: { [weak self] loading in
@@ -152,7 +148,7 @@ class LoginViewController: BaseViewController {
     func showAlert(message: String, completion: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            completion?() // Eksekusi completion jika ada
+            completion?()
         }
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)

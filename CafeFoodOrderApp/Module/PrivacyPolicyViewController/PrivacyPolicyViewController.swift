@@ -21,6 +21,7 @@ class PrivacyPolicyViewController: UIViewController {
         toolBarView.setup(title: "Privacy Policy")
     }
     func loadPrivacyPolicy() {
+        // Teks kebijakan privasi
         let privacyPolicy = """
             Kebijakan Privasi untuk Cafe Order Food App (COFA)
             
@@ -59,7 +60,7 @@ class PrivacyPolicyViewController: UIViewController {
             Kepatuhan Hukum: Jika diwajibkan oleh hukum atau untuk melindungi hak kami dan pengguna.
             Transfer Bisnis: Dalam hal merger atau akuisisi, data Anda dapat dialihkan ke entitas baru.
             
-            ** 4. Hak Anda**
+            **4. Hak Anda**
             Anda memiliki hak-hak berikut terkait data pribadi Anda:
             
             Akses dan Perbaikan: Anda dapat mengakses atau memperbarui informasi akun Anda melalui aplikasi.
@@ -80,22 +81,21 @@ class PrivacyPolicyViewController: UIViewController {
             Email: support@cofaapp.com
             Telepon: +6281808370321
             Dengan menggunakan COFA, Anda menyetujui Kebijakan Privasi ini. Terima kasih atas kepercayaan Anda pada layanan kami!
-            """
+        """
         
         let attributedText = NSMutableAttributedString(string: privacyPolicy)
         
-        // Atur teks yang ingin di-bold
         let boldRanges = [
-            "Kebijakan Privasi untuk Cafe Order Food App (COFA)",
-            "Informasi yang Kami Kumpulkan",
-            "1. Informasi yang Anda Berikan",
-            "2. Informasi yang Dikumpulkan Secara Otomatis"
-        ]
+                "Kebijakan Privasi untuk Cafe Order Food App (COFA)",
+                "Informasi yang Kami Kumpulkan",
+                "1. Informasi yang Anda Berikan",
+                "2. Informasi yang Dikumpulkan Secara Otomatis"
+            ]
+
         
         let boldFont = UIFont.boldSystemFont(ofSize: 16)
         let regularFont = UIFont.systemFont(ofSize: 14)
         
-        // Terapkan format
         attributedText.addAttribute(.font, value: regularFont, range: NSRange(location: 0, length: attributedText.length))
         
         for boldText in boldRanges {
@@ -104,9 +104,7 @@ class PrivacyPolicyViewController: UIViewController {
                 attributedText.addAttribute(.font, value: boldFont, range: nsRange)
             }
         }
-        
-        // Set attributed text ke UITextView
         textArea.attributedText = attributedText
-        textArea.isEditable = false // Agar teks tidak bisa diedit
+        textArea.isEditable = false
     }
 }

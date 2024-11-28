@@ -126,7 +126,7 @@ class PromotionViewController: BaseViewController {
             print("No promo code selected or promo not found")
             return
         }
-        delegate?.didSelectPromoCode(selectedPromo) // Kirim PromotionData ke delegate
+        delegate?.didSelectPromoCode(selectedPromo)
         navigationController?.popViewController(animated: true)
     }
 }

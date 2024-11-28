@@ -14,7 +14,6 @@ struct DataProfileModel: Codable {
     let data: DataProfileUser
 }
 
-// MARK: - DataClass
 struct DataProfileUser: Codable {
     let prID, prUsID: Int
     let prGender: String
@@ -46,7 +45,6 @@ struct DataProfileUser: Codable {
     }
 }
 
-// MARK: - User
 struct User: Codable {
     let usFullname, usEmail, usPhoneNumber: String
 
@@ -56,3 +54,4 @@ struct User: Codable {
         case usPhoneNumber = "us_phone_number"
     }
 }
+

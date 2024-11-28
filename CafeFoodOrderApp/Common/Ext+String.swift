@@ -13,6 +13,10 @@ extension String {
     static func localized(_ string: String) -> String {
         return NSLocalizedString(string, comment: "")
     }
+    func toDate() -> Date? {
+            let dateFormatter = ISO8601DateFormatter()
+            return dateFormatter.date(from: self)
+        }
     
     func coloredSubstring(_ substring: String, color: UIColor) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: self)

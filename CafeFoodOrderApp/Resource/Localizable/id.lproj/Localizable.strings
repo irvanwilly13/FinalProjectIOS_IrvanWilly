@@ -6,79 +6,117 @@
   
 */
 //MARK: General Text
-"app_title" = "Food App";
-"welcome_message" = "Welcome %@ in our app, your point %@";
-"loading" = "Loading...";
-"retry" = "Retry";
+"app_title" = "Aplikasi Pemesanan Makanan";
+"welcome_message" = "Selamat datang di Cafe Order Food App";
+"loading" = "Memuat...";
+"retry" = "Coba Lagi";
 
-//MARK: Authentication */
-"login_title" = "Login";
-"register_title" = "Register";
-"forgot_password" = "Forgot Password?";
-"email_placeholder" = "Enter your email";
-"password_placeholder" = "Enter your password";
-"login_button" = "Login";
-"register_button" = "Register";
+/* Authentication */
+"login_title" = "Masuk";
+"register_title" = "Daftar";
+"forgot_password" = "Lupa Kata Sandi?";
+"username" = "Username";
+"password" = "Password";
+"email" = "Email";
+"fullname" = "Nama Lengkap";
+"phone_number" = "Nomor Handphone";
+"confirm_password" = "Ulangi Password";
+"confirm_password_placeholder" = "Masukkan ulang Password Anda";
+"username_placeholder" = "Masukkan Username Anda";
+"password_placeholder" = "Masukkan kata sandi Anda";
+"email_placeholder" = "Masukkan Username Anda";
+"fullname_placeholder" = "Masukan Nama Lengkap Anda";
+"phone_number_placeholder" = "Masukan No Handphone";
+"login_button" = "Masuk";
+"register_button" = "Daftar";
+"already_have_account" = "Sudah mempunyai Akun?";
+"dont_have_account" = "Belum mempunyai Akun?";
+"greeting1" = "Nikmati Hidupmu";
+"greeting2" = "Nikmati Makananmu";
 
-//MARK: Profile */
-"profile_title" = "Profile";
-"change_avatar" = "Change Avatar";
-"edit_profile" = "Edit Profile";
-"logout" = "Logout";
-"save_changes" = "Save Changes";
-"update_success" = "Profile updated successfully!";
-"update_failed" = "Failed to update profile, please try again.";
 
-//MARK: Address */
-"address_title" = "Select Address";
-"add_new_address" = "Add New Address";
-"address_placeholder" = "Enter your address";
-"city_placeholder" = "Enter your city";
-"state_placeholder" = "Enter your state";
-"postal_code_placeholder" = "Enter postal code";
-"save_address_button" = "Save Address";
-"address_saved_success" = "Address saved successfully!";
-"address_saved_failed" = "Failed to save address, please try again.";
 
-//MARK: Order */
-"order_history_title" = "Order History";
-"order_details_title" = "Order Details";
-"order_again" = "Order Again";
-"payment_button" = "Make Payment";
-"order_cancelled" = "Your order has been cancelled.";
-"order_cancel_failed" = "Failed to cancel the order, please try again.";
-"empty_order_message" = "You have no orders yet.";
+/* Profile */
+"profile_title" = "Profil";
+"change_avatar" = "Ganti Foto Profil";
+"edit_profile" = "Edit Profil";
+"logout" = "Keluar";
+"save_changes" = "Simpan Perubahan";
+"update_success" = "Profil berhasil diperbarui!";
+"update_failed" = "Gagal memperbarui profil, silakan coba lagi.";
 
-//MARK: Notifications */
-"notification_title" = "Notifications";
-"no_notifications" = "You don't have any notifications.";
+/* Address */
+"address_title" = "Pilih Alamat";
+"add_new_address" = "Tambah Alamat Baru";
+"address_placeholder" = "Masukkan alamat Anda";
+"city_placeholder" = "Masukkan kota Anda";
+"state_placeholder" = "Masukkan provinsi Anda";
+"postal_code_placeholder" = "Masukkan kode pos";
+"save_address_button" = "Simpan Alamat";
+"address_saved_success" = "Alamat berhasil disimpan!";
+"address_saved_failed" = "Gagal menyimpan alamat, silakan coba lagi.";
 
-//MARK: Errors */
-"error_network" = "Network error, please check your connection.";
-"error_server" = "Server error, please try again later.";
-"error_required_fields" = "Please fill in all required fields.";
-"error_invalid_email" = "Please enter a valid email address.";
-"error_invalid_password" = "Password must be at least 6 characters.";
+/* Order */
+"order_history_title" = "Riwayat Pesanan";
+"order_details_title" = "Detail Pesanan";
+"order_again" = "Pesan Lagi";
+"payment_button" = "Lakukan Pembayaran";
+"order_cancelled" = "Pesanan Anda telah dibatalkan.";
+"order_cancel_failed" = "Gagal membatalkan pesanan, silakan coba lagi.";
+"empty_order_message" = "Anda belum memiliki pesanan.";
 
-//MARK: Payment */
-"payment_title" = "Payment";
+/* Notifications */
+"notification_title" = "Notifikasi";
+"no_notifications" = "Anda tidak memiliki notifikasi.";
+
+/* Errors */
+"error_network" = "Kesalahan jaringan, periksa koneksi Anda.";
+"error_server" = "Kesalahan server, silakan coba lagi nanti.";
+"error_required_fields" = "Silakan isi semua kolom yang wajib.";
+"error_invalid_email" = "Masukkan alamat email yang valid.";
+"error_invalid_password" = "Kata sandi harus terdiri dari minimal 6 karakter.";
+
+/* Payment */
+"payment_title" = "Pembayaran";
 "total_payment" = "Total: %@";
-"payment_successful" = "Payment successful!";
-"payment_failed" = "Payment failed, please try again.";
-"voucher_applied" = "Voucher applied successfully!";
-"voucher_invalid" = "Invalid voucher code.";
+"payment_successful" = "Pembayaran berhasil!";
+"payment_failed" = "Pembayaran gagal, silakan coba lagi.";
+"voucher_applied" = "Voucher berhasil diterapkan!";
+"voucher_invalid" = "Kode voucher tidak valid.";
 
-//MARK: Buttons */
+/* Buttons */
 "button_ok" = "OK";
-"button_cancel" = "Cancel";
-"button_save" = "Save";
-"button_yes" = "Yes";
-"button_no" = "No";
+"button_cancel" = "Batal";
+"button_save" = "Simpan";
+"button_yes" = "Ya";
+"button_no" = "Tidak";
 
-//MARK: Miscellaneous */
-"search_placeholder" = "Search...";
-"settings_title" = "Settings";
-"help_center_title" = "Help Center";
-"privacy_policy_title" = "Privacy Policy";
-"terms_of_service_title" = "Terms of Service";
-"language_select_title" = "Select Language";
+/* Miscellaneous */
+"search_placeholder" = "Cari...";
+"settings_title" = "Pengaturan";
+"help_center_title" = "Pusat Bantuan";
+"privacy_policy_title" = "Kebijakan Privasi";
+"terms_of_service_title" = "Syarat dan Ketentuan";
+"language_select_title" = "Pilih Bahasa";
+
+"faq_order" = "Bagaimana cara melakukan pemesanan?";
+"faq_order_answer" = "Untuk melakukan pemesanan, cukup jelajahi menu, pilih item yang diinginkan, dan lanjutkan ke checkout untuk mengonfirmasi pesanan Anda.";
+"faq_change_order" = "Bagaimana cara mengubah pesanan setelah melakukan pemesanan?";
+"faq_change_order_answer" = "Sayangnya, setelah pesanan dikonfirmasi, tidak dapat diubah. Anda dapat membatalkan pesanan jika belum diproses.";
+"faq_payment_methods" = "Metode pembayaran apa saja yang diterima?";
+"faq_payment_methods_answer" = "Kami menerima berbagai metode pembayaran, termasuk kartu kredit/debit, dompet digital, dan pembayaran tunai saat pengantaran.";
+"faq_track_order" = "Bagaimana saya bisa melacak pesanan saya?";
+"faq_track_order_answer" = "Anda dapat melacak status pesanan Anda secara real-time melalui bagian 'Status Pesanan' di aplikasi.";
+"faq_delivery_or_pickup" = "Apakah Anda menawarkan pengantaran atau hanya pengambilan?";
+"faq_delivery_or_pickup_answer" = "Kami menawarkan opsi pengantaran dan pengambilan. Pilih opsi yang diinginkan saat checkout.";
+"faq_cancel_order" = "Bisakah saya membatalkan pesanan saya?";
+"faq_cancel_order_answer" = "Anda dapat membatalkan pesanan sebelum diproses. Setelah pesanan dipersiapkan, pembatalan tidak mungkin dilakukan.";
+"faq_discount_voucher" = "Bagaimana cara menggunakan voucher diskon saya?";
+"faq_discount_voucher_answer" = "Untuk menggunakan voucher, masukkan kode saat checkout. Pastikan barang di keranjang Anda memenuhi syarat voucher tersebut.";
+"faq_missing_order" = "Apa yang harus dilakukan jika saya tidak menerima pesanan saya?";
+"faq_missing_order_answer" = "Jika Anda tidak menerima pesanan dalam waktu yang diharapkan, harap hubungi dukungan pelanggan untuk bantuan lebih lanjut.";
+"faq_loyalty_rewards" = "Apakah Anda menawarkan hadiah loyalitas?";
+"faq_loyalty_rewards_answer" = "Ya! Anda bisa mendapatkan poin setiap kali berbelanja, yang dapat ditukarkan dengan diskon untuk pembelian selanjutnya.";
+"faq_modify_address" = "Bisakah saya mengubah alamat pengiriman saya?";
+"faq_modify_address_answer" = "Anda dapat mengubah alamat pengiriman sebelum pesanan dikonfirmasi. Setelah konfirmasi, perubahan tidak diperbolehkan.";
+

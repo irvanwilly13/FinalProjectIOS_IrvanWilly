@@ -13,7 +13,6 @@ struct HistoryModell: Codable {
     let data: [HistoryData]
 }
 
-// MARK: - Datum
 struct HistoryDataa: Codable {
     let orderID, orderDate, orderName: String
     let totalAmount: Double
@@ -29,6 +28,7 @@ struct HistoryModel: Codable, Hashable {
 }
 
 struct HistoryData: Codable, Hashable {
+    
     let orID, orTotalPrice: Int
     var orStatus: String?
     let orPaymentStatus, orTokenID, orPlatformID: String

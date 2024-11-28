@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import RxRelay
 import Toast
+import Kingfisher
 
 class DetailFoodViewController: BaseViewController {
     
@@ -18,6 +19,7 @@ class DetailFoodViewController: BaseViewController {
     var item: ProductFood?
     var itemCount: Int = 1
     
+    @IBOutlet weak var starImage: UIImageView!
     @IBOutlet weak var toolBarView: ToolBarView!
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -80,6 +82,7 @@ class DetailFoodViewController: BaseViewController {
             minusButton.showAnimatedGradientSkeleton()
             plusButton.showAnimatedGradientSkeleton()
             seeReviewButton.showAnimatedGradientSkeleton()
+            starImage.showAnimatedGradientSkeleton()
         } else {
             imgView.hideSkeleton()
             nameLabel.hideSkeleton()
@@ -92,6 +95,7 @@ class DetailFoodViewController: BaseViewController {
             minusButton.hideSkeleton()
             plusButton.hideSkeleton()
             seeReviewButton.hideSkeleton()
+            starImage.hideSkeleton()
         }
     }
     
@@ -150,22 +154,22 @@ class DetailFoodViewController: BaseViewController {
             emptyStateView.isHidden = true
         }
     }
-
-    
 }
 
 extension DetailFoodViewController {
     
-    
     @objc func actionTap() {
         if let foodItem = self.item {
             CartService.shared.addToCart(food: foodItem)
-            
-            let imageName = foodItem.image ?? "defaultImage"
-            let image = UIImage(named: imageName)
+         
+            if let urlString = foodItem.image, let imageUrl = URL(string: urlString) {
+                imgView.kf.setImage(with: imageUrl)
+            } else {
+                imgView.image = UIImage(named: "errorX")
+            }
             
             let toast = Toast.default(
-                image: image ?? UIImage(),
+                image: imgView.image ?? UIImage(),
                 title: "OK",
                 subtitle: "\(foodItem.name) telah ditambahkan ke keranjang"
             )

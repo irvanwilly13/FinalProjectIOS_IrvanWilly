@@ -27,28 +27,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
         
-//        if let tokenData = KeychainHelper.shared.read(forKey: "firebaseAuthToken"),
-//           let token = String(data: tokenData, encoding: .utf8) {
-//            let tabBar = MainTabBarController()
-//            tabBar.modalPresentationStyle = .fullScreen
-//            let navigation = UINavigationController(rootViewController: tabBar)
-//            window.rootViewController = navigation
-//            window.makeKeyAndVisible()
-//            self.window = window
-//            UINavigationBar.appearance().isHidden = false
-//
-//        } else {
-//            // Jika user belum login, buka onboarding page
-//            createOnboardingVC(window: window)
-//        }
-//        
-//        window.makeKeyAndVisible()
-//        self.window = window
     }
+    
     private func setupMidtransConfig() {
-          MidtransConfig.shared().setClientKey("SB-Mid-client-DMzFzhAUqMIxUcTC", environment: .sandbox, merchantServerURL:"https://merchant-url-sandbox.com"
+        MidtransConfig.shared().setClientKey(Constants.midtransKey, environment: .sandbox, merchantServerURL:"https://merchant-url-sandbox.com"
           )
-          //enable logger for debugging purpose
           MidtransNetworkLogger.shared()?.startLogging()
         }
   
@@ -65,10 +48,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func handleLogout() {
         KeychainHelper.shared.delete(forKey: KeychainHelperKey.userID)
-        
-//        let vc = OnBoardViewController()
-//        let navigation = UINavigationController(rootViewController: vc)
-//        window?.rootViewController = navigation
         
         
         let navController = UINavigationController()

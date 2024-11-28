@@ -29,8 +29,8 @@ class OrderPageViewController: BaseViewController {
     var onCheckoutCompleted: (() -> Void)?
     
     var address: AddressModel?
-    var selectedPromoCode: String? // Untuk menyimpan promo code yang dipilih
-    var promotions: [PromotionData] = [] // Menyimpan daftar promo
+    var selectedPromoCode: String?
+    var promotions: [PromotionData] = []
     
     
     lazy var errorStateView = ErrorViewController(frame: tableView.frame)
@@ -63,7 +63,6 @@ class OrderPageViewController: BaseViewController {
         
     }
     func fetchAddressData() {
-        // Mengambil data alamat dari CoreDataManager
         if let fetchedAddress = CoreDataManager.shared.fetchAddresses().first {
             address = fetchedAddress
         } else {
@@ -106,32 +105,11 @@ class OrderPageViewController: BaseViewController {
                 vc.token = token
                 vc.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(vc, animated: true)
-                
-                
-                // self.tableView.reloadData()
             }
-            
-            
-            
         } ).disposed(by: bag)
     }
     
     func createOrder() {
-        //        discountAmount = 0.0
-        //
-        //        if let selectedPromo = selectedPromoCode,
-        //           let promo = promotions.first(where: { $0.prmCode == selectedPromo }) {
-        //            if promo.prmType == "amount" {
-        //                // Diskon berdasarkan jumlah tetap
-        //                discountAmount = Double(promo.prmValue)
-        //            } else if promo.prmType == "percentage" {
-        //                // Diskon berdasarkan persentase dari subtotal
-        //                discountAmount = (subtotalAmount * Double(promo.prmValue)) / 100.0
-        //            }
-        //        }
-        //
-        //        // Pastikan diskon tidak melebihi subtotal
-        //            discountAmount = min(discountAmount, subtotalAmount)
         
         var promo: [String] = []
         if let item = selectedPromoCode {
@@ -163,18 +141,17 @@ class OrderPageViewController: BaseViewController {
     }
     func navigateToPromotions() {
         let promoVC = PromotionViewController()
-        promoVC.delegate = self // Tetapkan delegate
-        promoVC.selectedPromoCode = selectedPromoCode // Kirim promo code yang saat ini dipilih
+        promoVC.delegate = self
+        promoVC.selectedPromoCode = selectedPromoCode
         navigationController?.pushViewController(promoVC, animated: true)
     }
     
     @objc func actionPaymentButton() {
         createOrder()
         CartService.shared.clearCart()
-            
-            // Panggil closure untuk memperbarui keranjang di halaman sebelumnya
-            onCheckoutCompleted?()
+        onCheckoutCompleted?()
     }
+    
     func shouldShowErrorView(status: Bool) {
         switch status {
         case true:
@@ -189,8 +166,6 @@ class OrderPageViewController: BaseViewController {
             }
         }
     }
-    
-    
 }
 
 extension OrderPageViewController: UITableViewDelegate, UITableViewDataSource {
@@ -246,7 +221,6 @@ extension OrderPageViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            // Ambil item dari orderItems berdasarkan indexPath.row
             let item = cartItems[indexPath.row]
             let totalPrice = Double(item.quantity) * Double(item.food.price ?? 0)
             
@@ -255,7 +229,7 @@ extension OrderPageViewController: UITableViewDelegate, UITableViewDataSource {
                 price: String(format: "Rp. %.2f", Double(item.food.price ?? 0)),
                 amount: "\(item.quantity) item",
                 totalPrice: String(format: "Rp. %.2f", totalPrice),
-                imageName: item.food.image ?? "" // Sesuaikan dengan nama atribut yang benar
+                imageName: item.food.image ?? ""
             )
             return cell
             
@@ -267,8 +241,6 @@ extension OrderPageViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
             
-            
-            
         case .orderSummary:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "OrderSummaryTableViewCell",
@@ -277,7 +249,6 @@ extension OrderPageViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            // Gunakan PromotionData untuk menghitung diskon sementara
             var displayDiscountAmount: Double = 0.0
             var displayTotalAmount: Double = subtotalAmount + deliveryFeeAmount
             
@@ -289,12 +260,10 @@ extension OrderPageViewController: UITableViewDelegate, UITableViewDataSource {
                     displayDiscountAmount = (subtotalAmount * Double(promo.prmValue)) / 100.0
                 }
                 
-                // Pastikan diskon tidak lebih besar dari subtotal
                 displayDiscountAmount = min(displayDiscountAmount, subtotalAmount)
                 displayTotalAmount -= displayDiscountAmount
             }
             
-            // Konfigurasi ringkasan order dengan gimmick diskon
             cell.configure(
                 total: String(format: "Rp. %.2f", displayTotalAmount),
                 discount: String(format: "-Rp. %.2f", displayDiscountAmount),
@@ -315,19 +284,18 @@ extension OrderPageViewController: ErrorViewControllerDelegate {
     func buttonTap() {
         
     }
-    
-    
 }
+
 extension OrderPageViewController: PromotionViewControllerDelegate {
     func didSelectPromoCode(_ promo: PromotionData) {
         selectedPromoCode = promo.prmCode
-        promotions.append(promo) // Pastikan promo tersimpan di daftar promo
+        promotions.append(promo)
         tableView.reloadData()
     }
 }
 extension OrderPageViewController: PickAddressViewControllerDelegate {
     func didSelectAddress(_ address: AddressModel) {
-        self.address = address // Simpan alamat yang dipilih
+        self.address = address
         tableView.reloadSections([OrderPageType.addressItem.rawValue], with: .automatic)
     }
 }

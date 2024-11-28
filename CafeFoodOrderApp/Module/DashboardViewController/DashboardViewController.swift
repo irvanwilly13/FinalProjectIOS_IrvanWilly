@@ -10,6 +10,7 @@ import SkeletonView
 import RxSwift
 import RxCocoa
 import RxRelay
+import FirebaseAnalytics
 
 enum FoodDashboardType: Int, CaseIterable {
     case foodCategory = 0
@@ -83,12 +84,12 @@ class DashboardViewController: UIViewController, ErrorViewControllerDelegate {
                     print("loading")
                     self.tableView.showAnimatedGradientSkeleton()
                     self.shouldShowErrorView(status: false)
-
+                    
                 case .failed:
                     print("failed")
                     self.tableView.hideSkeleton()
                     self.shouldShowErrorView(status: true)
-
+                    
                 case .finished:
                     self.tableView.hideSkeleton()
                     self.shouldShowErrorView(status: false)
@@ -132,10 +133,10 @@ class DashboardViewController: UIViewController, ErrorViewControllerDelegate {
     }
     func updateEmptyStateView() {
         let isEmpty = foodsData.isEmpty &&
-                      featuredRestaurant.isEmpty &&
-                      popularItems.isEmpty &&
-                      promoFoods.isEmpty &&
-                      adsFoods.isEmpty
+        featuredRestaurant.isEmpty &&
+        popularItems.isEmpty &&
+        promoFoods.isEmpty &&
+        adsFoods.isEmpty
         
         DispatchQueue.main.async {
             self.tableView.isHidden = isEmpty
@@ -163,7 +164,7 @@ class DashboardViewController: UIViewController, ErrorViewControllerDelegate {
         let nibPromo = UINib(nibName: "PromoTableViewCell", bundle: nil)
         tableView.register(nibPromo, forCellReuseIdentifier: "PromoTableViewCell")
         let nibHelp = UINib(nibName: "HelpTableViewCell", bundle: nil)
-            tableView.register(nibHelp, forCellReuseIdentifier: "HelpTableViewCell")
+        tableView.register(nibHelp, forCellReuseIdentifier: "HelpTableViewCell")
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -183,11 +184,11 @@ class DashboardViewController: UIViewController, ErrorViewControllerDelegate {
         //self.hidesBottomBarWhenPushed = false
     }
     func openWhatsApp() {
-        let phoneNumber = "6281234567890"
+        let phoneNumber = "6281808370321"
         let urlString = "https://wa.me/\(phoneNumber)"
-
+        
         print("URL WhatsApp: \(urlString)")
-
+        
         if let url = URL(string: urlString) {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -201,9 +202,11 @@ class DashboardViewController: UIViewController, ErrorViewControllerDelegate {
 }
 
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
-    //    func numberOfSections(in tableView: UITableView) -> Int {
-    //        return FoodDashboardType.allCases.count
-    //    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return FoodDashboardType.allCases.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionType = FoodDashboardType(rawValue: section)
         switch sectionType {
@@ -218,7 +221,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         case .foodAds:
             return adsFoods.count
         case .helpApp:
-                return 1
+            return 1
         default:
             return 0
         }
@@ -265,14 +268,14 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AdsTableViewCell", for: indexPath) as? AdsTableViewCell else {
                 return UITableViewCell()
             }
-            cell.configure(data: adsFoods[indexPath.row]) // Pastikan adsFoods[indexPath.row].image ada
+            cell.configure(data: adsFoods[indexPath.row])
             return cell
             
         case .helpApp:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "HelpTableViewCell", for: indexPath) as? HelpTableViewCell else {
-                    return UITableViewCell()
-                }
-                return cell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "HelpTableViewCell", for: indexPath) as? HelpTableViewCell else {
+                return UITableViewCell()
+            }
+            return cell
         }
     }
     func navigateToCategory(item: Category) {
@@ -283,7 +286,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let sectionType = FoodDashboardType(rawValue: indexPath.section) else { return }
-
+        
         switch sectionType {
         case .foodAds:
             let vc = AdsViewController()
@@ -296,20 +299,31 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             break
         }
     }
-    
-    
 }
 
 
 extension DashboardViewController: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3 // Jumlah item skeleton yang ingin Anda tampilkan
+        switch section {
+        case 0 :
+            return 1
+        case 1 :
+            return 1
+        case 2 :
+            return 1
+        case 3 :
+            return 1
+        case 4 :
+            return 1
+        default:
+            return 0
+        }
     }
     
-    func numberOfSections(in collectionSkeletonView: UITableView) -> Int {
+    
+    func numSections(in collectionSkeletonView: UITableView) -> Int {
         return FoodDashboardType.allCases.count
     }
-    
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> String {
         let sectionType = FoodDashboardType(rawValue: indexPath.section)
@@ -327,7 +341,7 @@ extension DashboardViewController: SkeletonTableViewDataSource {
         case .helpApp:
             return "HelpTableViewCell"
         default:
-            return ""
+            return "FoodCategoryTableViewCell"
         }
     }
 }

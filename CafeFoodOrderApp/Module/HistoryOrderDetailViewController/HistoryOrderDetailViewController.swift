@@ -39,28 +39,85 @@ class HistoryOrderDetailViewController: UIViewController, ErrorViewControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         setupTableView()
         bindingData()
         statusLabel.isSkeletonable = true
         orderIdLabel.isSkeletonable = true
+        toolBarView.rightButton.isHidden = false
+        
+        toolBarView.rightButton.setImage(UIImage(named: "download_receipt_icon"), for: .normal)
+
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideNavigationBar()
     }
+    func setup() {
+        toolBarView.rightButton.addTarget(self, action: #selector(downloadReceiptTapped), for: .touchUpInside)
+
+    }
     
+    @objc func downloadReceiptTapped() {
+        guard let orderID = orderID else { return }
+        captureScreenshotAndSaveAsPDF(orderID: orderID)
+    }
+
+    func captureScreenshotAndSaveAsPDF(orderID: String) {
+        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        let image = renderer.image { ctx in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        
+        let pdfData = createPDF(from: image)
+        
+        let fileManager = FileManager.default
+        let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let pdfURL = documentDirectory.appendingPathComponent("\(orderID)_receipt.pdf")
+        
+        do {
+            try pdfData.write(to: pdfURL)
+            
+            
+            print("PDF berhasil disimpan di: \(pdfURL)")
+            
+            let alertController = UIAlertController(title: "Sukses", message: "Tanda terima telah disimpan sebagai PDF.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alertController, animated: true)
+            
+            sharePDF(pdfURL: pdfURL)
+            
+        } catch {
+            print("Gagal menyimpan PDF: \(error.localizedDescription)")
+        }
+    }
+
+    func createPDF(from image: UIImage) -> Data {
+        let pdfData = NSMutableData()
+        UIGraphicsBeginPDFContextToData(pdfData, CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height), nil)
+        UIGraphicsBeginPDFPage()
+        
+        image.draw(at: CGPoint(x: 0, y: 0))
+        
+        UIGraphicsEndPDFContext()
+        
+        return pdfData as Data
+    }
+
+    func sharePDF(pdfURL: URL) {
+        let activityController = UIActivityViewController(activityItems: [pdfURL], applicationActivities: nil)
+        activityController.popoverPresentationController?.sourceView = view
+        present(activityController, animated: true)
+    }
     
     private func setupTableView() {
-        //        tableView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "ReviewTableViewCell")
         tableView.register(UINib(nibName: "OrderHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderHistoryTableViewCell")
         tableView.register(UINib(nibName: "PaymentDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "PaymentDetailTableViewCell")
         tableView.register(UINib(nibName: "OrderAgainTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderAgainTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
         toolBarView.setup(title: "History Detail")
-        
-        
         
         if let isFrom = isFrom {
             toolBarView.backButton.isHidden = true
@@ -102,7 +159,7 @@ class HistoryOrderDetailViewController: UIViewController, ErrorViewControllerDel
             guard let self = self else { return }
             guard let data = data else { return }
             self.detailData = data.data
-           
+            
             DispatchQueue.main.async {
                 self.configure(data: self.detailData)
                 self.updateEmptyStateView()
@@ -190,7 +247,8 @@ extension HistoryOrderDetailViewController: UITableViewDelegate, UITableViewData
                 return UITableViewCell()
             }
             let orderDetail = data.details.first?.odProducts[indexPath.row]
-            cell.configure(data: orderDetail)
+            let isFirstCell = indexPath.row == 0
+            cell.configure(data: orderDetail, isFirstCell: isFirstCell)
             return cell
             
         case .paymentDetail:
@@ -205,7 +263,6 @@ extension HistoryOrderDetailViewController: UITableViewDelegate, UITableViewData
                 return UITableViewCell()
             }
             
-            // Konfigurasi status dari detailData
             cell.configure(status: detailData?.orStatus)
             
             cell.cancelButtonTapped = { [weak self] in
@@ -217,7 +274,6 @@ extension HistoryOrderDetailViewController: UITableViewDelegate, UITableViewData
                 guard let self = self else { return }
                 self.navigateToDashboard()
             }
-            
             return cell
         default:
             return UITableViewCell()
@@ -271,10 +327,9 @@ extension HistoryOrderDetailViewController {
     }
 }
 
-
 extension HistoryOrderDetailViewController: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3 // Jumlah skeleton sementara
+        return 3
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {

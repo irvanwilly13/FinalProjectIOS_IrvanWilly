@@ -26,13 +26,15 @@ class ChartViewController: UIViewController {
     @IBOutlet weak var subtotalStackView: UIStackView!
     @IBOutlet weak var deliverStackView: UIStackView!
     
+    private var selectedIndexPath: IndexPath?
+    
     let disposeBag = DisposeBag()
     var viewModel = ChartViewModel()
     
     private var cartItems: [(food: ProductFood, quantity: Int)] = []
     lazy var emptyStateView = EmptyView()
     lazy var errorStateView = ErrorViewController()
-
+    
     
     var orderItems: [OrderItem] {
         return cartItems.map { item in
@@ -68,13 +70,12 @@ class ChartViewController: UIViewController {
         hideNavigationBar()
     }
     
-    
     func setup() {
         let nib = UINib(nibName: "ChartViewTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "ChartViewTableViewCell")
         
         checkOutButton.addTarget(self, action: #selector(actionToCheckOut), for: .touchUpInside)
-    
+        
         toolBarView.setup(title: "Chart")
         
         tableView.delegate = self
@@ -86,7 +87,6 @@ class ChartViewController: UIViewController {
         containerTotalLabel.layer.cornerRadius = 8
         containerTotalLabel.layer.masksToBounds = false
         
-        // Shadow untuk efek timbul
         containerTotalLabel.layer.shadowColor = UIColor.black.cgColor
         containerTotalLabel.layer.shadowOpacity = 0.3
         containerTotalLabel.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -102,17 +102,16 @@ class ChartViewController: UIViewController {
         vc.totalAmount = totalAmount
         
         vc.onCheckoutCompleted = { [weak self] in
-                guard let self = self else { return }
-                
-                // Bersihkan keranjang dan perbarui tampilan
-                self.cartItems.removeAll()
-                self.tableView.reloadData()
-                self.updateEmptyStateView()
-                self.updateTotalPrice()
-            }
+            guard let self = self else { return }
+            
+            self.cartItems.removeAll()
+            self.tableView.reloadData()
+            self.updateEmptyStateView()
+            self.updateTotalPrice()
+        }
         
         self.navigationController?.pushViewController(vc, animated: true)
-            
+        
     }
     
     func loadCartItem() {
@@ -122,19 +121,7 @@ class ChartViewController: UIViewController {
         updateTotalPrice()
     }
     
-//    @objc func applyVoucher() {
-//        if voucherField.text == "FREEDELIVERY" {
-//            deliveryFee = 0
-//            deliveryFeeLabel.text = "Free Delivery"
-//        } else {
-//            deliveryFee = defaultDeliveryFee
-//            deliveryFeeLabel.text = String(format: "Rp. %.2f", deliveryFee)
-//        }
-//        updateTotalPrice()
-//    }
-    
     func updateTotalPrice() {
-        // Hitung subtotal dari semua item dalam keranjang
         let subtotal = cartItems.reduce(0.0) { result, item in
             result + (Double(item.quantity) * Double((item.food.price ?? 0)))
         }
@@ -143,10 +130,9 @@ class ChartViewController: UIViewController {
         
         let total = subtotal
         
-        // Tampilkan subtotal dan total ke label
         subTotalLabel.text = String(format: "Rp. %.2f", subtotal)
         deliveryFeeLabel.text = String(format: "Free Delivery", deliveryFee)
-
+        
         totalLabel.text = String(format: "Rp. %.2f", total)
     }
     func hideNavigationBar() {
@@ -185,7 +171,6 @@ class ChartViewController: UIViewController {
             }
         }
     }
-  
 }
 
 extension ChartViewController: UITableViewDelegate, UITableViewDataSource {
@@ -194,20 +179,30 @@ extension ChartViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChartViewTableViewCell", for: indexPath) as? ChartViewTableViewCell
-        if cell == nil {
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChartViewTableViewCell", for: indexPath) as! ChartViewTableViewCell
         
         let item = cartItems[indexPath.row]
-        cell?.configure(with: item.food, quantity: item.quantity)
-        cell?.delegate = self
-        return cell!
+        cell.configure(with: item.food, quantity: item.quantity)
+        cell.delegate = self
+        
+        // Highlight the selected row
+        cell.containerView.backgroundColor = selectedIndexPath == indexPath ? .lightGray : .white
+        
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Toggle the selection state for the selected row
+        if selectedIndexPath == indexPath {
+            selectedIndexPath = nil
+        } else {
+            selectedIndexPath = indexPath
+        }
+        tableView.reloadData()
     }
 }
 extension ChartViewController: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3 // Jumlah item skeleton yang akan ditampilkan sebagai placeholder
+        return 3
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> String {
@@ -224,6 +219,15 @@ extension ChartViewController: FoodChartItemTableViewCellDelegate {
     
     func cartItemCell(didtapRemoveFor food: ProductFood) {
         CartService.shared.removeFromCart(food: food)
+        loadCartItem()
+        updateTotalPrice()
+    }
+    
+    func cartItemCell(didTapCancelFor food: ProductFood) {
+        // Hapus item dari CartService
+        CartService.shared.removeFromCart(food: food)
+        
+        // Muat ulang data cart
         loadCartItem()
         updateTotalPrice()
     }

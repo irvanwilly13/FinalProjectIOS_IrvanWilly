@@ -31,8 +31,6 @@ enum FoodCategory: String, CaseIterable, Codable {
     }
 }
 
-
-// MARK: - Welcome
 struct AllMenuModel: Codable {
     let status: String
     let message: String
@@ -40,8 +38,6 @@ struct AllMenuModel: Codable {
     let code: Int
 }
 
-
-// MARK: - Welcome
 struct FoodModel: Codable {
     let categories: [Category]
     let featuredRestaurants: [FeaturedRestaurant]
@@ -61,14 +57,12 @@ struct AdsFoodData: Codable {
     let url: String
 }
 
-// MARK: - Category
 struct Category: Codable {
     let id: Int
     let name: String
     let icon: String?
 }
 
-// MARK: - FeaturedRestaurant
 struct FeaturedRestaurant: Hashable, Codable {
     let id: Int
     let name: String
@@ -80,8 +74,6 @@ struct FeaturedRestaurant: Hashable, Codable {
     let tags: [String]
 }
 
-
-// MARK: - DeliveryInfo
 struct DeliveryInfo: Codable, Equatable, Hashable {
     let type, time: String
 }

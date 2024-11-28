@@ -21,23 +21,15 @@ class CartService {
         notifyChartDidUpdate()
     }
     func removeFromCart(food: ProductFood) {
-        guard let count = cartItems[food] else { return } // Jika item tidak ada, keluar
+        guard let count = cartItems[food] else { return }
         if count <= 1 {
-            cartItems.removeValue(forKey: food) // Hapus item sepenuhnya
+            cartItems.removeValue(forKey: food)
         } else {
-            cartItems[food] = count - 1 // Kurangi jumlah item
+            cartItems[food] = count - 1
         }
         notifyChartDidUpdate()
     }
     
-    //    func removeFromCart(food: ProductFood) {
-    //        guard let count = cartItems[food], count > 0 else { return }
-    //        if count == 1 {
-    //            cartItems.removeValue(forKey: food)
-    //        } else {
-    //            cartItems[food] = count - 1
-    //        }
-    //    }
     func clearCart() {
         cartItems.removeAll()
         notifyChartDidUpdate()

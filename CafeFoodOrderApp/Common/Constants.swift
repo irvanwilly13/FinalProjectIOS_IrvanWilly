@@ -11,4 +11,8 @@ struct Constants {
     public static var baseURL: String {
         return Bundle.main.infoDictionary?["BASE_URL"] as? String ?? ""
     }
+    
+    public static var midtransKey: String {
+        return Bundle.main.infoDictionary?["MIDTRANS_KEY"] as? String ?? ""
+    }
 }

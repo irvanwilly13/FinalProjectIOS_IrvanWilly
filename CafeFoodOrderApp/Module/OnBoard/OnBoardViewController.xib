@@ -11,9 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnBoardViewController" customModule="CafeFoodOrderApp" customModuleProvider="target">
             <connections>
+                <outlet property="greetingBottomLabel" destination="y83-LW-0j2" id="7k3-a7-p8A"/>
+                <outlet property="greetingTopLabel" destination="bRr-Wr-nuO" id="FPi-JB-5Ut"/>
                 <outlet property="loginButton" destination="fis-Mr-pkM" id="OZW-TD-wuM"/>
                 <outlet property="registerButton" destination="V0T-Oa-keq" id="t1b-O4-Sz6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="welcomeLabel" destination="d6X-KY-DzU" id="JMJ-Zp-cPn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

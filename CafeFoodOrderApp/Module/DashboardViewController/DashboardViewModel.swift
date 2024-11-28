@@ -29,7 +29,7 @@ class DashboardViewModel: BaseViewModel {
                 print("Terjadi error: \(error)")
                 self .loadingState.accept(.failed)
             }
-            
+
         }
     }
 }

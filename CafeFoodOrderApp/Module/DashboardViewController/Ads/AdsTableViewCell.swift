@@ -28,11 +28,10 @@ class AdsTableViewCell: UITableViewCell {
     }
     func configure(data: AdsFoodData?) {
         guard let data = data else {
-            imgView.image = UIImage(named: "placeholder") // Gambar default jika data tidak ada
+            imgView.image = UIImage(named: "placeholder")
             nameLabel.text = "Unknown"
             return
         }
-        // Ambil gambar dari Assets.xcassets
         imgView.image = UIImage(named: data.image) ?? UIImage(named: "placeholder")
         nameLabel.text = data.name
     }

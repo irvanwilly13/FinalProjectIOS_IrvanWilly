@@ -26,7 +26,6 @@ class PromoTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
     }
     
     func setup() {
@@ -37,9 +36,8 @@ class PromoTableViewCell: UITableViewCell {
         collectionView.dataSource = self
     }
     func configure(with data: [PromotionFoodData]) {
-            self.promoFoodData = data
-        }
-    
+        self.promoFoodData = data
+    }
 }
 
 extension PromoTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -62,16 +60,10 @@ extension PromoTableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
 
 extension PromoTableViewCell: SkeletonCollectionViewDataSource {
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3 // Jumlah placeholder skeleton
+        return 3
     }
-
+    
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "PromoCollectionViewCell"
     }
-
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromoCollectionViewCell", for: indexPath) as! PromoCollectionViewCell
-//        cell.showSkeleton() // Tampilkan skeleton
-//        return cell
-//    }
 }

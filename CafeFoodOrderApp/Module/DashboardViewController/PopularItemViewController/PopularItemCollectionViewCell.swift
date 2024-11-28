@@ -18,7 +18,6 @@ class PopularItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    
     @IBOutlet weak var containerView: FormView!
     
     override func awakeFromNib() {
@@ -28,7 +27,7 @@ class PopularItemCollectionViewCell: UICollectionViewCell {
     func setup(item: ProductFood) {
         if let img = item.image {
             imgView.image = UIImage(named: img)
-
+            
         }
         nameLabel.text = item.name
         ratingLabel.text = item.rating ?? ""

@@ -41,15 +41,12 @@ class RestaurantTableViewCell: UITableViewCell {
         
         override func setSelected(_ selected: Bool, animated: Bool) {
             super.setSelected(selected, animated: animated)
-            
         }
+    
         func configure(with featuredRestaurants: [FeaturedRestaurant]) {
-            // Atur tampilan restoran unggulan di sini
             self.restaurantData = featuredRestaurants
         }
-        
     }
-
 
 extension RestaurantTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -67,8 +64,6 @@ extension RestaurantTableViewCell: UICollectionViewDelegate, UICollectionViewDat
         let screenWidth = UIScreen.main.bounds.width
         return CGSize(width: (screenWidth / 1.5) - 10, height: 220)
     }
-    
-    
 }
 
 extension RestaurantTableViewCell: SkeletonCollectionViewDataSource {

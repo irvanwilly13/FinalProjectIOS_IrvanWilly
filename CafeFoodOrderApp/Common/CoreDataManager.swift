@@ -10,10 +10,9 @@ import UIKit
 
 class CoreDataManager {
     static let shared = CoreDataManager()
-
+    
     private init() {}
-
-    // Persistent Container
+    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CoreData")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -23,12 +22,11 @@ class CoreDataManager {
         })
         return container
     }()
-
+    
     var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-
-    // Save context
+    
     func saveContext() {
         if context.hasChanges {
             do {
@@ -39,8 +37,7 @@ class CoreDataManager {
             }
         }
     }
-
-    // Fetch all addresses
+    
     func fetchAddresses() -> [AddressModel] {
         let request: NSFetchRequest<AddressModel> = AddressModel.fetchRequest()
         do {
@@ -50,14 +47,13 @@ class CoreDataManager {
             return []
         }
     }
-    // Add new address
     func addAddress(alamat: String, kabupaten: String, profinsi: String, kodePos: String) -> CoreDataResult {
         let newAddress = AddressModel(context: context)
         newAddress.alamat = alamat
         newAddress.kabupaten = kabupaten
         newAddress.profinsi = profinsi
         newAddress.kodePos = kodePos
-
+        
         do {
             try context.save()
             return .added
@@ -68,34 +64,22 @@ class CoreDataManager {
     }
     
     func deleteAddress(address: AddressModel) -> CoreDataResult {
-            context.delete(address)
-            do {
-                try context.save()
-                return .deleted
-            } catch {
-                print("Failed to delete address: \(error)")
-                return .failed
-            }
+        context.delete(address)
+        do {
+            try context.save()
+            return .deleted
+        } catch {
+            print("Failed to delete address: \(error)")
+            return .failed
         }
-    // Delete an address
-//    func deleteAddress(address: AddressModel) -> CoreDataResult {
-//        context.delete(address)
-//        do {
-//            try context.save()
-//            return .deleted
-//        } catch {
-//            print("Failed to delete address: \(error)")
-//            return .failed
-//        }
-//    }
-
-    // Update an address
+    }
+    
     func updateAddress(address: AddressModel, newAlamat: String, newKabupaten: String, newProfinsi: String, newKodePos: String) -> CoreDataResult {
         address.alamat = newAlamat
         address.kabupaten = newKabupaten
         address.profinsi = newProfinsi
         address.kodePos = newKodePos
-
+        
         do {
             try context.save()
             return .updated

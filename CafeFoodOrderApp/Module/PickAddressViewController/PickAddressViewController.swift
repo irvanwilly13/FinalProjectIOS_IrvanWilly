@@ -20,14 +20,20 @@ class PickAddressViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var addresses: [AddressModel] = []
-    weak var delegate: PickAddressViewControllerDelegate? // Delegate untuk mengirim alamat terpilih
-    var selectedAddress: AddressModel? //MARK: ALAMAT YANG DI SELECT
+    weak var delegate: PickAddressViewControllerDelegate?
+    var selectedAddress: AddressModel?
+    
+    var isFromProfile: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         fetchAddresses()
         
+        if isFromProfile {
+                    applyButton.isHidden = true
+                }
+
     }
     
     func setup() {
@@ -63,10 +69,8 @@ class PickAddressViewController: UIViewController {
     func deleteAddress(at indexPath: IndexPath) {
         let addressToDelete = addresses[indexPath.row]
         
-        // Hapus data dari Core Data
         CoreDataManager.shared.deleteAddress(address: addressToDelete)
         
-        // Perbarui array lokal dan tabel
         addresses.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
@@ -94,6 +98,6 @@ extension PickAddressViewController: UITableViewDataSource, UITableViewDelegate 
 }
 extension PickAddressViewController: BottomSheetAddAddressDelegate {
     func didAddNewAddress() {
-        fetchAddresses() // Perbarui data setelah alamat ditambahkan
+        fetchAddresses()
     }
 }

@@ -103,7 +103,6 @@ enum EndpointAPI {
                     "quantity": item.quantity
                 ]
             }
-            
       
             var params: [String: Any] = [
                 "callbacks": [
@@ -132,14 +131,12 @@ enum EndpointAPI {
         case .posts, .users, .login, .register:
             return [
                 "Content-Type": "application/json",
-                // bisa menambahkan yang lain jika diperlukan
             ]
         case .getAllMenu, .getByCategory, .createOrder, .detailFood, .getAllHistory, .historyDetail, .getAllProfile, .promotion, .cancelOrder:
             return [
                 "Content-Type": "application/json",
                 "x-user-id": readToken(),
                 "x-secret-app": "]k!aMHCRG=2]N6WGeYNw@3#$[:V4Wr"
-                // bisa  menambahkan yang lain jika diperlukan
             ]
         }
         
@@ -156,6 +153,7 @@ enum EndpointAPI {
             return nil
         }
     }
+    
     var encoding: ParameterEncoding {
         // Mengembalikan encoding yang sesuai; misalnya untuk `getByCategory`, gunakan `.url`
         switch self {

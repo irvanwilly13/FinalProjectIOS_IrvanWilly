@@ -9,7 +9,7 @@ import UIKit
 import SkeletonView
 
 class PopularItemTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var popularData: [ProductFood] = [] {
@@ -36,16 +36,14 @@ class PopularItemTableViewCell: UITableViewCell {
         layout.minimumInteritemSpacing = 10
         collectionView.collectionViewLayout = layout
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
     func configure(with popularItems: [ProductFood]) {
-            // Atur tampilan item populer di sini
         self.popularData = popularItems
-        }
+    }
     
 }
 
@@ -64,16 +62,14 @@ extension PopularItemTableViewCell: UICollectionViewDelegate, UICollectionViewDa
         let screenWidth = UIScreen.main.bounds.width
         return CGSize(width: (screenWidth / 2) - 10, height: 220)
     }
-    
-    
 }
 
 extension PopularItemTableViewCell: SkeletonCollectionViewDataSource {
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6 // Tentukan jumlah placeholder skeleton saat loading, bisa disesuaikan
+        return 6
     }
-
+    
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> String {
-        return "PopularItemCollectionViewCell" // Sesuaikan dengan identifier cell yang digunakan
+        return "PopularItemCollectionViewCell"
     }
 }

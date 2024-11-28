@@ -18,7 +18,6 @@ struct LoginResponse: Codable {
     let data: LoginData
 }
 
-// MARK: - DataClass
 struct LoginData: Codable {
     let usUsername: String
     let usID: Int
@@ -38,7 +37,6 @@ struct LoginData: Codable {
     }
 }
 
-// MARK: - Role
 struct Role: Codable {
     let rlCode: String
 
