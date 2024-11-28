@@ -7,6 +7,8 @@
 
 import UIKit
 import Kingfisher
+import Firebase
+import FirebaseAnalytics
 
 protocol FoodChartItemTableViewCellDelegate: AnyObject {
     func cartItemCell(didTapAddFor food: ProductFood)
@@ -59,7 +61,13 @@ class ChartViewTableViewCell: UITableViewCell {
     @objc private func cancelButtonTap() {
         print("Tombol Cancel Tersentuh")
         guard let food = food else { return }
-        delegate?.cartItemCell(didTapCancelFor: food) // Panggil delegate untuk menghapus item dari cart
+        
+        Analytics.logEvent("cancel_button_tapped", parameters: [
+                "food_name": food.name,
+                "food_id": food.id
+            ])
+        
+        delegate?.cartItemCell(didTapCancelFor: food)
     }
         @objc private func addButtonTap() {
             guard let food = food else { return }

@@ -88,6 +88,7 @@
 		68457EF92CF819C400CB4D65 /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68457EE82CF819C400CB4D65 /* OpenSans-CondLight.ttf */; };
 		68457EFB2CF81A6D00CB4D65 /* Ext+UiFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68457EFA2CF81A6D00CB4D65 /* Ext+UiFont.swift */; };
 		68457EFD2CF8419300CB4D65 /* Ext+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68457EFC2CF8419300CB4D65 /* Ext+Array.swift */; };
+		68457EFF2CF8530600CB4D65 /* FirebaseAnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68457EFE2CF8530600CB4D65 /* FirebaseAnalyticsManager.swift */; };
 		684B75152CCB501C00F38D1A /* HistoryOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B75142CCB501C00F38D1A /* HistoryOrderTableViewCell.xib */; };
 		684B75162CCB501C00F38D1A /* HistoryOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B75132CCB501C00F38D1A /* HistoryOrderTableViewCell.swift */; };
 		684B75182CCB7B0600F38D1A /* HistoryOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B75172CCB7B0600F38D1A /* HistoryOrderViewModel.swift */; };
@@ -324,6 +325,7 @@
 		68457EE82CF819C400CB4D65 /* OpenSans-CondLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLight.ttf"; sourceTree = "<group>"; };
 		68457EFA2CF81A6D00CB4D65 /* Ext+UiFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UiFont.swift"; sourceTree = "<group>"; };
 		68457EFC2CF8419300CB4D65 /* Ext+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Array.swift"; sourceTree = "<group>"; };
+		68457EFE2CF8530600CB4D65 /* FirebaseAnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalyticsManager.swift; sourceTree = "<group>"; };
 		684B75132CCB501C00F38D1A /* HistoryOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderTableViewCell.swift; sourceTree = "<group>"; };
 		684B75142CCB501C00F38D1A /* HistoryOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryOrderTableViewCell.xib; sourceTree = "<group>"; };
 		684B75172CCB7B0600F38D1A /* HistoryOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderViewModel.swift; sourceTree = "<group>"; };
@@ -942,6 +944,7 @@
 				68E1EAB72CEB2C6D00E5D622 /* CoreDataManager.swift */,
 				68457EFA2CF81A6D00CB4D65 /* Ext+UiFont.swift */,
 				68457EFC2CF8419300CB4D65 /* Ext+Array.swift */,
+				68457EFE2CF8530600CB4D65 /* FirebaseAnalyticsManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1650,6 +1653,7 @@
 				68EBD3342CC7A9B3008D0AEE /* RestaurantCollectionViewCell.swift in Sources */,
 				68EBD3302CC7A539008D0AEE /* PopularItemTableViewCell.swift in Sources */,
 				68E1EAC12CEB3CA000E5D622 /* PickAddressTableViewCell.swift in Sources */,
+				68457EFF2CF8530600CB4D65 /* FirebaseAnalyticsManager.swift in Sources */,
 				6826CED82CE4898900F23A2E /* HistoryOrderDetailViewController.swift in Sources */,
 				689B7DB52CDB4A9A00F9DABF /* HelpCenterViewController.swift in Sources */,
 				680413222CDDC041006164AD /* ProfileUserSkeletonView.swift in Sources */,

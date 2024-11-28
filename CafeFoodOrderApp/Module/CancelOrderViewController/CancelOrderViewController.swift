@@ -46,6 +46,8 @@ class CancelOrderViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         coachMarkView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapCoachMark)))
+        containerView.makeCornerRadius(16, maskedCorner: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
+        
     }
     
     private func setupSubmitButton() {
@@ -130,5 +132,7 @@ extension CancelOrderViewController: UITableViewDelegate, UITableViewDataSource 
         tableView.reloadData()
         
         submitButton.isEnabled = true
+        submitButton.isEnabled = selectedReasonIndex != nil
+        submitButton.backgroundColor = submitButton.isEnabled ? UIColor.orange : UIColor.lightGray
     }
 }

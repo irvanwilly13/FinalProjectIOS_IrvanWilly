@@ -6,6 +6,8 @@
 //
 import SkeletonView
 import UIKit
+import FirebaseAnalytics
+
 
 class FoodCategoryTableViewCell: UITableViewCell {
     
@@ -17,11 +19,14 @@ class FoodCategoryTableViewCell: UITableViewCell {
         }
     }
     var onSelectCategory: ((_ category: Category) -> Void)?
-    // closure ini dipergunakan untuk mengirim dara category/ jika memiliki parameter
+    // closure ini dipergunakan untuk mengirim data category/ jika memiliki parameter
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
+        FirebaseAnalytics.Analytics.logEvent("category_screen_view", parameters: [
+            "screen_name": "FoodCategoryTableViewCell"
+        ])
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -57,6 +62,12 @@ extension FoodCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCategoryCollectionViewCell", for: indexPath) as?  FoodCategoryCollectionViewCell
         cell?.setup(item: categoryItems[indexPath.row])
         
+        let category = categoryItems[indexPath.row]
+        FirebaseAnalytics.Analytics.logEvent("category_shown", parameters: [
+            "category_name": category.name,
+            "category_id": category.id
+        ])
+        
         return cell ?? UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -66,8 +77,20 @@ extension FoodCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCategory = categoryItems[indexPath.row]
+        FirebaseAnalytics.Analytics.logEvent("category_selected", parameters: [
+            "category_name": selectedCategory.name,
+            "category_id": selectedCategory.id
+        ])
         onSelectCategory?(selectedCategory)
     }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+            let deselectedCategory = categoryItems[indexPath.row]
+            
+            FirebaseAnalytics.Analytics.logEvent("category_deselected", parameters: [
+                "category_name": deselectedCategory.name,
+                "category_id": deselectedCategory.id
+            ]) 
+        }
 }
 
 extension FoodCategoryTableViewCell: SkeletonCollectionViewDataSource {
@@ -79,3 +102,4 @@ extension FoodCategoryTableViewCell: SkeletonCollectionViewDataSource {
         return "FoodCategoryCollectionViewCell"
     }
 }
+

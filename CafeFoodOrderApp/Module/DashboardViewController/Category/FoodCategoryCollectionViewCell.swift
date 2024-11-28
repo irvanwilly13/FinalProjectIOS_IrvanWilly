@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class FoodCategoryCollectionViewCell: UICollectionViewCell {
     
@@ -24,12 +25,16 @@ class FoodCategoryCollectionViewCell: UICollectionViewCell {
         nameLabel.text = item.name
         if let icon = item.icon {
             imgView.image = UIImage(named: icon)
-
+            
         }
         
         if let url = URL(string: item.icon ?? "") {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else {
+                    FirebaseAnalytics.Analytics.logEvent("image_download_failed", parameters: [
+                        "category_name": item.name,
+                        "error": error?.localizedDescription ?? "Unknown error"
+                    ])
                     print("Error downloading image: \(String(describing: error))")
                     return
                 }
@@ -39,5 +44,5 @@ class FoodCategoryCollectionViewCell: UICollectionViewCell {
             }.resume()
         }
     }
-        
+    
 }

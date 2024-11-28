@@ -32,7 +32,17 @@ class HistoryOrderDetailViewController: UIViewController, ErrorViewControllerDel
     lazy var emptyStateView = EmptyView()
     
     
-    var detailData: HistoryDetailData?
+    var detailData: HistoryDetailData? {
+        didSet {
+            if let status = detailData?.orStatus {
+                if status == "paid" {
+                    toolBarView.rightButton.isHidden = false
+                } else {
+                    toolBarView.rightButton.isHidden = true
+                }
+            }
+        }
+    }
     var orderID: String?
     
     var isFrom: String?
@@ -47,7 +57,7 @@ class HistoryOrderDetailViewController: UIViewController, ErrorViewControllerDel
         toolBarView.rightButton.isHidden = false
         
         toolBarView.rightButton.setImage(UIImage(named: "download_receipt_icon"), for: .normal)
-
+        toolBarView.rightButton.isHidden = true
         
     }
     override func viewWillAppear(_ animated: Bool) {

@@ -12,6 +12,7 @@ import RxCocoa
 import RxRelay
 import Toast
 import Kingfisher
+import FirebaseAnalytics
 
 class DetailFoodViewController: BaseViewController {
     
@@ -36,7 +37,7 @@ class DetailFoodViewController: BaseViewController {
     var viewModel = DetailFoodViewModel()
     lazy var emptyStateView = EmptyView(frame: view.frame)
     lazy var errorStateView = ErrorViewController(frame: view.frame)
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,11 +62,11 @@ class DetailFoodViewController: BaseViewController {
                 priceLabel.text = "Rp. \(harga)"
             }
             ratingLabel.text = item.rating ?? ""
-            countLabel.text = "\(itemCount)" // Default item count
+            countLabel.text = "\(itemCount)"
             if let urlString = item.image, let imageUrl = URL(string: urlString) {
                 imgView.kf.setImage(with: imageUrl)
             } else {
-                imgView.image = UIImage(named: "errorX") // Gambar default jika urlImage tidak ada
+                imgView.image = UIImage(named: "errorX")
             }
         }
     }
@@ -123,11 +124,11 @@ class DetailFoodViewController: BaseViewController {
                 case .failed:
                     print("failed")
                     self.showSkeleton(show: false)
-                   // self.shouldShowErrorView(status: true)
+                    // self.shouldShowErrorView(status: true)
                 case .finished:
                     print("finished")
                     self.showSkeleton(show: false)
-                   // self.shouldShowErrorView(status: false)
+                    // self.shouldShowErrorView(status: false)
                 default:
                     break
                 }
@@ -139,7 +140,7 @@ class DetailFoodViewController: BaseViewController {
         emptyStateView.updateMessage("No items available in this chart.")
         emptyStateView.updateImage(UIImage(named: "errorX"))
         emptyStateView.containerView.backgroundColor = UIColor.lightGreyCofa
-       
+        
     }
     
     func shouldShowErrorView(status: Bool) {
@@ -161,12 +162,18 @@ extension DetailFoodViewController {
     @objc func actionTap() {
         if let foodItem = self.item {
             CartService.shared.addToCart(food: foodItem)
-         
+            
             if let urlString = foodItem.image, let imageUrl = URL(string: urlString) {
                 imgView.kf.setImage(with: imageUrl)
             } else {
                 imgView.image = UIImage(named: "errorX")
             }
+            Analytics.logEvent("add_to_cart", parameters: [
+                "item_name": foodItem.name,
+                "item_id": foodItem.id,
+                "item_price": foodItem.price ?? 0,
+                "item_quantity": itemCount
+            ])
             
             let toast = Toast.default(
                 image: imgView.image ?? UIImage(),

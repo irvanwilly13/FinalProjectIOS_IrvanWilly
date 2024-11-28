@@ -11,6 +11,8 @@ import RxSwift
 import RxCocoa
 import RxRelay
 import SnapKit
+import Firebase
+import FirebaseAnalytics
 
 class ChartViewController: UIViewController {
     
@@ -94,6 +96,12 @@ class ChartViewController: UIViewController {
     }
     
     @objc func actionToCheckOut() {
+        
+        Analytics.logEvent("checkout_button_tapped", parameters: [
+            "total_amount": totalAmount,
+            "item_count": cartItems.count
+        ])
+        
         let vc = OrderPageViewController()
         vc.hidesBottomBarWhenPushed = true
         vc.cartItems = cartItems
