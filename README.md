@@ -36,8 +36,18 @@ Welcome to the Cafe Order Food App (COFA), a project designed to showcase a food
    git clone https://github.com/irvanwilly13/FinalProjectIOS_IrvanWilly
 
 2. *Open the project*
-   Open the cloned repository in Xcode.
+    After cloning the repository, open the .xcodeproj or .xcworkspace file in Xcode.
 
+3. *Install Dependencies*
+    If the project uses CocoaPods to manage dependencies, you need to run pod install to install the required dependencies.
+   
+4. *Open the Workspace*
+    Make sure to open the .xcworkspace file if you are using CocoaPods.
+   
+5. *Build and Run*
+   Once the project is open, click the Run button to build and run the project on the simulator or your iOS device.
+  
+   
 ## Tech Stack
 
 ![Alt text](./imageFinalProj/techStack.jpg)
@@ -87,11 +97,13 @@ This project adopts the Model-View-ViewModel MVVM separates an app’s user inte
 ## ScreenShots
 
 | Login | Add Order | Detail Order |
-|--------|--------|---------|
+|-------|-----------|--------------|
 | ![Mobile](./imageFinalProj/gif1.gif) | ![Mobile](./imageFinalProj/gif4.gif) | ![Mobile](./imageFinalProj/gif2.gif) |
+
 | Payment | History Order |
-|--------|--------|
+|---------|---------------|
 | ![Mobile](./imageFinalProj/gif3.gif) | ![Mobile](./imageFinalProj/gif5.gif) |
+
 
 
 # Cafe Order Food App - Project Structure
