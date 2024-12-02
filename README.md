@@ -88,10 +88,10 @@ This project adopts the Model-View-ViewModel MVVM separates an app’s user inte
 
 | Login | Login | Register |
 |--------|--------|---------|
-| ![Mobile](./imageFinalProj/gif1.gif) | ![Tablet](./imageFinalProj/gif2.gif) | ![Desktop](./imageFinalProj/gif3.png) |
+| ![Mobile](./imageFinalProj/gif1.gif) | ![Tablet](./imageFinalProj/gif2.gif) | ![Desktop](./imageFinalProj/gif3.gif) |
 | Dashboard | FoodCategory |
 |--------|--------|
-| ![Mobile](./imageFinalProj/gif4.png) | ![Tablet](./imageFinalProj/gif5.png) |
+| ![Mobile](./imageFinalProj/gif4.gif) | ![Tablet](./imageFinalProj/gif5.gif) |
 
 
 # Cafe Order Food App - Project Structure
