@@ -86,21 +86,12 @@ This project adopts the Model-View-ViewModel MVVM separates an app’s user inte
 
 ## ScreenShots
 
-| OnBoard | Login | Register |
+| Login | Login | Register |
 |--------|--------|---------|
-| ![Mobile](./imageFinalProj/gif1.gif) | ![Tablet](./imageFinalProj/2.png) | ![Desktop](./imageFinalProj/3.png) |
-| Dashboard | FoodCategory | DetailFood |
-|--------|--------|---------|
-| ![Mobile](./imageFinalProj/4.png) | ![Tablet](./imageFinalProj/5.png) | ![Desktop](./imageFinalProj/6.png) |
-| Chart | DetailOrder | Address |
-|--------|--------|---------|
-| ![Mobile](./imageFinalProj/7.png) | ![Tablet](./imageFinalProj/8.png) | ![Desktop](./imageFinalProj/9.png) |
-| Promo | Payment | Payment |
-|--------|--------|---------|
-| ![Mobile](./imageFinalProj/10.png) | ![Tablet](./imageFinalProj/11.png) | ![Desktop](./imageFinalProj/12.png) |
-| Payment Success | HistoryOrder | DetailHistory Order |
-|--------|--------|---------|
-| ![Mobile](./imageFinalProj/13.png) | ![Tablet](./imageFinalProj/14.png) | ![Desktop](./imageFinalProj/15.png) |
+| ![Mobile](./imageFinalProj/gif1.gif) | ![Tablet](./imageFinalProj/gif2.gif) | ![Desktop](./imageFinalProj/gif3.png) |
+| Dashboard | FoodCategory |
+|--------|--------|
+| ![Mobile](./imageFinalProj/gif4.png) | ![Tablet](./imageFinalProj/gif5.png) |
 
 
 # Cafe Order Food App - Project Structure
