@@ -19,8 +19,8 @@ Welcome to the Cafe Order Food App (COFA), a project designed to showcase a food
 - *Login*: Login to the App.
 - *Register*:  Register Account to Login the App.
 - *Logout*: Logout from the App.
-- *Food Category": Choices from several food categories
-- *Food Detail":  Access complete information about each food item, including images.
+- *Food Category*: Choices from several food categories
+- *Food Detail*:  Access complete information about each food item, including images.
 - *Chart*: Display the selected food
 - *Detail Order*: Displays all information about the order before payment
 - *Payment*: Make a payment.
@@ -43,7 +43,13 @@ Welcome to the Cafe Order Food App (COFA), a project designed to showcase a food
 ![Alt text](./imageFinalProj/techStack.jpg)
 
 ### **Kingfisher**
+Kingfisher is a lightweight library for downloading and caching images.
+
+Use Case: Loading and caching contact profile pictures in the Transfer section.
 ### **RxSwift**
+RxSwift enables reactive programming in Swift. It allows the use of Observables, Subjects, and other reactive patterns to manage asynchronous events and data streams.
+
+Use Case: Binding UI components like buttons and text fields to the ViewModel, handling QR code scanning results, and managing user input validation.
 ### **Firebase**
 ### **IQKeyboardCore**
 ### **Lottie**
