@@ -61,6 +61,7 @@ class HistoryOrderViewController: BaseViewController {
             view.addSubview(emptyStateView)
             emptyStateView.frame = tableView.frame
         }
+        emptyStateView.nameLabel.text = "History is Empty"
     }
     
     func shouldShowErrorView(status: Bool) {

@@ -47,7 +47,6 @@ class ErrorViewController: UIView {
         
         @objc func refreshData() {
             delegate?.buttonTap()
-            // Tambahkan kode di sini untuk memuat ulang data atau melakukan tindakan lain yang diperlukan
             print("Refreshing data...")
         }
     

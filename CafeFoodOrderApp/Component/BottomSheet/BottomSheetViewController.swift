@@ -26,12 +26,10 @@ class BottomSheetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Menambahkan target untuk setiap tombol pembayaran
         bcaButton.addTarget(self, action: #selector(selectBCAPayment), for: .touchUpInside)
         mandiriButton.addTarget(self, action: #selector(selectMandiriPayment), for: .touchUpInside)
         gopayButton.addTarget(self, action: #selector(selectGopayPayment), for: .touchUpInside)
         
-        // Menambahkan target untuk tombol Apply
         applyButton.addTarget(self, action: #selector(applyPaymentMethod), for: .touchUpInside)
         coachMarkView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapCoachMark)))
         
@@ -46,19 +44,16 @@ class BottomSheetViewController: UIViewController {
         updateButtonSelection()
     }
     
-    // Fungsi untuk memilih pembayaran Mandiri
     @objc func selectMandiriPayment() {
         selectedPaymentMethod = "Mandiri"
         updateButtonSelection()
     }
     
-    // Fungsi untuk memilih pembayaran Gopay
     @objc func selectGopayPayment() {
         selectedPaymentMethod = "Gopay"
         updateButtonSelection()
     }
     
-    // Fungsi untuk memperbarui tampilan tombol yang dipilih
     func updateButtonSelection() {
         bcaButton.setTitle(selectedPaymentMethod == "BCA" ? "✅" : "⬜", for: .normal)
         mandiriButton.setTitle(selectedPaymentMethod == "Mandiri" ? "✅" : "⬜", for: .normal)
@@ -69,14 +64,12 @@ class BottomSheetViewController: UIViewController {
         gopayButton.backgroundColor = selectedPaymentMethod == "Gopay" ? .clear : .clear
     }
     
-    // Fungsi untuk menampilkan pilihan yang dipilih saat tombol Apply ditekan
     @objc func applyPaymentMethod() {
         guard let paymentMethod = selectedPaymentMethod else {
-            // Jika tidak ada pilihan pembayaran yang dipilih, tampilkan pesan
             showAlert(message: "Pilih metode pembayaran terlebih dahulu.")
             return
         }
-        delegate?.didSelectPaymentMethod(paymentMethod) // Kirim data ke delegate
+        delegate?.didSelectPaymentMethod(paymentMethod)
         dismiss(animated: true, completion: nil)
         // Tampilkan pilihan pembayaran yang telah dipilih
         print("Metode pembayaran yang dipilih: \(paymentMethod)")
@@ -84,7 +77,6 @@ class BottomSheetViewController: UIViewController {
         
     }
     
-    // Fungsi untuk menampilkan alert
     func showAlert(message: String) {
         let alert = UIAlertController(title: "Metode Pembayaran", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

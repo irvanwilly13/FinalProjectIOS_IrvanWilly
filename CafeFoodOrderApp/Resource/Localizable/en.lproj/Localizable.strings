@@ -13,7 +13,7 @@
 "loading" = "Loading...";
 "retry" = "Retry";
 
-//MARK: Authentication */
+//MARK: Authentication
 "login_title" = "Login";
 "register_title" = "Register";
 "forgot_password" = "Forgot Password?";
@@ -36,7 +36,7 @@
 "greeting1" = "Enjoy your life";
 "greeting2" = "Enjot your food";
 
-//MARK: Profile */
+//MARK: Profile
 "profile_title" = "Profile";
 "change_avatar" = "Change Avatar";
 "edit_profile" = "Edit Profile";
@@ -45,7 +45,7 @@
 "update_success" = "Profile updated successfully!";
 "update_failed" = "Failed to update profile, please try again.";
 
-//MARK: Address */
+//MARK: Address
 "address_title" = "Select Address";
 "add_new_address" = "Add New Address";
 "address_placeholder" = "Enter your address";
@@ -56,7 +56,7 @@
 "address_saved_success" = "Address saved successfully!";
 "address_saved_failed" = "Failed to save address, please try again.";
 
-//MARK: Order */
+//MARK: Order
 "order_history_title" = "Order History";
 "order_details_title" = "Order Details";
 "order_again" = "Order Again";
@@ -65,18 +65,18 @@
 "order_cancel_failed" = "Failed to cancel the order, please try again.";
 "empty_order_message" = "You have no orders yet.";
 
-//MARK: Notifications */
+//MARK: Notifications
 "notification_title" = "Notifications";
 "no_notifications" = "You don't have any notifications.";
 
-//MARK: Errors */
+//MARK: Errors
 "error_network" = "Network error, please check your connection.";
 "error_server" = "Server error, please try again later.";
 "error_required_fields" = "Please fill in all required fields.";
 "error_invalid_email" = "Please enter a valid email address.";
 "error_invalid_password" = "Password must be at least 6 characters.";
 
-//MARK: Payment */
+//MARK: Payment
 "payment_title" = "Payment";
 "total_payment" = "Total: %@";
 "payment_successful" = "Payment successful!";
@@ -84,14 +84,14 @@
 "voucher_applied" = "Voucher applied successfully!";
 "voucher_invalid" = "Invalid voucher code.";
 
-//MARK: Buttons */
+//MARK: Buttons
 "button_ok" = "OK";
 "button_cancel" = "Cancel";
 "button_save" = "Save";
 "button_yes" = "Yes";
 "button_no" = "No";
 
-//MARK: Miscellaneous */
+//MARK: Miscellaneous
 "search_placeholder" = "Search...";
 "settings_title" = "Settings";
 "help_center_title" = "Help Center";

@@ -73,16 +73,14 @@ class BottomSheetReview: UIViewController {
         }
     }
     
-    // Fungsi untuk memperbarui tampilan bintang berdasarkan rating
     private func updateStarRating() {
         let stars = [star1, star2, star3, star4, star5]
         for (index, star) in stars.enumerated() {
-            let imageName = index < rating ? "star_filled" : "star_empty" // gunakan gambar sesuai (misalnya "star_filled" dan "star_empty")
+            let imageName = index < rating ? "star_filled" : "star_empty"
             star?.setImage(UIImage(named: imageName), for: .normal)
         }
     }
     
-    // Menyiapkan Text Area untuk ulasan
     private func setupTextArea() {
         textArea.layer.borderColor = UIColor.lightGray.cgColor
         textArea.layer.borderWidth = 1.0
@@ -100,10 +98,9 @@ class BottomSheetReview: UIViewController {
         let reviewText = textArea.text == "Write your review here..." ? "" : textArea.text
         print("Submitted Review: Rating - \(rating), Review - \(reviewText ?? "")")
         
-        // Menampilkan alert ucapan terima kasih
         let alert = UIAlertController(title: "Thank You!", message: "Thank you for submitting your review.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            self.dismiss(animated: true, completion: nil) // Menutup bottom sheet setelah submit
+            self.dismiss(animated: true, completion: nil) 
         }))
         self.present(alert, animated: true, completion: nil)
     }

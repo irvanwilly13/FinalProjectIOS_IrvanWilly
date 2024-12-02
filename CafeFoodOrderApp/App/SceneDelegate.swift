@@ -30,25 +30,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func setupMidtransConfig() {
-        MidtransConfig.shared().setClientKey(Constants.midtransKey, environment: .sandbox, merchantServerURL:"https://merchant-url-sandbox.com"
-          )
-          MidtransNetworkLogger.shared()?.startLogging()
-        }
-  
-    
-    func createOnboardingVC(window: UIWindow) {
-        
-        let vc =  OnBoardViewController()
-        let navigation = UINavigationController(rootViewController: vc)
-        window.rootViewController = navigation
-        window.makeKeyAndVisible()
-        self.window = window
-        
+        MidtransConfig.shared().setClientKey(Constants.midtransKey, environment: .sandbox, merchantServerURL:"https://merchant-url-sandbox.com")
+        MidtransNetworkLogger.shared()?.startLogging()
     }
+  
     
     func handleLogout() {
         KeychainHelper.shared.delete(forKey: KeychainHelperKey.userID)
-        
         
         let navController = UINavigationController()
         coordinator = MainCoordinator(navigationController: navController, window: window)

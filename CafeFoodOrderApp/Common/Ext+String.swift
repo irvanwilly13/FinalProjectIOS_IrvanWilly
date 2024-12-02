@@ -21,10 +21,8 @@ extension String {
     func coloredSubstring(_ substring: String, color: UIColor) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: self)
         
-        // Mencari range dari substring yang ingin diwarnai
         let range = (self as NSString).range(of: substring)
         
-        // Jika substring ditemukan, ubah warnanya
         if range.location != NSNotFound {
             attributedString.addAttribute(.foregroundColor, value: color, range: range)
         }

@@ -21,36 +21,30 @@ extension UIView {
 
 extension UIButton {
     
-    // Fungsi untuk menerapkan efek 3D
     func apply3DEffect() {
-        // Mengatur shadow untuk tampilan kedalaman
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.3
         self.layer.shadowOffset = CGSize(width: 4, height: 4)
         self.layer.shadowRadius = 5
         self.layer.masksToBounds = false
         
-        // Memberikan sedikit pembulatan pada sudut
         self.layer.cornerRadius = 16
         
-        // Animasi skala saat ditekan untuk memberi efek 3D
         self.addTarget(self, action: #selector(animateDown), for: [.touchDown, .touchDragEnter])
         self.addTarget(self, action: #selector(animateUp), for: [.touchUpInside, .touchCancel, .touchDragExit])
     }
     
-    // Animasi untuk menekan tombol (efek turun)
     @objc private func animateDown() {
         UIView.animate(withDuration: 0.1, animations: {
             self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-            self.layer.shadowOffset = CGSize(width: 2, height: 2) // Shadow lebih pendek saat ditekan
+            self.layer.shadowOffset = CGSize(width: 2, height: 2)
         })
     }
     
-    // Animasi untuk melepas tombol (efek kembali ke posisi awal)
     @objc private func animateUp() {
         UIView.animate(withDuration: 0.1, animations: {
             self.transform = CGAffineTransform.identity
-            self.layer.shadowOffset = CGSize(width: 4, height: 4) // Kembali ke shadow semula
+            self.layer.shadowOffset = CGSize(width: 4, height: 4) 
         })
     }
 }

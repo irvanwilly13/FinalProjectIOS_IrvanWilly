@@ -18,7 +18,6 @@ final class CafeFoodOrderAppTests: XCTestCase {
         food1 = ProductFood(id: 103, name: "Strawberry Cream Donut", image:"https://i0.wp.com/youthsweets.com/wp-content/uploads/2023/05/StrawberryCreamDonuts_Feature.jpg?fit=1200%2C1200&ssl=1", price: 25000, rating: "", reviews: 0, isFavorite: false, description: "Donut with strawberry cream filling")
                 food2 = ProductFood(id: 104, name: "Strawberry Coconut Donut", image:"https://img.freepik.com/premium-photo/pink-donuts-with-strawberry-coconut-ganache_974629-430881.jpg", price: 26000, rating: "", reviews: 0, isFavorite: false, description: "Donut topped with strawberry and coconut")
                 
-                // Pastikan cart kosong sebelum setiap pengujian
                 cartService.getCartItem().forEach { cartService.removeFromCart(food: $0.food) }    }
 
     override func tearDownWithError() throws {
@@ -27,67 +26,50 @@ final class CafeFoodOrderAppTests: XCTestCase {
                 food2 = nil
     }
     func testAddToCart() {
-            // Tambahkan item ke cart
             cartService.addToCart(food: food1)
             cartService.addToCart(food: food1)
             cartService.addToCart(food: food2)
             
-            // Ambil item di cart
             let cartItems = cartService.getCartItem()
             
-            // Verifikasi jumlah item
             XCTAssertEqual(cartItems.count, 2, "Cart should have 2 distinct items.")
             
-            // Verifikasi jumlah masing-masing item
             XCTAssertEqual(cartItems.first(where: { $0.food == food1 })?.quantity, 2, "Food1 should have a quantity of 2.")
             XCTAssertEqual(cartItems.first(where: { $0.food == food2 })?.quantity, 1, "Food2 should have a quantity of 1.")
         }
     func testRemoveFromCart() {
-        // Tambahkan item ke cart
         cartService.addToCart(food: food1)
         cartService.addToCart(food: food1)
         cartService.addToCart(food: food2)
 
-        // Hapus satu instance food1
         cartService.removeFromCart(food: food1)
 
-        // Ambil item di cart
         var cartItems = cartService.getCartItem()
 
-        // Verifikasi jumlah item
         XCTAssertEqual(cartItems.count, 2, "Cart should still have 2 distinct items.")
 
-        // Verifikasi jumlah masing-masing item
         XCTAssertEqual(cartItems.first(where: { $0.food == food1 })?.quantity, 1, "Food1 should have a quantity of 1.")
         XCTAssertEqual(cartItems.first(where: { $0.food == food2 })?.quantity, 1, "Food2 should have a quantity of 1.")
 
-        // Hapus food1 terakhir
         cartService.removeFromCart(food: food1)
         cartItems = cartService.getCartItem()
         
-        // Pastikan food1 benar-benar dihapus
         XCTAssertNil(cartItems.first(where: { $0.food == food1 }), "Food1 should be removed from the cart.")
     }
 
     func testRemoveNonExistingItem() {
-            // Hapus item yang tidak ada
             cartService.removeFromCart(food: food1)
             
-            // Ambil item di cart
             let cartItems = cartService.getCartItem()
             
-            // Verifikasi cart kosong
             XCTAssertTrue(cartItems.isEmpty, "Cart should still be empty.")
         }
     func testGetCartItem() {
-            // Tambahkan beberapa item
             cartService.addToCart(food: food1)
             cartService.addToCart(food: food2)
             
-            // Ambil item di cart
             let cartItems = cartService.getCartItem()
             
-            // Verifikasi jumlah item
             XCTAssertEqual(cartItems.count, 2, "Cart should have 2 distinct items.")
         }
 

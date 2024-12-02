@@ -19,14 +19,11 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         configureKeyboard()
         
-        // Do any additional setup after loading the view.
     }
     func handleFirebaseAuthError(_ error: Error) -> String {
-        // Casting error ke NSError untuk mengambil kode error Firebase
         let nsError = error as NSError
         let errCode = AuthErrorCode(rawValue: nsError.code)
         
-        // Mengembalikan pesan error berdasarkan kode error Firebase
         switch errCode {
         case .networkError:
             return "Koneksi internet tidak stabil. Silakan coba lagi."

@@ -15,27 +15,22 @@ class KeychainHelper {
     
     private init() {}
     
-    // Fungsi untuk menyimpan data ke Keychain
     func save(_ data: Data, forKey key: String) {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: key, // Nama key
-            kSecValueData as String: data // Data yang disimpan
+            kSecAttrAccount as String: key,
+            kSecValueData as String: data
         ]
         
-        // Hapus item jika sudah ada sebelumnya
         SecItemDelete(query as CFDictionary)
         
-        // Tambahkan item baru ke Keychain
         let status = SecItemAdd(query as CFDictionary, nil)
         
-        // Cek apakah ada kesalahan
         if status != errSecSuccess {
             print("Gagal menyimpan data ke Keychain dengan kode error: \(status)")
         }
     }
     
-    // Fungsi untuk mengambil data dari Keychain
     func read(forKey key: String) -> Data? {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
@@ -47,7 +42,6 @@ class KeychainHelper {
         var item: AnyObject?
         let status = SecItemCopyMatching(query as CFDictionary, &item)
         
-        // Jika statusnya success, kembalikan data
         if status == errSecSuccess {
             return item as? Data
         } else {
@@ -56,7 +50,6 @@ class KeychainHelper {
         }
     }
     
-    // Fungsi untuk menghapus data dari Keychain
     func delete(forKey key: String) {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
@@ -65,7 +58,6 @@ class KeychainHelper {
         
         let status = SecItemDelete(query as CFDictionary)
         
-        // Cek apakah ada kesalahan saat menghapus
         if status != errSecSuccess {
             print("Gagal menghapus data dari Keychain dengan kode error: \(status)")
         }
