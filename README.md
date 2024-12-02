@@ -155,7 +155,7 @@ CafeFoodOrderApp
 ├── CafeFoodOrderAppTests
 ```
 
-# ToDo App
+# ToDos Feature
 
 Keep track of tasks, improvements, and future plans for our project.
 
