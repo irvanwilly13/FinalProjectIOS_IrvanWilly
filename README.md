@@ -86,10 +86,10 @@ This project adopts the Model-View-ViewModel MVVM separates an app’s user inte
 
 ## ScreenShots
 
-| Login | Login | Register |
+| Login | Add Order | Detail Order |
 |--------|--------|---------|
 | ![Mobile](./imageFinalProj/gif1.gif) | ![Mobile](./imageFinalProj/gif4.gif) | ![Mobile](./imageFinalProj/gif2.gif) |
-| Dashboard | FoodCategory |
+| Payment | History Order |
 |--------|--------|
 | ![Mobile](./imageFinalProj/gif3.gif) | ![Mobile](./imageFinalProj/gif5.gif) |
 
